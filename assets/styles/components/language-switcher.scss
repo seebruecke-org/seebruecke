@@ -19,8 +19,14 @@
     color: white;
     font-family: $font;
     font-size: .7rem;
+    letter-spacing: .05rem;
     padding: .45rem 1rem;
     text-decoration: none;
     text-transform: uppercase;
+  }
+
+  &__language--is-active {
+    background-color: darken($brand-color, 15%);
+    font-weight: $font-weight-bold;
   }
 }
