@@ -2,9 +2,29 @@
   background-color: beige;
   display: flex;
   flex-direction: column;
-  max-height: 100vh;
+  height: 90vh;
+  overflow: hidden;
+  position: relative;
+
+  &__language-switcher,
+  &__support,
+  &__content {
+    z-index: 2;
+  }
 
   &__content {
-    text-align: center;
+    color: white;
+  }
+
+  &__image {
+    min-height: 100%;
+    left: 50%;
+    min-width: 100%;
+    object-fit: contain;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: auto;
   }
 }

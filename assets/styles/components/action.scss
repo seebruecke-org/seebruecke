@@ -1,0 +1,15 @@
+.action {
+  &__title {
+    color: $brand-color;
+
+    > a {
+      color: currentColor;
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
+    }
+  }
+}

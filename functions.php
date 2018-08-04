@@ -160,6 +160,37 @@ function shortcode_donate() {
   ';
 }
 
+function shortcode_actions() {
+  function render_events() {
+    $markup = '';
+    $events = get_all_events();
+
+    while($events->have_posts()) {
+      $events->the_post();
+
+      $markup = '
+        <li class="actions__action">
+          <div class="action">
+            <h3 class="action__title">
+              <a href="' . get_the_permalink() . '">
+                ' . get_the_title() . '
+              </a>
+            </h3>
+          </div>
+        </li>
+      ';
+    }
+
+    wp_reset_query();
+    return $markup;
+  }
+
+  return '
+    <ul class="actions">
+    ' . render_events() . '
+    </ul>';
+}
+
 function cleanup_admin() {
   remove_menu_page('edit.php');
   remove_menu_page('edit-comments.php');
@@ -181,7 +212,12 @@ add_theme_support('post-thumbnails');
 add_filter('the_generator', 'remove_wp_version');
 add_action('admin_menu','cleanup_admin');
 
+add_shortcode('actions', 'shortcode_actions');
 add_shortcode('donate', 'shortcode_donate');
 add_action('wp_enqueue_scripts', 'enqueue_style');
+
+/* image sizes */
+
+add_image_size('hero-image', 2400, 9999);
 
 ?>

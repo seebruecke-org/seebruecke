@@ -1,5 +1,16 @@
 .footer {
   background-color: $secondary-color;
   color: white;
+  margin-top: 6rem;
   padding: 2rem;
+
+  a {
+    color: $brand-color;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
 }

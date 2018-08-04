@@ -47,69 +47,71 @@
         Back to Seebruecke Startpage
       </a>
 
-      <ul class="language-switcher">
-        <?php
-          $languages = pll_the_languages( array( 'raw' => 1 ) );
-          foreach($languages as $language):
-        ?>
-            <li class="language-switcher__item">
-              <a href="<?php echo $language['url']; ?>"
-                 class="language-switcher__language">
-                <?php echo $language['name']; ?>
-              </a>
-            </li>
-        <?php
-          endforeach;
-        ?>
-      </ul>
+      <div class="header__language-switcher">
+        <?php get_template_part('language', 'switcher'); ?>
+      </div>
 
-      <div class="header__content">
-        <div class="constraint">
-          <?php
-            if (is_front_page()) :
-              $headers = get_latest_header();
-              while ( $headers->have_posts() ) : $headers->the_post();
-              
-              $label = rwmb_meta('header_label');
-              $reference = rwmb_meta('header_reference');
-          ?>
+      <?php
+        if (is_front_page()) :
+          $headers = get_latest_header();
+          while ( $headers->have_posts() ) : $headers->the_post();
+          
+          $label = rwmb_meta('header_label');
+          $reference = rwmb_meta('header_reference');
+          $thumbnail_id = get_post_thumbnail_id();
+          $thumbnail_attrs = array(
+            'class' => 'header__image',
+          );
 
+          if($thumbnail_id) {
+            echo wp_get_attachment_image(
+              $thumbnail_id,
+              'hero-image',
+              false,
+              $thumbnail_attrs
+            );
+          }
+      ?>
+
+        <div class="header__content">
+          <div class="constraint">
             <h1>
               <?php echo get_the_title(); ?>
             </h1>
 
-          <?php
-            if($label && $reference):
-          ?>
-            <a href="<?php the_permalink($reference); ?>">
-              <?php echo $label; ?>
-            </a>
-          <?php endif; ?>
+            <?php if($label && $reference): ?>
+              <a href="<?php the_permalink($reference); ?>">
+                <?php echo $label; ?>
+              </a>
+            <?php endif; ?>
+          </div>
+        </div>
 
-          <?php
-              endwhile;
-            else :
-              while ( have_posts() ) : the_post();
-          ?>
+      <?php
+          endwhile;
+        else :
+          while ( have_posts() ) : the_post();
+      ?>
 
+        <div class="header__content">
+          <div class="constraint">
             <h1>
                 <?php echo get_the_title(); ?>
             </h1>
-
-          <?php
-              endwhile;
-            endif;
-          ?>
+          </div>
         </div>
-      </div>
 
-      <div class="support">
-        <div class="constraint">
-          <em class="support__label">Unterstütze die Bewegung!</em>
+      <?php endwhile; endif; ?>
 
-          <a href="">facebook</a>
-          <a href="">twitter</a>
-          <a href="">instagram</a>
+      <div class="header__support">
+        <div class="support">
+          <div class="constraint">
+            <em class="support__label">Unterstütze die Bewegung!</em>
+
+            <a href="">facebook</a>
+            <a href="">twitter</a>
+            <a href="">instagram</a>
+          </div>
         </div>
       </div>
     </header>
