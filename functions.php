@@ -170,15 +170,15 @@ function register_meta_boxes($meta_boxes) {
   return $meta_boxes;
 }
 
-function shortcode_donate() {
-  $label = 'Spende jetzt!';
-  $href= '#';
+function shortcode_donate($atts = []) {
+  $atts = array_change_key_case((array)$atts, CASE_LOWER);
 
   return '
     <div class="donate">
       <div class="constraint">
-        <a href="' . $href . '" class="donate__button">
-          ' . $label . '
+        <a href="' . $atts['href'] . '"
+           class="donate__button">
+          ' . $atts['label'] . '
         </a>
       </div>
     </div>
