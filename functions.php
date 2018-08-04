@@ -145,6 +145,21 @@ function register_meta_boxes($meta_boxes) {
   return $meta_boxes;
 }
 
+function shortcode_donate() {
+  $label = 'Spende jetzt!';
+  $href= '#';
+
+  return '
+    <div class="donate">
+      <div class="constraint">
+        <a href="' . $href . '" class="donate__button">
+          ' . $label . '
+        </a>
+      </div>
+    </div>
+  ';
+}
+
 function cleanup_admin() {
   remove_menu_page('edit.php');
   remove_menu_page('edit-comments.php');
@@ -154,6 +169,10 @@ function remove_wp_version() {
   return '';
 }
 
+function enqueue_style() {
+  wp_enqueue_style('style', get_template_directory_uri() . '/dist/main.css');
+}
+
 add_action('init', 'create_posttypes');
 add_filter('rwmb_meta_boxes', 'register_meta_boxes');
 
@@ -161,5 +180,8 @@ add_theme_support('post-thumbnails');
 
 add_filter('the_generator', 'remove_wp_version');
 add_action('admin_menu','cleanup_admin');
+
+add_shortcode('donate', 'shortcode_donate');
+add_action('wp_enqueue_scripts', 'enqueue_style');
 
 ?>

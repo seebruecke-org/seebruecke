@@ -1,0 +1,23 @@
+.language-switcher {
+  align-self: flex-end;
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  margin-bottom: 0;
+  margin-right: 2rem;
+  margin-top: 0;
+  padding-left: 0;
+
+  &__item {
+    & + & {
+      margin-left: 1rem;
+    }
+  }
+
+  &__language {
+    background-color: $brand-color;
+    color: white;
+    padding: .5rem 1.5rem;
+    text-decoration: none;
+  }
+}

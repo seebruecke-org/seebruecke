@@ -1,0 +1,14 @@
+.support {
+  background-color: white;
+  border-bottom: 1px solid red;
+  display: flex;
+  flex-direction: row;
+  margin-top: 1.5rem;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+
+  &__label {
+    font-style: normal;
+    margin-right: 1rem;
+  }
+}
