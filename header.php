@@ -36,9 +36,10 @@
   <body>
     <?php
       wp_admin_bar_render();
+      $thumbnail_id = get_post_thumbnail_id();
     ?>
 
-    <header class="header">
+    <header class="header <?php if (!is_front_page() && $thumbnail_id) { echo 'header--small'; } elseif(!is_front_page() && !$thumbnail_id) { echo 'header--without-image'; } ?>">
       <div class="header__logo-container">
         <?php /* include(get_template_directory() . '/assets/images/seebruecke-logo.svg'); */ ?>
       </div>
@@ -58,6 +59,7 @@
           
           $label = rwmb_meta('header_label');
           $reference = rwmb_meta('header_reference');
+
           $thumbnail_id = get_post_thumbnail_id();
           $thumbnail_attrs = array(
             'class' => 'header__image',
@@ -92,6 +94,20 @@
           endwhile;
         else :
           while ( have_posts() ) : the_post();
+
+          $thumbnail_id = get_post_thumbnail_id();
+          $thumbnail_attrs = array(
+            'class' => 'header__image',
+          );
+
+          if($thumbnail_id) {
+            echo wp_get_attachment_image(
+              $thumbnail_id,
+              'hero-image',
+              false,
+              $thumbnail_attrs
+            );
+          }
       ?>
 
         <div class="header__content">

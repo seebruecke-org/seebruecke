@@ -1,11 +1,19 @@
 .header {
-  background-color: beige;
+  background-color: $brand-color;
   display: flex;
   flex-direction: column;
   height: 90vh;
   justify-content: center;
   overflow: hidden;
   position: relative;
+
+  &--small {
+    height: 50vh;
+  }
+
+  &--without-image {
+    height: 25vh;
+  }
 
   &__language-switcher,
   &__content {
