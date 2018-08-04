@@ -1,14 +1,38 @@
 .support {
   background-color: white;
   border-bottom: 1px solid #e8e8e8;
+  color: $text-color;
   display: flex;
   flex-direction: row;
-  margin-top: 1.5rem;
-  padding-bottom: 1rem;
-  padding-top: 1rem;
+  font-family: $font;
+  padding-bottom: 1.2rem;
+  padding-top: 1.2rem;
 
   &__label {
     font-style: normal;
+    font-weight: $font-weight-bold;
     margin-right: 1rem;
+  }
+
+  &__item {
+    color: currentColor;
+    display: inline-block;
+    text-decoration: none;
+    vertical-align: middle;
+
+    &:hover,
+    &:focus {
+      color: $brand-color;
+      cursor: pointer;
+    }
+
+    > svg {
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+  }
+
+  &__item + &__item {
+    margin-left: .5rem;
   }
 }

@@ -80,6 +80,31 @@ function register_meta_boxes($meta_boxes) {
         'post_type' => 'page',
         'field_type'  => 'select_advanced',
       ),
+
+      // Support widget
+      array(
+        'name'  => 'Support text',
+        'id'    => 'header_support_label',
+        'type'  => 'text',
+      ),
+
+      array(
+        'name'  => 'Facebook-Link',
+        'id'    => 'header_support_facebook',
+        'post_type' => 'text',
+      ),
+
+      array(
+        'name'  => 'Instagram-Link',
+        'id'    => 'header_support_instagram',
+        'post_type' => 'text',
+      ),
+
+      array(
+        'name'  => 'Twitter-Link',
+        'id'    => 'header_support_twitter',
+        'post_type' => 'text',
+      ),
     ),
   );
 

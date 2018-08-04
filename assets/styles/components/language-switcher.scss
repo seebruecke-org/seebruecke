@@ -10,14 +10,17 @@
 
   &__item {
     & + & {
-      margin-left: 1rem;
+      margin-left: .5rem;
     }
   }
 
   &__language {
     background-color: $brand-color;
     color: white;
-    padding: .5rem 1.5rem;
+    font-family: $font;
+    font-size: .7rem;
+    padding: .45rem 1rem;
     text-decoration: none;
+    text-transform: uppercase;
   }
 }

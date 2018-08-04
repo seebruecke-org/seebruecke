@@ -75,12 +75,13 @@
 
         <div class="header__content">
           <div class="constraint">
-            <h1>
+            <h1 class="header__title">
               <?php echo get_the_title(); ?>
             </h1>
 
             <?php if($label && $reference): ?>
-              <a href="<?php the_permalink($reference); ?>">
+              <a href="<?php the_permalink($reference); ?>"
+                 class="header__action">
                 <?php echo $label; ?>
               </a>
             <?php endif; ?>
@@ -95,23 +96,13 @@
 
         <div class="header__content">
           <div class="constraint">
-            <h1>
-                <?php echo get_the_title(); ?>
+            <h1 class="header__title">
+              <?php echo get_the_title(); ?>
             </h1>
           </div>
         </div>
 
       <?php endwhile; endif; ?>
-
-      <div class="header__support">
-        <div class="support">
-          <div class="constraint">
-            <em class="support__label">Unterstütze die Bewegung!</em>
-
-            <a href="">facebook</a>
-            <a href="">twitter</a>
-            <a href="">instagram</a>
-          </div>
-        </div>
-      </div>
     </header>
+
+    <?php get_template_part('support'); ?>

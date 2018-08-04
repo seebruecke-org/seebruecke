@@ -19,6 +19,18 @@ module.exports = {
           loader: 'babel-loader',
         }
       },
+
+      {
+        test: /\.(woff(2)?)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [{
+          loader: 'file-loader',
+          options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/'
+          }
+        }]
+      },
+
       {
         test: /\.scss$/,
         use: [

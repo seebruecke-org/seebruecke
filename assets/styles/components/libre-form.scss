@@ -1,0 +1,52 @@
+.libre-form {
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    border: 1px solid #b7b7b7;
+    display: block;
+    font-family: $font;
+    font-size: 1rem;
+    padding: .4rem .75rem;
+    width: 100%;
+
+    &:focus {
+      border-color: $brand-color;
+      box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+      outline: none;
+    }
+  }
+
+  button[type="submit"] {
+    background-color: $brand-color;
+    border: 0;
+    border-radius: 3px;
+    font-family: $font;
+    font-size: 1rem;
+    font-weight: $font-weight-bold;
+    color: white;
+    padding: .5rem 1.5rem;
+
+    &:hover,
+    &:focus {
+      background-color: darken($brand-color, 10%);
+      cursor: pointer;
+    }
+  }
+
+  label + input,
+  label + textarea {
+    margin-top: .5rem;
+  }
+
+  label {
+    color: $text-color;
+    font-family: $font;
+    font-size: .85rem;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+  }
+
+  > p + p {
+    margin-top: 1.5rem;
+  }
+}
