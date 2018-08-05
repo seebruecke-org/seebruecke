@@ -304,10 +304,5 @@ add_action('wp_enqueue_scripts', 'enqueue_style');
 
 /* image sizes */
 add_image_size('hero-image', 2400, 9999);
-add_image_size('hero-image-desktop', 1280, 9999);
-add_image_size('hero-image-tablet-landscape', 960, 9999);
-add_image_size('hero-image-tablet-portrait', 768, 9999);
-add_image_size('hero-image-phone', 500, 9999);
-add_image_size('hero-image-phone-legacy', 400, 9999);
 
 ?>
