@@ -4,7 +4,7 @@ const path = require('path');
 
 module.exports = {
   entry: './assets/main.js',
- 
+
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -25,8 +25,8 @@ module.exports = {
         use: [{
           loader: 'file-loader',
           options: {
-              name: '[name].[ext]',
-              outputPath: 'fonts/'
+            name: '[name].[ext]',
+            publicPath: '/wp-content/themes/seebruecke/dist/fonts/',
           }
         }]
       },
