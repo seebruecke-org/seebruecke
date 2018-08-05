@@ -5,6 +5,7 @@
   height: 90vh;
   justify-content: center;
   overflow: hidden;
+  margin-bottom: 4rem;
   position: relative;
 
   &--small {
@@ -36,10 +37,11 @@
 
   &__title {
     font-size: 3.4rem;
-    font-weight: $font-weight;
+    font-weight: $font-weight-bold;
     line-height: 1.1;
+    margin-bottom: 0;
+    margin-top: 0;
     text-align: center;
-    text-shadow: 0 0 10px rgba(0, 0, 0, .2);
   }
 
   &__action {
@@ -47,9 +49,9 @@
     border-radius: 3px;
     color: white;
     display: inline-block;
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     font-weight: $font-weight-bold;
-    margin-top: 1rem;
+    margin-top: 2rem;
     padding: .75rem 1.5rem;
     text-decoration: none;
 

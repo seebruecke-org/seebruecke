@@ -5,14 +5,14 @@
   src: local('Open Sans Regular'),
        local('OpenSans-Regular'),
        local('Open Sans'),
-       url('../fonts/Open-Sans-Regular.woff') format('woff');
+       url('../fonts/Work-Sans.woff') format('woff');
 }
 
 @font-face {
   font-family: 'Open Sans';
   font-style: normal;
-  font-weight: 700;
+  font-weight: 600;
   src: local('Open Sans Bold'),
        local('OpenSans-Bold'),
-       url('../fonts/Open-Sans-Bold.woff') format('woff');
+       url('../fonts/Work-Sans-SemiBold.woff') format('woff');
 }
