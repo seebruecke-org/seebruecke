@@ -1,7 +1,13 @@
     <footer class="footer">
       <div class="constraint">
-        Presse: press@seebruecke.org | Alle anderen Anfragen bitte nur an support@seebruecke.org
-        Impressum & Datenschutz | Fotos: Nick Jaussi​, Dominik Butzmann​, Erik Marquardt​ 
+        <?php
+          $footer = get_latest_footer();
+
+          while ( $footer->have_posts() ) {
+            $footer->the_post();
+            the_content();
+          }
+        ?>
         <?php wp_footer(); ?>
       </div>
     </footer>

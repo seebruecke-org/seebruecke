@@ -20,6 +20,16 @@ function get_latest_header() {
   );
 }
 
+function get_latest_footer() {
+  return new WP_Query(
+    array(
+      'post_type' => 'footers',
+      'post_status' => 'publish',
+      'posts_per_page' => 1,
+    )
+  );
+}
+
 function create_posttypes() {
   register_post_type('headers',
     array(
@@ -33,6 +43,20 @@ function create_posttypes() {
           'title',
           'thumbnail',
           'revisions',
+        )
+    )
+  );
+
+  register_post_type('footers',
+    array(
+      'labels' => array(
+        'name' => pll__('Footers'),
+        'singular_name' => pll__('Footer')
+        ),
+        'public' => true,
+        'has_archive' => false,
+        'supports' => array(
+          'editor',
         )
     )
   );
