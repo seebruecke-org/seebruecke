@@ -41,6 +41,7 @@ function create_posttypes() {
         'has_archive' => false,
         'supports' => array(
           'title',
+          'editor',
           'thumbnail',
           'revisions',
         )
@@ -230,14 +231,20 @@ function shortcode_actions() {
       ';
     }
 
-    wp_reset_query();
     return $markup;
   }
 
   return '
-    <ul class="actions">
-    ' . render_events() . '
-    </ul>';
+    <div class="actions">
+      <ul class="actions__list">
+      ' . render_events() . '
+      </ul>
+
+      <a href="/events/" class="actions__more">
+        ' . pll__('Alle Events') . '
+      </a>
+    </div>
+  ';
 }
 
 function shortcode_become_supporter($atts = [], $content = null) {
@@ -336,5 +343,10 @@ add_action('wp_enqueue_scripts', 'enqueue_style');
 
 /* image sizes */
 add_image_size('hero-image', 2400, 9999);
+
+/* custom strings */
+pll_register_string('all_events', 'Alle Events');
+pll_register_string('archive_events', 'Alle Events');
+pll_register_string('back_to_homepage', 'Zurück zur Seebrücke Startseite');
 
 ?>

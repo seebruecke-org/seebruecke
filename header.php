@@ -2,36 +2,8 @@
 
 <html lang="en"
       class="no-js">
-  <head>
-    <meta charset="utf-8" />
 
-    <script type="text/javascript">
-      var html = document.querySelector('html');
-      var removeJSClass = function(el) {
-        el.classList.remove('no-js');
-      }
-
-      if (html) {
-        removeJSClass(html);
-      }
-    </script>
-
-    <meta http-equiv="x-ua-compatible"
-          content="ie=edge" />
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1" />
-
-    <title>
-      <?php wp_title(' - ', true, 'right'); ?>
-      <?php bloginfo('name'); ?>
-    </title>
-
-    <link rel="shortcut icon"
-          href="<?php bloginfo('template_directory'); ?>/favicon.ico" />
-
-    <?php wp_head(); ?>
-  </head>
+  <?php get_template_part('html', 'head'); ?>
 
   <body>
     <?php
@@ -40,12 +12,10 @@
     ?>
 
     <header class="header <?php if (!is_front_page() && $thumbnail_id) { echo 'header--small'; } elseif(!is_front_page() && !$thumbnail_id) { echo 'header--without-image'; } ?>">
-      <div class="header__logo-container">
-        <?php /* include(get_template_directory() . '/assets/images/seebruecke-logo.svg'); */ ?>
-      </div>
-
       <a href="<?php echo home_url(); ?>">
-        Back to Seebruecke Startpage
+        <span class="visually-hidden">
+          <?php echo pll__('Zurück zur Seebrücke Startseite') ?>
+        </span>
       </a>
 
       <div class="header__language-switcher">
@@ -56,7 +26,7 @@
         if (is_front_page()) :
           $headers = get_latest_header();
           while ( $headers->have_posts() ) : $headers->the_post();
-          
+
           $label = rwmb_meta('header_label');
           $reference = rwmb_meta('header_reference');
 
@@ -87,12 +57,16 @@
                 <?php echo $label; ?>
               </a>
             <?php endif; ?>
+
+            <div class="header__additional-content">
+              <?php the_content(); ?>
+            </div>
           </div>
         </div>
 
       <?php
           endwhile;
-        else :
+        elseif (!is_archive()) :
           while ( have_posts() ) : the_post();
 
           $thumbnail_id = get_post_thumbnail_id();

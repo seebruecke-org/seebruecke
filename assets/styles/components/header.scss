@@ -37,12 +37,14 @@
   }
 
   &__title {
-    font-size: 3.4rem;
+    font-size: 3.8rem;
     font-weight: $font-weight-bold;
+    letter-spacing: -1px;
     line-height: 1.1;
     margin-bottom: 0;
     margin-top: 0;
     text-align: center;
+    text-shadow: 0 0 10px rgba(0, 0, 0, .1);
   }
 
   &--without-image &__title {
@@ -54,12 +56,13 @@
   &__action {
     background-color: $brand-color;
     border-radius: 3px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, .3);
     color: white;
     display: inline-block;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: $font-weight-bold;
-    margin-top: 2rem;
-    padding: .75rem 1.5rem;
+    margin-top: 3rem;
+    padding: 1rem 2rem;
     text-decoration: none;
 
     &:hover,
@@ -75,9 +78,24 @@
     min-width: 100%;
     object-fit: contain;
     position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    transform: translateX(-50%);
     z-index: 1;
     width: auto;
+  }
+
+  &__additional-content {
+    font-size: .8rem;
+    font-weight: $font-weight-bold;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    max-width: 250px;
+    text-shadow: 0 0 4px rgba(0, 0, 0, .8);
+
+    a {
+      color: currentColor;
+      text-decoration: underline;
+    }
   }
 }
