@@ -1,0 +1,65 @@
+.become-supporter {
+  color: $text-color;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  font-family: $font;
+  left: 50%;
+  list-style: none;
+  margin: 4rem -50vw;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  position: relative;
+  right: 50%;
+  width: 100vw;
+
+  &__item {
+    flex-grow: 1;
+    flex-basis: 0;
+    text-align: center;
+  }
+
+  &__item + &__item {
+    margin-left: 4rem;
+  }
+
+  &__icon-container {
+    $size: 6rem;
+
+    align-items: center;
+    background-color: $brand-color;
+    border-radius: 50%;
+    display: flex;
+    color: white;
+    height: $size;
+    justify-content: center;
+    margin: 0 auto 2rem auto;
+    width: $size;
+
+    > svg {
+      height: 3rem;
+      width: 3rem;
+    }
+  }
+
+  &__title {
+    font-weight: $font-weight-bold;
+    margin-bottom: .5rem;
+    margin-top: 0;
+  }
+
+  &__content {
+    font-size: 1.05rem;
+    line-height: 1.4;
+
+    > p > a {
+      color: $brand-color;
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
+    }
+  }
+}

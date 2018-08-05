@@ -13,12 +13,13 @@
 
   h2 {
     color: $brand-color;
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-bottom: 2.5rem;
     margin-top: 4rem;
+    text-align: center;
   }
 
-  p {
+  > p {
     font-family: $font;
     font-size: 1.2rem;
     line-height: 1.5;
@@ -26,5 +27,16 @@
 
   > p + p {
     margin-top: 2rem;
+  }
+
+  > a,
+  > p > a {
+    color: $brand-color;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
   }
 }
