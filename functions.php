@@ -1,13 +1,31 @@
 <?php
 
-function get_all_events() {
-  return new WP_Query(
+function get_all_events($extend_query = []) {
+  $args = array_merge(
     array(
       'post_type' => 'events',
       'post_status' => 'publish',
       'posts_per_page' => -1,
-    )
+    ),
+    $extend_query
   );
+
+  $query = new WP_Query($args);
+
+  return $query;
+}
+
+function get_all_upcoming_events() {
+  return get_all_events(array(
+    'meta_query' => array(
+      array(
+        'key' => 'event_date',
+        'compare' => '>=',
+        'value' => date('dmY'),
+        'type' => 'DATE',
+      )
+      ),
+  ));
 }
 
 function get_latest_header() {
@@ -135,7 +153,7 @@ function register_meta_boxes($meta_boxes) {
 
   // Events
   $meta_boxes[] = array(
-    'id'         => 'data',
+    'id'         => 'event_data',
     'title'      => 'Extended information',
     'post_types' => 'events',
     'context'    => 'normal',
@@ -144,36 +162,36 @@ function register_meta_boxes($meta_boxes) {
         array(
             'name'  => 'Location',
             'desc'  => 'Name of the location',
-            'id'    => 'location',
+            'id'    => 'event_location',
             'type'  => 'text',
         ),
 
         array(
           'name'  => 'Location',
           'desc'  => 'Coordinates of the location',
-          'id'    => 'coordinates',
+          'id'    => 'event_coordinates',
           'type'  => 'map',
-          'address_field' => 'location',
+          'address_field' => 'event_location',
       ),
 
         array(
           'name'  => 'Date',
           'desc'  => 'When does the event take place?',
-          'id'    => 'date',
+          'id'    => 'event_date',
           'type'  => 'date',
         ),
 
         array(
           'name'  => 'Time',
           'desc'  => 'When does the event take place?',
-          'id'    => 'time',
+          'id'    => 'event_time',
           'type'  => 'time',
         ),
 
         array(
           'name'  => 'Type',
           'desc'  => 'Which kind of event is it?',
-          'id'    => 'type',
+          'id'    => 'event_type',
           'type'  => 'select',
           'options' => array(
             'demonstration' => pll__('Demonstration'),
@@ -186,7 +204,7 @@ function register_meta_boxes($meta_boxes) {
         array(
           'name'  => 'Link',
           'desc'  => '',
-          'id'    => 'link',
+          'id'    => 'event_link',
           'type'  => 'text',
         ),
       )
@@ -210,20 +228,42 @@ function shortcode_donate($atts = []) {
   ';
 }
 
-function shortcode_actions() {
-  function render_events() {
+function shortcode_actions($atts = []) {
+  function render_events($options) {
     $markup = '';
-    $events = get_all_events();
+    $render_only_upcoming = array_key_exists('upcoming', $options);
 
-    while($events->have_posts()) {
-      $events->the_post();
+    $events = get_all_upcoming_events();
 
-      $markup = '
+    foreach($events->posts as $event) {
+      $id = $event->ID;
+      $fields = get_post_custom($id);
+      $href = get_the_permalink($id);
+
+      $markup .= '
         <li class="actions__action">
           <div class="action">
+            <div class="action__icon-container">
+              <a href="' . $href . '" rel="nofollow">
+                <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M349.565 98.783C295.978 98.783 251.721 64 184.348 64c-24.955 0-47.309 4.384-68.045 12.013a55.947 55.947 0 0 0 3.586-23.562C118.117 24.015 94.806 1.206 66.338.048 34.345-1.254 8 24.296 8 56c0 19.026 9.497 35.825 24 45.945V488c0 13.255 10.745 24 24 24h16c13.255 0 24-10.745 24-24v-94.4c28.311-12.064 63.582-22.122 114.435-22.122 53.588 0 97.844 34.783 165.217 34.783 48.169 0 86.667-16.294 122.505-40.858C506.84 359.452 512 349.571 512 339.045v-243.1c0-23.393-24.269-38.87-45.485-29.016-34.338 15.948-76.454 31.854-116.95 31.854z"></path></svg>
+              </a>
+            </div>
+
             <h3 class="action__title">
-              <a href="' . get_the_permalink() . '">
-                ' . get_the_title() . '
+              <div class="action__meta">
+                <small class="action__date">'
+                  . $fields['event_date'][0] .
+                '</small>
+
+                &middot;
+
+                <small class="action__location">'
+                  . $fields['event_location'][0] .
+                '</small>
+              </div>
+
+              <a href="' . $href . '">
+                ' . $event->post_title . '
               </a>
             </h3>
           </div>
@@ -234,14 +274,17 @@ function shortcode_actions() {
     return $markup;
   }
 
+  $atts = array_change_key_case((array)$atts, CASE_LOWER);
   $slug = pll_current_language('slug');
   $slug = $slug == 'de' ? '' : $slug;
   $url = $slug . '/events/';
 
+  $show_only_upcoming = array_key_exists('upcoming', $atts);
+
   return '
     <div class="actions">
       <ul class="actions__list">
-      ' . render_events() . '
+      ' . render_events(array('upcoming' => $show_only_upcoming)) . '
       </ul>
 
       <a href="' . $url . '" class="actions__more">
@@ -307,9 +350,9 @@ function disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
   return $urls;
 }
 
-function disable_emojis_tinymce( $plugins ) {
-  if ( is_array( $plugins ) ) {
-    return array_diff( $plugins, array( 'wpemoji' ) );
+function disable_emojis_tinymce($plugins) {
+  if (is_array($plugins)) {
+    return array_diff($plugins, array('wpemoji'));
   } else {
     return array();
   }
