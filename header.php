@@ -26,8 +26,6 @@
         if (!is_archive()) :
           while ( have_posts() ) : the_post();
 
-          global $TITLE;
-          var_dump($TITLE);
           $thumbnail_id = get_post_thumbnail_id();
           $thumbnail_attrs = array(
             'class' => 'header__image',
