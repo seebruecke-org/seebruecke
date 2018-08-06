@@ -280,11 +280,15 @@ function shortcode_actions($atts = []) {
     return '<ul class="actions__events">' . $markup . '</ul>';
   }
 
-  function render_days($options) {
+  function render_days($show_only_upcoming) {
     $markup = '';
-    $render_only_upcoming = array_key_exists('upcoming', $options);
 
-    $events = get_all_upcoming_events();
+    if ($show_only_upcoming) {
+      $events = get_all_upcoming_events();
+    } else {
+      $events = get_all_events();
+    }
+
     $events_grouped = group_events_by_date($events->posts);
 
     foreach($events_grouped as $date => $event) {
@@ -308,18 +312,24 @@ function shortcode_actions($atts = []) {
   $slug = pll_current_language('slug');
   $slug = $slug == 'de' ? '' : $slug;
   $url = $slug . '/events/';
+  $all_markup = '';
 
-  $show_only_upcoming = array_key_exists('upcoming', $atts);
+  if (!is_archive()) {
+    $all_markup = '
+      <a href="' . $url . '" class="actions__more">
+        ' . pll__('Alle Events') . '
+      </a>
+    ';
+  }
+
+  $show_only_upcoming = in_array('upcoming', $atts);
 
   return '
     <div class="actions">
       <ul class="actions__list">
-      ' . render_days(array('upcoming' => $show_only_upcoming)) . '
+      ' . render_days($show_only_upcoming) . '
       </ul>
-
-      <a href="' . $url . '" class="actions__more">
-        ' . pll__('Alle Events') . '
-      </a>
+      ' . $all_markup . '
     </div>
   ';
 }
