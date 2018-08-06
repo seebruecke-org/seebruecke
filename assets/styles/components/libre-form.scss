@@ -1,12 +1,14 @@
 .libre-form {
+  margin-top: 4rem;
+
   input[type="text"],
   input[type="email"],
   textarea {
     border: 1px solid #b7b7b7;
     display: block;
     font-family: $font;
-    font-size: 1rem;
-    padding: .4rem .75rem;
+    font-size: 1.1rem;
+    padding: .7rem .75rem;
     width: 100%;
 
     &:focus {
@@ -35,7 +37,7 @@
 
   label + input,
   label + textarea {
-    margin-top: .5rem;
+    margin-top: .75rem;
   }
 
   label {
@@ -47,6 +49,6 @@
   }
 
   > p + p {
-    margin-top: 1.5rem;
+    margin-top: 2.25rem;
   }
 }
