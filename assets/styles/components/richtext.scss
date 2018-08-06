@@ -1,5 +1,12 @@
 .richtext {
   color: $text-color;
+  padding-left: 2rem;
+  padding-right: 2rem;
+
+  @include mq($from: desktop) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 
   h2,
   h3,

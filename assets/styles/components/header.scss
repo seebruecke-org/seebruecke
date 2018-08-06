@@ -38,16 +38,28 @@
   }
 
   &__language-switcher {
-    display: flex;
+    display: none;
     justify-content: flex-end;
     right: 2rem;
+
+    @include mq($from: tablet) {
+      display: flex;
+    }
   }
 
   &__logo {
     fill: white;
     left: 1rem;
     top: .5rem;
-    width: 16rem;
+    width: 12rem;
+
+    @include mq($from: tablet) {
+      width: 14rem;
+    }
+
+    @include mq($from: desktop) {
+      width: 16rem;
+    }
   }
 
   &__content {
@@ -58,14 +70,21 @@
   }
 
   &__title {
-    font-size: 3.6rem;
+    font-size: 2.2rem;
     font-weight: $font-weight-black;
     letter-spacing: -1px;
     line-height: 1.1;
-    margin-bottom: 0;
-    margin-top: 0;
+    margin: 0 2rem;
     text-align: center;
     text-transform: uppercase;
+
+    @include mq($from: tablet) {
+      font-size: 2.8rem;
+    }
+
+    @include mq($from: desktop) {
+      font-size: 3.6rem;
+    }
   }
 
   &--without-image &__title {
@@ -80,12 +99,18 @@
     box-shadow: 2px 2px 10px rgba(0, 0, 0, .3);
     color: white;
     display: inline-block;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: $font-weight;
-    margin-top: 3rem;
-    padding: 1rem 2rem;
+    margin-top: 2rem;
+    padding: .75rem 1.5rem;
     text-decoration: none;
     text-shadow: 0 0 2px rgba(0, 0, 0, .3);
+
+    @include mq($from: tablet) {
+      font-size: 1.2rem;
+      margin-top: 3rem;
+      padding: 1rem 2rem;
+    }
 
     &:hover,
     &:focus {

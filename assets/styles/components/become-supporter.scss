@@ -3,7 +3,7 @@
 
   color: $text-color;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: nowrap;
   font-family: $font;
   list-style: none;
@@ -12,6 +12,10 @@
   padding-left: 4rem;
   padding-right: 4rem;
 
+  @include mq($from: desktop) {
+    flex-direction: row;
+  }
+
   &__item {
     flex-grow: 1;
     flex-basis: 0;
@@ -19,7 +23,14 @@
   }
 
   &__item + &__item {
-    margin-left: 4rem;
+    margin-top: 4rem;
+  }
+
+  @include mq($from: desktop) {
+    &__item + &__item {
+      margin-left: 4rem;
+      margin-top: 0;
+    }
   }
 
   &__icon-container {
