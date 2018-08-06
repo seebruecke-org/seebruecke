@@ -6,7 +6,7 @@
   <?php get_template_part('html', 'head'); ?>
 
   <body>
-    <?php get_template_part('header-hero'); ?>
+    <?php get_header('hero'); ?>
 
     <main class="main">
       <?php /* render main page content */ ?>

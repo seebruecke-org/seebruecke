@@ -1,12 +1,6 @@
 <?php wp_admin_bar_render(); ?>
 
 <header class="header">
-  <a href="<?php echo home_url(); ?>">
-    <span class="visually-hidden">
-      <?php echo pll__('Zurück zur Seebrücke Startseite') ?>
-    </span>
-  </a>
-
   <div class="header__language-switcher">
     <?php get_template_part('language', 'switcher'); ?>
   </div>

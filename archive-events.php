@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php get_header('archive'); ?>
 
 <main class="main">
   <?php /* render main page content */ ?>

@@ -26,6 +26,8 @@
         if (!is_archive()) :
           while ( have_posts() ) : the_post();
 
+          global $TITLE;
+          var_dump($TITLE);
           $thumbnail_id = get_post_thumbnail_id();
           $thumbnail_attrs = array(
             'class' => 'header__image',
@@ -44,7 +46,7 @@
         <div class="header__content">
           <div class="constraint">
             <h1 class="header__title">
-              <?php echo get_the_title(); ?>
+              <?php if (isset($TITLE)) { echo $TITLE; } else { echo get_the_title(); } ?>
             </h1>
           </div>
         </div>
