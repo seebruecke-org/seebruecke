@@ -19,9 +19,16 @@
 
   &__logo,
   &__logo-container,
-  &__language-switcher,
+  &__language-switcher {
+    z-index: 3;
+  }
+
   &__content {
     z-index: 2;
+  }
+
+  &__logo-container {
+    display: inline-block;
   }
 
   &__logo,
