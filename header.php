@@ -12,9 +12,9 @@
     ?>
 
     <header class="header <?php if (!is_front_page() && $thumbnail_id) { echo 'header--small'; } elseif(!is_front_page() && !$thumbnail_id) { echo 'header--without-image'; } ?>">
-      <a href="<?php echo home_url(); ?>">
+      <a href="<?php echo pll_home_url(); ?>">
         <span class="visually-hidden">
-          <?php echo pll__('Zurück zur Seebrücke Startseite') ?>
+          <?php echo pll__('Zurück zur Startseite') ?>
         </span>
       </a>
 

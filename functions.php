@@ -234,13 +234,17 @@ function shortcode_actions() {
     return $markup;
   }
 
+  $slug = pll_current_language('slug');
+  $slug = $slug == 'de' ? '' : $slug;
+  $url = $slug . '/events/';
+
   return '
     <div class="actions">
       <ul class="actions__list">
       ' . render_events() . '
       </ul>
 
-      <a href="/events/" class="actions__more">
+      <a href="' . $url . '" class="actions__more">
         ' . pll__('Alle Events') . '
       </a>
     </div>
@@ -347,6 +351,6 @@ add_image_size('hero-image', 2400, 9999);
 /* custom strings */
 pll_register_string('all_events', 'Alle Events');
 pll_register_string('archive_events', 'Alle Events');
-pll_register_string('back_to_homepage', 'Zurück zur Seebrücke Startseite');
+pll_register_string('back_to_homepage_short', 'Zurück zur Startseite');
 
 ?>
