@@ -12,7 +12,9 @@
     ?>
 
     <header class="header <?php if (!is_front_page() && $thumbnail_id) { echo 'header--small'; } elseif(!is_front_page() && !$thumbnail_id) { echo 'header--without-image'; } ?>">
-      <a href="<?php echo pll_home_url(); ?>">
+      <a href="<?php echo pll_home_url(); ?>"
+         class="header__logo-container">
+        <?php get_template_part('logo'); ?>
         <span class="visually-hidden">
           <?php echo pll__('Zurück zur Startseite') ?>
         </span>

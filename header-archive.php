@@ -13,7 +13,10 @@
     ?>
 
     <header class="header header--without-image">
-      <a href="<?php echo home_url(); ?>">
+      <a href="<?php echo pll_home_url(); ?>"
+         class="header__logo-container">
+        <?php get_template_part('logo'); ?>
+
         <span class="visually-hidden">
           <?php echo pll__('Zurück zur Seebrücke Startseite') ?>
         </span>

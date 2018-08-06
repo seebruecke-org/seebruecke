@@ -17,22 +17,34 @@
     min-height: 25vh;
   }
 
+  &__logo,
+  &__logo-container,
   &__language-switcher,
   &__content {
     z-index: 2;
   }
 
+  &__logo,
+  &__language-switcher {
+    position: absolute;
+    top: 1.5rem;
+  }
+
   &__language-switcher {
     display: flex;
     justify-content: flex-end;
-    position: absolute;
-    right: 0;
-    top: 1.5rem;
+    right: 3rem;
+  }
+
+  &__logo {
+    left: 3rem;
+    width: 12.5rem;
   }
 
   &__content {
     color: white;
     font-family: $font;
+    margin-top: 6rem;
     text-align: center;
   }
 

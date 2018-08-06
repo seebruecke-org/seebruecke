@@ -1,6 +1,8 @@
 <?php wp_admin_bar_render(); ?>
 
 <header class="header">
+  <?php get_template_part('logo'); ?>
+
   <div class="header__language-switcher">
     <?php get_template_part('language', 'switcher'); ?>
   </div>
