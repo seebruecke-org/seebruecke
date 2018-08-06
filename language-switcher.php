@@ -1,6 +1,6 @@
 <div class="language-switcher">
   <p class="language-switcher__label">
-    Sprache:
+    <?php echo pll__('Sprache:'); ?>
   </p>
 
   <ul class="language-switcher__languages">
