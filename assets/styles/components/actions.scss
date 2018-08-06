@@ -28,9 +28,10 @@
     display: inline-block;
     font-family: $font;
     font-size: 1.3rem;
-    font-weight: $font-weight-bold;
+    font-weight: $font-weight-black;
     margin-top: 2rem;
     text-align: center;
+    text-transform: uppercase;
     width: 100%;
 
     &:hover,

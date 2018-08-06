@@ -7,8 +7,9 @@
   h5,
   h6 {
     font-family: $font;
-    font-weight: $font-weight-bold;
+    font-weight: $font-weight-black;
     line-height: 1.2;
+    text-transform: uppercase;
   }
 
   h2 {

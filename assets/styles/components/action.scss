@@ -19,17 +19,18 @@
 
   &__meta {
     color: $text-color;
-    font-size: 1.3rem;
+    font-size: 1.15rem;
     font-weight: $font-weight;
     margin-bottom: .2rem;
   }
 
   &__title {
     color: $brand-color;
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     line-height: 1.2;
     margin-bottom: 0;
     margin-top: 0;
+    text-transform: uppercase;
 
     > a {
       color: currentColor;

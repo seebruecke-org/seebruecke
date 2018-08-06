@@ -58,14 +58,14 @@
   }
 
   &__title {
-    font-size: 3.8rem;
-    font-weight: $font-weight-bold;
+    font-size: 3.6rem;
+    font-weight: $font-weight-black;
     letter-spacing: -1px;
     line-height: 1.1;
     margin-bottom: 0;
     margin-top: 0;
     text-align: center;
-    text-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    text-transform: uppercase;
   }
 
   &--without-image &__title {
@@ -81,7 +81,7 @@
     color: white;
     display: inline-block;
     font-size: 1.2rem;
-    font-weight: $font-weight-bold;
+    font-weight: $font-weight;
     margin-top: 3rem;
     padding: 1rem 2rem;
     text-decoration: none;
@@ -108,7 +108,7 @@
 
   &__additional-content {
     font-size: .8rem;
-    font-weight: $font-weight-bold;
+    font-weight: $font-weight;
     margin-left: auto;
     margin-right: auto;
     margin-top: 1rem;
