@@ -1,14 +1,13 @@
 .donate {
+  @include break-constraint();
+
   background-color: $secondary-color;
   color: white;
-  left: 50%;
-  margin: 4rem -50vw;
+  margin-bottom: 4rem;
+  margin-top: 4rem;
   padding-bottom: 1.75rem;
   padding-top: 1.75rem;
-  position: relative;
-  right: 50%;
   text-align: center;
-  width: 100vw;
 
   &__button {
     background-color: transparent;

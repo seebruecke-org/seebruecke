@@ -1,17 +1,16 @@
 .become-supporter {
+  @include break-constraint();
+
   color: $text-color;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   font-family: $font;
-  left: 50%;
   list-style: none;
-  margin: 4rem -50vw;
+  margin-bottom: 4rem;
+  margin-top: 4rem;
   padding-left: 4rem;
   padding-right: 4rem;
-  position: relative;
-  right: 50%;
-  width: 100vw;
 
   &__item {
     flex-grow: 1;
@@ -24,7 +23,7 @@
   }
 
   &__icon-container {
-    $size: 6rem;
+    $size: 8rem;
 
     align-items: center;
     background-color: $brand-color;
@@ -37,8 +36,8 @@
     width: $size;
 
     > svg {
-      height: 3rem;
-      width: 3rem;
+      height: 2.5rem;
+      width: 2.5rem;
     }
   }
 

@@ -252,7 +252,9 @@ function shortcode_actions($atts = []) {
             <h3 class="action__title">
               <div class="action__meta">
                 <small class="action__date">'
-                  . $fields['event_date'][0] .
+                  . date(get_date_format(), strtotime($fields['event_date'][0])) .
+                  ',&nbsp;'
+                  . $fields['event_time'][0] .
                 '</small>
 
                 &middot;
@@ -371,7 +373,11 @@ function disable_emojis() {
   add_filter( 'wp_resource_hints', 'disable_emojis_remove_dns_prefetch', 10, 2);
 }
 
- add_action( 'init', 'disable_emojis');
+function get_date_format($date) {
+  return pll__('d.m.Y');
+}
+
+add_action( 'init', 'disable_emojis');
 
 add_action('init', 'create_posttypes');
 add_filter('rwmb_meta_boxes', 'register_meta_boxes');
@@ -395,5 +401,10 @@ add_image_size('hero-image', 2400, 9999);
 pll_register_string('all_events', 'Alle Events');
 pll_register_string('archive_events', 'Alle Events');
 pll_register_string('back_to_homepage_short', 'Zurück zur Startseite');
+pll_register_string('date_format', 'd.m.Y');
+pll_register_string('at', 'um');
+pll_register_string('time', 'Uhrzeit');
+pll_register_string('location', 'Ort');
+pll_register_string('link', 'Link');
 
 ?>

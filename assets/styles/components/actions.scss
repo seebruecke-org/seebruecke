@@ -13,11 +13,10 @@
     color: $text-color;
     display: inline-block;
     font-family: $font;
+    font-size: 1.3rem;
     font-weight: $font-weight-bold;
     margin-top: 2rem;
     text-align: center;
-    text-decoration: none;
-    text-transform: uppercase;
     width: 100%;
 
     &:hover,

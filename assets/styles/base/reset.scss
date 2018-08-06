@@ -8,3 +8,32 @@ body {
   margin: 0;
   padding: 0;
 }
+
+dl {
+  font-size: 0;
+  line-height: 1;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+dt,
+dd {
+  font-family: $font;
+  font-size: 1rem;
+}
+
+dt {
+  display: inline-block;
+  font-weight: $font-weight-bold;
+}
+
+dd {
+  display: inline;
+  margin-left: 0;
+  margin-left: 1.5rem;
+
+  &::after {
+    content: '';
+    display: block;
+  }
+}
