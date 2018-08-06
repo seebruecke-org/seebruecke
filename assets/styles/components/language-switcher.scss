@@ -1,32 +1,54 @@
 .language-switcher {
-  align-self: flex-end;
   display: flex;
   flex-direction: row;
-  list-style: none;
-  margin-bottom: 0;
-  margin-top: 0;
-  padding-left: 0;
+
+  &__label {
+    color: white;
+    font-family: $font;
+    font-size: .8rem;
+    font-weight: $font-weight;
+    line-height: 1;
+    margin-bottom: 0;
+    margin-right: .5rem;
+    margin-top: 0;
+    position: relative;
+    top: .2rem;
+  }
+
+  &__languages {
+    align-self: flex-end;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-left: 0;
+  }
 
   &__item {
     & + & {
-      margin-left: .5rem;
+      margin-left: .25rem;
     }
   }
 
   &__language {
-    background-color: $brand-color;
     color: white;
     font-family: $font;
-    font-size: .7rem;
-    letter-spacing: .02rem;
+    font-size: .9rem;
+    font-weight: $font-weight-bold;
     line-height: 1;
-    padding: .45rem 1rem;
+    margin: 0 .25rem;
+    padding-bottom: .18rem;
     text-decoration: none;
     text-transform: uppercase;
   }
 
+  &__language:not(&__language--is-active):hover,
+  &__language:not(&__language--is-active):focus {
+    border-bottom: 2px solid white;
+  }
+
   &__language--is-active {
-    background-color: darken($brand-color, 15%);
-    font-weight: $font-weight-bold;
+    border-bottom: 2px solid transparentize($brand-color, .5);
   }
 }

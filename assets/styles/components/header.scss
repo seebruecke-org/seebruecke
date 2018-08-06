@@ -40,7 +40,7 @@
   &__language-switcher {
     display: flex;
     justify-content: flex-end;
-    right: 3rem;
+    right: 2rem;
   }
 
   &__logo {
@@ -85,6 +85,7 @@
     margin-top: 3rem;
     padding: 1rem 2rem;
     text-decoration: none;
+    text-shadow: 0 0 2px rgba(0, 0, 0, .3);
 
     &:hover,
     &:focus {
