@@ -231,13 +231,23 @@ function shortcode_donate($atts = []) {
 }
 
 function shortcode_actions($atts = []) {
-  function render_events($options) {
+  function group_events_by_date($events) {
+    $grouped = array();
+
+    foreach($events as $event) {
+      $id = $event->ID;
+      $fields = get_post_custom($id);
+
+      $grouped[$fields['event_date'][0]][] = $event;
+    }
+
+    return $grouped;
+  }
+
+  function render_events($events) {
     $markup = '';
-    $render_only_upcoming = array_key_exists('upcoming', $options);
 
-    $events = get_all_upcoming_events();
-
-    foreach($events->posts as $event) {
+    foreach($events as $event) {
       $id = $event->ID;
       $fields = get_post_custom($id);
       $href = get_the_permalink($id);
@@ -247,20 +257,12 @@ function shortcode_actions($atts = []) {
           <div class="action">
             <div class="action__icon-container">
               <a href="' . $href . '" rel="nofollow">
-                <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M349.565 98.783C295.978 98.783 251.721 64 184.348 64c-24.955 0-47.309 4.384-68.045 12.013a55.947 55.947 0 0 0 3.586-23.562C118.117 24.015 94.806 1.206 66.338.048 34.345-1.254 8 24.296 8 56c0 19.026 9.497 35.825 24 45.945V488c0 13.255 10.745 24 24 24h16c13.255 0 24-10.745 24-24v-94.4c28.311-12.064 63.582-22.122 114.435-22.122 53.588 0 97.844 34.783 165.217 34.783 48.169 0 86.667-16.294 122.505-40.858C506.84 359.452 512 349.571 512 339.045v-243.1c0-23.393-24.269-38.87-45.485-29.016-34.338 15.948-76.454 31.854-116.95 31.854z"></path></svg>
+              <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M576 224c0-20.896-13.36-38.666-32-45.258V64c0-35.346-28.654-64-64-64-64.985 56-142.031 128-272 128H48c-26.51 0-48 21.49-48 48v96c0 26.51 21.49 48 48 48h43.263c-18.742 64.65 2.479 116.379 18.814 167.44 1.702 5.32 5.203 9.893 9.922 12.88 20.78 13.155 68.355 15.657 93.773 5.151 16.046-6.633 19.96-27.423 7.522-39.537-18.508-18.026-30.136-36.91-19.795-60.858a12.278 12.278 0 0 0-1.045-11.673c-16.309-24.679-3.581-62.107 28.517-72.752C346.403 327.887 418.591 395.081 480 448c35.346 0 64-28.654 64-64V269.258c18.64-6.592 32-24.362 32-45.258zm-96 139.855c-54.609-44.979-125.033-92.94-224-104.982v-69.747c98.967-12.042 169.391-60.002 224-104.982v279.711z"></path></svg>
               </a>
             </div>
 
             <h3 class="action__title">
               <div class="action__meta">
-                <small class="action__date">'
-                  . date(get_date_format(), strtotime($fields['event_date'][0])) .
-                  ',&nbsp;'
-                  . $fields['event_time'][0] .
-                '</small>
-
-                &middot;
-
                 <small class="action__location">'
                   . $fields['event_location'][0] .
                 '</small>
@@ -271,6 +273,30 @@ function shortcode_actions($atts = []) {
               </a>
             </h3>
           </div>
+        </li>
+      ';
+    }
+
+    return '<ul class="actions__events">' . $markup . '</ul>';
+  }
+
+  function render_days($options) {
+    $markup = '';
+    $render_only_upcoming = array_key_exists('upcoming', $options);
+
+    $events = get_all_upcoming_events();
+    $events_grouped = group_events_by_date($events->posts);
+
+    foreach($events_grouped as $date => $event) {
+      $id = $event->ID;
+      $fields = get_post_custom($id);
+
+      $markup .= '
+        <li class="actions__day">
+          <h3 class="actions__day-title">
+            ' . date(get_date_format(), strtotime($date)) . '
+          </h3>
+          ' . render_events($event) . '
         </li>
       ';
     }
@@ -288,7 +314,7 @@ function shortcode_actions($atts = []) {
   return '
     <div class="actions">
       <ul class="actions__list">
-      ' . render_events(array('upcoming' => $show_only_upcoming)) . '
+      ' . render_days(array('upcoming' => $show_only_upcoming)) . '
       </ul>
 
       <a href="' . $url . '" class="actions__more">
@@ -400,8 +426,8 @@ add_action('wp_enqueue_scripts', 'enqueue_style');
 add_image_size('hero-image', 2400, 9999);
 
 /* custom strings */
-pll_register_string('all_events', 'Alle Events');
-pll_register_string('archive_events', 'Alle Events');
+pll_register_string('all_actions', 'Alle Aktionen');
+pll_register_string('archive_events', 'Alle Aktionen');
 pll_register_string('back_to_homepage_short', 'Zurück zur Startseite');
 pll_register_string('date_format', 'd.m.Y');
 pll_register_string('at', 'um');
