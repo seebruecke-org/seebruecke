@@ -16,23 +16,34 @@
 
   &__day-title {
     border-bottom: 1px solid #e6e6e6;
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
+    font-size: 1rem;
+    margin-bottom: .5rem;
     margin-top: 0;
-    padding-bottom: .5rem;
-    padding-left: 4rem;
+    padding-bottom: .25rem;
+    padding-left: 2.6rem;
+
+    @include mq($from: tablet) {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      padding-bottom: .5rem;
+      padding-left: 4rem;
+    }
   }
 
   &__more {
     color: $text-color;
     display: inline-block;
     font-family: $font;
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-weight: $font-weight-black;
     margin-top: 2rem;
     text-align: center;
     text-transform: uppercase;
     width: 100%;
+
+    @include mq($from: tablet) {
+      font-size: 1.3rem;
+    }
 
     &:hover,
     &:focus {
