@@ -49,11 +49,15 @@
 
   &__logo {
     fill: white;
-    left: 1rem;
-    top: .5rem;
-    width: 12rem;
+    left: 50%;
+    top: 2rem;
+    transform: translateX(-50%);
+    width: 16rem;
 
     @include mq($from: tablet) {
+      left: 1rem;
+      top: .5rem;
+      transform: none;
       width: 14rem;
     }
 
@@ -65,8 +69,12 @@
   &__content {
     color: white;
     font-family: $font;
-    margin-top: 6rem;
+    margin-top: 2rem;
     text-align: center;
+
+    @include mq($from: tablet) {
+      margin-top: 6rem;
+    }
   }
 
   &__title {
