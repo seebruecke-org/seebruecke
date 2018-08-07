@@ -2,10 +2,14 @@
   background-color: $brand-color;
   display: flex;
   flex-direction: column;
-  height: 90vh;
+  height: 100vh;
   overflow: hidden;
   margin-bottom: 4rem;
   position: relative;
+
+  @include mq($from: tablet) {
+    justify-content: center;
+  }
 
   &--small {
     height: 50vh;
@@ -75,7 +79,7 @@
     text-align: center;
 
     @include mq($from: tablet) {
-      margin-top: 6rem;
+      margin-top: 4rem;
     }
   }
 
