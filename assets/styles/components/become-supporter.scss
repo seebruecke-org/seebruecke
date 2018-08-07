@@ -1,6 +1,4 @@
 .become-supporter {
-  @include break-constraint();
-
   color: $text-color;
   display: flex;
   flex-direction: column;
@@ -9,11 +7,14 @@
   list-style: none;
   margin-bottom: 4rem;
   margin-top: 4rem;
-  padding-left: 4rem;
-  padding-right: 4rem;
+  padding-left: 0;
+  padding-right: 0;
 
   @include mq($from: desktop) {
+    @include break-constraint();
     flex-direction: row;
+    padding-left: 4rem;
+    padding-right: 4rem;
   }
 
   &__item {
@@ -23,46 +24,60 @@
   }
 
   &__item + &__item {
-    margin-top: 4rem;
-  }
+    margin-top: 2rem;
 
-  @include mq($from: desktop) {
-    &__item + &__item {
+    @include mq($from: desktop) {
       margin-left: 4rem;
       margin-top: 0;
     }
   }
 
   &__icon-container {
-    $size: 8rem;
-
     align-items: center;
     background-color: $brand-color;
     border-radius: 50%;
     display: flex;
     color: white;
-    height: $size;
+    height:  4.5rem;
     justify-content: center;
     margin: 0 auto 2rem auto;
-    width: $size;
+    width:  4.5rem;
+
+    @include mq($from: desktop) {
+      height: 8rem;
+      width: 8rem;
+    }
 
     > svg {
-      height: 2.5rem;
-      width: 2.5rem;
+      height: 1.75rem;
+      width: 1.75rem;
+
+      @include mq($from: desktop) {
+        height: 2.5rem;
+        width: 2.5rem;
+      }
     }
   }
 
   &__title {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: $font-weight-black;
     margin-bottom: .5rem;
     margin-top: 0;
     text-transform: uppercase;
+
+    @include mq($from: desktop) {
+      font-size: 1.4rem;
+    }
   }
 
   &__content {
-    font-size: 1.15rem;
+    font-size: 1rem;
     line-height: 1.4;
+
+    @include mq($from: desktop) {
+      font-size: 1.15rem;
+    }
 
     > p > a {
       color: $brand-color;
