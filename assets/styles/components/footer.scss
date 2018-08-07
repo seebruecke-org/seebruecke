@@ -2,9 +2,15 @@
   background-color: $secondary-color;
   color: white;
   font-family: $font;
+  font-size: .85rem;
   line-height: 1.5;
-  margin-top: 6rem;
+  margin-top: 4rem;
   padding: 2rem;
+
+  @include mq($from: tablet) {
+    font-size: 1rem;
+    margin-top: 6rem;
+  }
 
   p {
     margin-bottom: 0;
