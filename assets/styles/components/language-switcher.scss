@@ -1,18 +1,32 @@
 .language-switcher {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+
+  @include mq($until: tablet) {
+    background-color: white;
+    padding-bottom: .5rem;
+    padding-top: .4rem;
+    width: 100%;
+  }
 
   &__label {
-    color: white;
+    color: $text-color;
     font-family: $font;
-    font-size: .8rem;
+    font-size: .7rem;
     font-weight: $font-weight;
     line-height: 1;
     margin-bottom: 0;
     margin-right: .5rem;
     margin-top: 0;
     position: relative;
-    top: .2rem;
+    top: .3rem;
+
+    @include mq($from: tablet) {
+      color: white;
+      font-size: .8rem;
+      top: .2rem;
+    }
   }
 
   &__languages {
@@ -32,15 +46,25 @@
   }
 
   &__language {
-    color: white;
+    color: $brand-color;
     font-family: $font;
-    font-size: .9rem;
-    font-weight: $font-weight-black;
+    font-size: .65rem;
+    font-weight: $font-weight;
     line-height: 1;
-    margin: 0 .25rem;
-    padding-bottom: .18rem;
+    margin: 0 .4rem;
+    padding-bottom: .1rem;
     text-decoration: none;
     text-transform: uppercase;
+
+    @include mq($from: tablet) {
+      color: white;
+      font-size: .85rem;
+      font-weight: $font-weight-black;
+      letter-spacing: .02rem;
+      margin-left: .25rem;
+      margin-right: .25rem;
+      padding-bottom: .18rem;
+    }
   }
 
   &__language:not(&__language--is-active):hover,
@@ -49,6 +73,10 @@
   }
 
   &__language--is-active {
-    border-bottom: 2px solid transparentize($brand-color, .5);
+    border-bottom: 1px solid transparentize($brand-color, .5);
+
+    @include mq($from: tablet) {
+      border-bottom-width: 2px;
+    }
   }
 }

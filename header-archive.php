@@ -13,6 +13,10 @@
     ?>
 
     <header class="header header--without-image">
+      <div class="header__language-switcher">
+        <?php get_template_part('language', 'switcher'); ?>
+      </div>
+
       <a href="<?php echo pll_home_url(); ?>"
          class="header__logo-container">
         <?php get_template_part('logo'); ?>
@@ -21,10 +25,6 @@
           <?php echo pll__('Zurück zur Seebrücke Startseite') ?>
         </span>
       </a>
-
-      <div class="header__language-switcher">
-        <?php get_template_part('language', 'switcher'); ?>
-      </div>
 
       <div class="header__content">
         <div class="constraint">
