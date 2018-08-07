@@ -14,7 +14,10 @@
 
   &--without-image {
     height: auto;
-    min-height: 25vh;
+
+    @include mq($from: tablet) {
+      min-height: 25vh;
+    }
   }
 
   &__logo,
@@ -33,8 +36,10 @@
 
   &__logo,
   &__language-switcher {
-    position: absolute;
-    top: 1.5rem;
+    @include mq($from: tablet) {
+      position: absolute;
+      top: 1.5rem;
+    }
   }
 
   &__language-switcher {
@@ -48,11 +53,11 @@
   }
 
   &__logo {
+    display: inherit;
     fill: white;
-    left: 50%;
-    top: 2rem;
-    transform: translateX(-50%);
-    width: 16rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 12rem;
 
     @include mq($from: tablet) {
       left: 1rem;
@@ -77,10 +82,17 @@
     }
   }
 
+  &--without-image &__content {
+    margin-top: 0;
+
+    @include mq($from: tablet) {
+      margin-top: 6rem;
+    }
+  }
+
   &__title {
     font-size: 2.2rem;
     font-weight: $font-weight-black;
-    letter-spacing: -1px;
     line-height: 1.1;
     margin: 0 2rem;
     text-align: center;
@@ -97,9 +109,19 @@
   }
 
   &--without-image &__title {
-    font-size: 2.4rem;
-    margin-bottom: 4rem;
-    margin-top: 4rem;
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    margin-top: 0;
+
+    @include mq($from: tablet) {
+      font-size: 2rem;
+      margin-bottom: 4rem;
+      margin-top: 4rem;
+    }
+
+    @include mq($from: desktop) {
+      font-size: 2.4rem;
+    }
   }
 
   &__action {
