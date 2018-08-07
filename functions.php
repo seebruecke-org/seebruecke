@@ -3,6 +3,13 @@
 function get_all_events($extend_query = []) {
   $args = array_merge(
     array(
+      'meta_query' => array(
+        array(
+          'key' => 'event_date',
+        )
+      ),
+      'orderby' => 'event_date',
+      'order' => 'ASC',
       'post_type' => 'events',
       'post_status' => 'publish',
       'posts_per_page' => -1,
@@ -17,8 +24,6 @@ function get_all_events($extend_query = []) {
 
 function get_all_upcoming_events() {
   return get_all_events(array(
-    'orderby' => 'event_date',
-    'order' => 'ASC',
     'meta_query' => array(
       array(
         'key' => 'event_date',
