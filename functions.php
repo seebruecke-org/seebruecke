@@ -166,10 +166,16 @@ function register_meta_boxes($meta_boxes) {
     'context'    => 'normal',
     'priority'   => 'high',
     'fields' => array(
+          array(
+            'name'  => 'City',
+            'id'    => 'event_city',
+            'type'  => 'text',
+        ),
+
         array(
-            'name'  => 'Location',
-            'desc'  => 'Name of the location',
-            'id'    => 'event_location',
+            'name'  => 'Address',
+            'desc'  => 'Address of the location (excluding the city name)',
+            'id'    => 'event_address',
             'type'  => 'text',
         ),
 
@@ -201,9 +207,14 @@ function register_meta_boxes($meta_boxes) {
           'id'    => 'event_type',
           'type'  => 'select',
           'options' => array(
-            'demonstration' => pll__('Demonstration'),
-            'action' => pll__('Action'),
-            'speech' => pll__('Speech'),
+            'kundgebung' => pll__('Kundgebung'),
+            'flashmob' => pll__('Flashmob'),
+            'demo' => pll__('Demo'),
+            'planungstreffen' => pll__('Planungstreffen'),
+            'filmvorführung' => pll('Filmvorführung'),
+            'bastelaktion' => pll('Bastelaktion'),
+            'aktion' => pll('Aktion'),
+            'mahnwache' => pll('Mahnwache'),
           ),
           'multiple' => false,
         ),
