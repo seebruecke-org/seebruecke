@@ -104,6 +104,20 @@ function create_posttypes() {
         )
     )
   );
+
+  register_post_type('organizations',
+    array(
+      'labels' => array(
+        'name' => pll__('Organisations'),
+        'singular_name' => pll__('Organisation')
+        ),
+        'public' => true,
+        'has_archive' => false,
+        'supports' => array(
+          'title',
+        )
+    )
+  );
 }
 
 function register_meta_boxes($meta_boxes) {
@@ -227,6 +241,23 @@ function register_meta_boxes($meta_boxes) {
           'type'  => 'text',
         ),
       )
+  );
+
+  // Organizations
+  $meta_boxes[] = array(
+    'id'         => 'organization_data',
+    'title'      => 'Extended information',
+    'post_types' => 'organizations',
+    'context'    => 'normal',
+    'priority'   => 'high',
+    'fields'     => array(
+      array(
+        'name'  => 'URL',
+        'desc'  => '(Link to the Organization)',
+        'id'    => 'organization_link',
+        'type'  => 'text',
+      ),
+    ),
   );
 
   return $meta_boxes;
