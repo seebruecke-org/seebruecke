@@ -31,8 +31,10 @@
     dd > a {
       border-bottom: 1px solid lighten($secondary-color, 20%);
       color: currentColor;
+      overflow-x: hidden;
       padding-bottom: .2rem;
       text-decoration: none;
+      text-overflow: ellipsis;
 
       &:hover,
       &:focus {

@@ -180,12 +180,13 @@ function register_meta_boxes($meta_boxes) {
         ),
 
         array(
+          'api_key' => 'AIzaSyBcge6nR-oLJWLJG_IdLPGvmBJUsx70mm0',
           'name'  => 'Location',
           'desc'  => 'Coordinates of the location',
           'id'    => 'event_coordinates',
           'type'  => 'map',
-          'address_field' => 'event_location',
-      ),
+          'address_field' => 'event_address',
+        ),
 
         array(
           'name'  => 'Date',
@@ -211,10 +212,10 @@ function register_meta_boxes($meta_boxes) {
             'flashmob' => pll__('Flashmob'),
             'demo' => pll__('Demo'),
             'planungstreffen' => pll__('Planungstreffen'),
-            'filmvorführung' => pll('Filmvorführung'),
-            'bastelaktion' => pll('Bastelaktion'),
-            'aktion' => pll('Aktion'),
-            'mahnwache' => pll('Mahnwache'),
+            'filmvorführung' => pll__('Filmvorführung'),
+            'bastelaktion' => pll__('Bastelaktion'),
+            'aktion' => pll__('Aktion'),
+            'mahnwache' => pll__('Mahnwache'),
           ),
           'multiple' => false,
         ),
@@ -280,7 +281,7 @@ function shortcode_actions($atts = []) {
             <h3 class="action__title">
               <div class="action__meta">
                 <small class="action__location">'
-                  . $fields['event_location'][0] .
+                  . $fields['event_city'][0] .
                 '</small>
               </div>
 
@@ -427,7 +428,7 @@ function disable_emojis() {
   add_filter( 'wp_resource_hints', 'disable_emojis_remove_dns_prefetch', 10, 2);
 }
 
-function get_date_format($date) {
+function get_date_format() {
   return pll__('d.m.Y');
 }
 
