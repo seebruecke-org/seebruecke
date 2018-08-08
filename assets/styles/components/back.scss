@@ -1,0 +1,35 @@
+.back {
+  display: flex;
+  justify-content: center;
+  margin-top: 4rem;
+
+  &__icon {
+    fill: currentColor;
+    height: 1.2rem;
+    margin-right: .5rem;
+    position: relative;
+    top: -0.1rem;
+    vertical-align: middle;
+    width: 1.2rem;
+  }
+
+  &__link {
+    background-color: transparent;
+    border: 2px solid currentColor;
+    border-radius: 3px;
+    color: currentColor;
+    display: inline-block;
+    font-family: $font;
+    padding: .75rem 1.75rem;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: $brand-color;
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+}

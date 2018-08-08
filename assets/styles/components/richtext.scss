@@ -37,6 +37,13 @@
     margin-top: 5rem;
   }
 
+  > address {
+    font-style: normal;
+  }
+
+  > ol,
+  > ul,
+  > address,
   > p {
     font-family: $font;
     font-size: 1.05rem;
@@ -52,6 +59,7 @@
   }
 
   > a,
+  > address > p > a,
   > p > a {
     color: $brand-color;
     text-decoration: none;
