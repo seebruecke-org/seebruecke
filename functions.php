@@ -1,5 +1,15 @@
 <?php
 
+function get_all_organizations() {
+  return new WP_Query(array(
+    'orderby' => 'title',
+    'order' => 'ASC',
+    'post_type' => 'organizations',
+    'post_status' => 'publish',
+    'posts_per_page' => -1,
+  ));
+}
+
 function get_all_events($extend_query = []) {
   $args = array_merge(
     array(
@@ -263,6 +273,42 @@ function register_meta_boxes($meta_boxes) {
   return $meta_boxes;
 }
 
+function shortcode_supporting_organizations($atts = []) {
+  $atts = array_change_key_case((array)$atts, CASE_LOWER);
+
+  function render_organizations() {
+    $organizations = get_all_organizations();
+    $markup = '';
+
+    foreach($organizations->posts as $organization) {
+      $id = $organization->ID;
+      $fields = get_post_custom($id);
+
+      $markup .= '
+        <li class="supporting-organizations__organization">
+          <a href="' . $fields['organization_link'][0] . '"
+             rel="nofollow"
+             class="supporting-organizations__organization-link">
+            ' . $organization->post_title . '
+          </a>
+        </li>
+      ';
+    }
+
+    return $markup;
+  }
+
+  return '
+    <div class="supporting-organizations">
+      <div class="constraint">
+        <ul class="supporting-organizations__list">
+          ' . render_organizations() . '
+        </ul>
+      </div>
+    </div>
+  ';
+}
+
 function shortcode_donate($atts = []) {
   $atts = array_change_key_case((array)$atts, CASE_LOWER);
 
@@ -477,6 +523,7 @@ add_shortcode('actions', 'shortcode_actions');
 add_shortcode('donate', 'shortcode_donate');
 add_shortcode('become_supporter', 'shortcode_become_supporter');
 add_shortcode('become_supporter_item', 'shortcode_become_supporter_item');
+add_shortcode('supporting_organizations', 'shortcode_supporting_organizations');
 
 add_action('wp_enqueue_scripts', 'enqueue_style');
 

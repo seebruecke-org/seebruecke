@@ -1,7 +1,6 @@
 <?php get_header(); ?>
 
 <main class="main">
-  <?php /* render main page content */ ?>
   <?php while ( have_posts() ) : the_post(); ?>
     <div class="constraint">
       <article class="richtext">

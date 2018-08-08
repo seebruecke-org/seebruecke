@@ -1,0 +1,61 @@
+.supporting-organizations {
+  @include break-constraint();
+
+  background-color: $secondary-color;
+  color: white;
+  padding: 3rem 2rem 2rem 2rem;
+
+  @include mq($from: tablet) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  // in case it comes right before the footer
+  &:last-child {
+    border-bottom: 1px solid lighten($secondary-color, 10%);
+    margin-bottom: -4rem;
+
+    @include mq($from: tablet) {
+      margin-bottom: -6rem;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-left: 0;
+  }
+
+  &__organization {
+    display: inline;
+    margin-right: .5rem;
+
+    @include mq($from: tablet) {
+      margin-right: .85rem;
+    }
+  }
+
+  &__organization-link {
+    border-left: 5px solid $brand-color;
+    color: currentColor;
+    font-family: $font;
+    font-size: .9rem;
+    font-weight: $font-weight-black;
+    line-height: 1.45;
+    padding-left: .5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    @include mq($from: tablet) {
+      border-left-width: 10px;
+      font-size: 1.35rem;
+      padding-left: .85rem;
+    }
+
+    &:hover,
+    &:focus {
+      color: $brand-color;
+    }
+  }
+}
