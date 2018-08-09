@@ -62,3 +62,5 @@
 
   <?php endwhile; ?>
 </header>
+
+<?php get_template_part('support'); ?>

@@ -53,5 +53,3 @@
 
       <?php endwhile; endif; ?>
     </header>
-
-    <?php get_template_part('support'); ?>
