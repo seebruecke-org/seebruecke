@@ -72,7 +72,11 @@ function create_posttypes() {
         'name' => pll__('Headers'),
         'singular_name' => pll__('Header')
         ),
-        'public' => true,
+        'public' => false,
+        'publicly_queryable' => false,
+        'exclude_from_search' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
         'has_archive' => false,
         'supports' => array(
           'title',
@@ -89,7 +93,11 @@ function create_posttypes() {
         'name' => pll__('Footers'),
         'singular_name' => pll__('Footer')
         ),
-        'public' => true,
+        'public' => false,
+        'publicly_queryable' => false,
+        'exclude_from_search' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
         'has_archive' => false,
         'supports' => array(
           'editor',
@@ -121,7 +129,11 @@ function create_posttypes() {
         'name' => pll__('Organisations'),
         'singular_name' => pll__('Organisation')
         ),
-        'public' => true,
+        'public' => false,
+        'publicly_queryable' => false,
+        'exclude_from_search' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
         'has_archive' => false,
         'supports' => array(
           'title',
