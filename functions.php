@@ -513,7 +513,11 @@ function remove_wp_version() {
 }
 
 function enqueue_style() {
-  wp_enqueue_style('style', get_template_directory_uri() . '/dist/main.css');
+  $main_path = '/dist/main.css';
+  $main = get_stylesheet_directory() . $main_path;
+  $main_uri = get_template_directory_uri() . $main_path;
+
+  wp_enqueue_style('style', $main_uri, false, filemtime($main));
 }
 
 function disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {

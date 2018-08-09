@@ -45,11 +45,10 @@
     line-height: 1.45;
     padding-left: .5rem;
     text-decoration: none;
-    text-transform: uppercase;
 
     @include mq($from: tablet) {
-      border-left-width: 10px;
-      font-size: 1.35rem;
+      border-left-width: 3px;
+      font-size: 1.15rem;
       padding-left: .85rem;
     }
 
