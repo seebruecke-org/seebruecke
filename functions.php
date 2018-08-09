@@ -520,6 +520,14 @@ function enqueue_style() {
   wp_enqueue_style('style', $main_uri, false, filemtime($main));
 }
 
+function enqueue_scripts() {
+  $main_path = '/dist/main.css';
+  $main = get_stylesheet_directory() . $main_path;
+  $main_uri = get_template_directory_uri() . $main_path;
+
+  wp_enqueue_style('style', $main_uri, false, filemtime($main));
+}
+
 function disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
   if ('dns-prefetch' == $relation_type) {
     $emoji_svg_url = apply_filters('emoji_svg_url', 'https://s.w.org/images/core/emoji/2/svg/');
@@ -572,6 +580,7 @@ add_shortcode('supporting_organizations', 'shortcode_supporting_organizations');
 add_shortcode('paypal', 'shortcode_paypal');
 
 add_action('wp_enqueue_scripts', 'enqueue_style');
+add_action( 'admin_enqueue_scripts', 'enqueue_scripts' );
 
 /* image sizes */
 add_image_size('hero-image', 2400, 9999);
