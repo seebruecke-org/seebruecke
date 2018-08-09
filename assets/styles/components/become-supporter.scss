@@ -7,11 +7,12 @@
   list-style: none;
   margin-bottom: 4rem;
   margin-top: 4rem;
-  padding-left: 0;
-  padding-right: 0;
+  padding: 3rem 0;
 
   @include mq($from: desktop) {
     @include break-constraint();
+
+    background-color: #f5f5f5;
     flex-direction: row;
     padding-left: 4rem;
     padding-right: 4rem;

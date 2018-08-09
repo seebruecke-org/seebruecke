@@ -19,7 +19,7 @@ function get_all_events($extend_query = []) {
         )
       ),
       'orderby' => 'event_date',
-      'order' => 'ASC',
+      'order' => 'DESC',
       'post_type' => 'events',
       'post_status' => 'publish',
       'posts_per_page' => -1,
@@ -34,6 +34,7 @@ function get_all_events($extend_query = []) {
 
 function get_all_upcoming_events() {
   return get_all_events(array(
+    'order' => 'ASC',
     'meta_query' => array(
       array(
         'key' => 'event_date',
@@ -367,17 +368,21 @@ function shortcode_actions($atts = []) {
               </a>
             </div>
 
-            <h3 class="action__title">
-              <div class="action__meta">
-                <small class="action__location">'
-                  . $fields['event_city'][0] .
-                '</small>
-              </div>
+            <div class="action__content-container">
+              <h3 class="action__title">
+                <div class="action__meta">
+                  <small class="action__time">'
+                    . $fields['event_time'][0] .
+                  '</small>
+                </div>
 
-              <a href="' . $href . '">
-                ' . $event->post_title . '
-              </a>
-            </h3>
+                <a href="' . $href . '">
+                  ' . $fields['event_city'][0] . '
+                </a>
+              </h3>
+
+              <p class="action__content">' . $event->post_title . '</p>
+            </div>
           </div>
         </li>
       ';
@@ -512,9 +517,9 @@ function enqueue_style() {
 }
 
 function disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
-  if ( 'dns-prefetch' == $relation_type ) {
-    $emoji_svg_url = apply_filters( 'emoji_svg_url', 'https://s.w.org/images/core/emoji/2/svg/' );
-    $urls = array_diff( $urls, array( $emoji_svg_url ) );
+  if ('dns-prefetch' == $relation_type) {
+    $emoji_svg_url = apply_filters('emoji_svg_url', 'https://s.w.org/images/core/emoji/2/svg/');
+    $urls = array_diff($urls, array( $emoji_svg_url ));
   }
 
   return $urls;
@@ -529,16 +534,16 @@ function disable_emojis_tinymce($plugins) {
 }
 
 function disable_emojis() {
-  remove_action( 'wp_head', 'print_emoji_detection_script', 7);
-  remove_action( 'admin_print_scripts', 'print_emoji_detection_script');
-  remove_action( 'wp_print_styles', 'print_emoji_styles');
-  remove_action( 'admin_print_styles', 'print_emoji_styles');
-  remove_filter( 'the_content_feed', 'wp_staticize_emoji');
-  remove_filter( 'comment_text_rss', 'wp_staticize_emoji');
-  remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email');
+  remove_action('wp_head', 'print_emoji_detection_script', 7);
+  remove_action('admin_print_scripts', 'print_emoji_detection_script');
+  remove_action('wp_print_styles', 'print_emoji_styles');
+  remove_action('admin_print_styles', 'print_emoji_styles');
+  remove_filter('the_content_feed', 'wp_staticize_emoji');
+  remove_filter('comment_text_rss', 'wp_staticize_emoji');
+  remove_filter('wp_mail', 'wp_staticize_emoji_for_email');
 
-  add_filter( 'tiny_mce_plugins', 'disable_emojis_tinymce');
-  add_filter( 'wp_resource_hints', 'disable_emojis_remove_dns_prefetch', 10, 2);
+  add_filter('tiny_mce_plugins', 'disable_emojis_tinymce');
+  add_filter('wp_resource_hints', 'disable_emojis_remove_dns_prefetch', 10, 2);
 }
 
 function get_date_format() {

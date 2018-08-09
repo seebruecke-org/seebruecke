@@ -6,27 +6,41 @@
     padding: 0;
   }
 
-  &__action + &__action {
-    margin-top: 1.25rem;
+  &__events {
+    @include mq($from: tablet) {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__action {
+    flex-basis: 100%;
+    margin-bottom: 1rem;
+
+    @include mq($from: tablet) {
+      flex-basis: 50%;
+     margin-bottom: 2rem;
+    }
   }
 
   &__day + &__day {
-    margin-top: 3rem;
+    margin-top: 2rem;
   }
 
   &__day-title {
-    border-bottom: 1px solid #e6e6e6;
-    font-size: 1rem;
+    border-bottom: 4px solid $secondary-color;
+    font-size: 1.2rem;
     margin-bottom: .5rem;
     margin-top: 0;
     padding-bottom: .25rem;
     padding-left: 2.6rem;
 
     @include mq($from: tablet) {
-      font-size: 1.25rem;
+      font-size: 1.6rem;
       margin-bottom: 1rem;
       padding-bottom: .5rem;
-      padding-left: 4rem;
+      padding-left: 4.2rem;
     }
   }
 

@@ -9,6 +9,7 @@
 
     @include mq($from: tablet) {
       margin-right: 1.5rem;
+      margin-top: 1.2rem;
     }
 
     > a {
@@ -20,8 +21,8 @@
       width: 1.5rem;
 
       @include mq($from: tablet) {
-        height: 2.5rem;
-        width: 2.5rem;
+        height: 2.75rem;
+        width: 2.75rem;
       }
     }
   }
@@ -29,24 +30,23 @@
   &__meta {
     color: $text-color;
     font-size: 1rem;
-    font-weight: $font-weight;
-    margin-bottom: .2rem;
 
     @include mq($from: tablet) {
-      font-size: 1.15rem;
+      font-size: 1.2rem;
     }
   }
 
   &__title {
     color: $brand-color;
-    font-size: 1.05rem;
+    font-size: 1.35rem;
+    letter-spacing: .05rem;
     line-height: 1.2;
-    margin-bottom: 0;
+    margin-bottom: .1rem;
     margin-top: 0;
     text-transform: uppercase;
 
     @include mq($from: tablet) {
-      font-size: 1.35rem;
+      font-size: 1.8rem;
     }
 
     > a {
@@ -57,6 +57,16 @@
       &:focus {
         text-decoration: underline;
       }
+    }
+  }
+
+  &__content {
+    font-size: 1rem;
+    margin-bottom: 0;
+    margin-top: 0;
+
+    @include mq($from: tablet) {
+      font-size: 1.2rem;
     }
   }
 }
