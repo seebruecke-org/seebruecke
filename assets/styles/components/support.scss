@@ -10,10 +10,22 @@
   padding-bottom: 1.2rem;
   padding-top: 1.2rem;
 
+  @include mq($until: tablet) {
+    text-align: center;
+  }
+
   &__label {
-    font-size: 1.2rem;
+    display: block;
+    font-size: 1rem;
     font-style: normal;
-    margin-right: 1.2rem;
+    margin-bottom: 1rem;
+
+    @include mq($from: tablet) {
+      display: inline-block;
+      font-size: 1.2rem;
+      margin-bottom: 0;
+      margin-right: 1.2rem;
+    }
   }
 
   &__item {
@@ -29,8 +41,13 @@
     }
 
     > svg {
-      height: 1.5rem;
-      width: 1.5rem;
+      height: 1.2rem;
+      width: 1.2rem;
+
+      @include mq($from: tablet) {
+        height: 1.5rem;
+        width: 1.5rem;
+      }
     }
   }
 

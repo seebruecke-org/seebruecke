@@ -6,16 +6,15 @@
   font-family: $font;
   list-style: none;
   margin-bottom: 4rem;
-  margin-top: 4rem;
-  padding: 3rem 0;
+  padding: 1.5rem 0;
 
   @include mq($from: desktop) {
     @include break-constraint();
 
     background-color: #f5f5f5;
     flex-direction: row;
-    padding-left: 4rem;
-    padding-right: 4rem;
+    margin-top: 4rem;
+    padding: 3rem 4rem;
   }
 
   &__item {
@@ -25,7 +24,7 @@
   }
 
   &__item + &__item {
-    margin-top: 2rem;
+    margin-top: 2.5rem;
 
     @include mq($from: desktop) {
       margin-left: 4rem;
