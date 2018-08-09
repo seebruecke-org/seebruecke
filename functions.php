@@ -391,7 +391,7 @@ function shortcode_actions($atts = []) {
     return '<ul class="actions__events">' . $markup . '</ul>';
   }
 
-  function render_days($show_only_upcoming) {
+  function render_days($show_only_upcoming, $show_upcoming_count) {
     $markup = '';
 
     if ($show_only_upcoming) {
@@ -401,6 +401,10 @@ function shortcode_actions($atts = []) {
     }
 
     $events_grouped = group_events_by_date($events->posts);
+
+    if($show_upcoming_count) {
+      $events_grouped = array_slice($events_grouped, 0, (int)$show_upcoming_count);
+    }
 
     foreach($events_grouped as $date => $event) {
       $id = $event->ID;
@@ -433,12 +437,13 @@ function shortcode_actions($atts = []) {
     ';
   }
 
-  $show_only_upcoming = in_array('upcoming', $atts);
+  $show_only_upcoming = array_key_exists('upcoming', $atts) || in_array('upcoming', $atts);
+  $show_upcoming_count = $atts['upcoming'];
 
   return '
     <div class="actions">
       <ul class="actions__list">
-      ' . render_days($show_only_upcoming) . '
+      ' . render_days($show_only_upcoming, $show_upcoming_count) . '
       </ul>
       ' . $all_markup . '
     </div>
