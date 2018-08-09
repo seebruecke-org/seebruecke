@@ -49,6 +49,10 @@
       font-size: 1.8rem;
     }
 
+    @include mq($from: desktop) {
+      font-size: 1.6rem;
+    }
+
     > a {
       color: currentColor;
       text-decoration: none;
@@ -67,6 +71,11 @@
 
     @include mq($from: tablet) {
       font-size: 1.2rem;
+    }
+
+    @include mq($from: desktop) {
+      font-size: 1rem;
+      padding-right: 1rem;
     }
   }
 }

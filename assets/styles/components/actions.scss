@@ -1,4 +1,9 @@
 .actions {
+  @include mq($from: desktop) {
+    margin-left: -8rem;
+    margin-right: -8rem;
+  }
+
   &__list,
   &__events {
     list-style: none;
@@ -20,7 +25,11 @@
 
     @include mq($from: tablet) {
       flex-basis: 50%;
-     margin-bottom: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    @include mq($from: desktop) {
+      flex-basis: 33.333%;
     }
   }
 
