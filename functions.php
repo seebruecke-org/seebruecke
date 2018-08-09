@@ -168,6 +168,21 @@ function register_meta_boxes($meta_boxes) {
         'field_type'  => 'select_advanced',
       ),
 
+      // Secondary action
+      array(
+        'name'  => 'Secondary action text',
+        'desc'  => '(Label of the secondary button)',
+        'id'    => 'header_secondary_label',
+        'type'  => 'text',
+      ),
+
+      array(
+        'name'  => 'Secondary link target',
+        'desc'  => '(Link target of the secondary button)',
+        'id'    => 'header_secondary_reference',
+        'type'  => 'text',
+      ),
+
       // Support widget
       array(
         'name'  => 'Support text',

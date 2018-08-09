@@ -125,18 +125,32 @@
     }
   }
 
-  &__action {
-    background-color: $brand-color;
+  &__action,
+  &__secondary-action {
     border-radius: 3px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, .3);
     color: white;
     display: inline-block;
-    font-size: 1rem;
-    font-weight: $font-weight;
-    margin-top: 2rem;
-    padding: .75rem 1.5rem;
     text-decoration: none;
     text-shadow: 0 0 2px rgba(0, 0, 0, .3);
+
+    &:hover,
+    &:focus {
+      cursor: pointer;
+    }
+
+    &:active {
+      transform: translateY(2px);
+    }
+  }
+
+  &__action {
+    background-color: $brand-color;
+    font-size: 1rem;
+    font-weight: $font-weight-black;
+    margin-top: 2rem;
+    padding: .75rem 1.5rem;
+    text-transform: uppercase;
 
     @include mq($from: tablet) {
       font-size: 1.2rem;
@@ -147,7 +161,19 @@
     &:hover,
     &:focus {
       background-color: darken($brand-color, 10%);
-      cursor: pointer;
+    }
+  }
+
+  &__secondary-action {
+    background-color: $secondary-color;
+    font-size: .9rem;
+    font-weight: $font-weight;
+    margin-top: 1.5rem;
+    padding: .85rem 1.25rem;
+
+    &:hover,
+    &:focus {
+      background-color: darken($secondary-color, 10%);
     }
   }
 

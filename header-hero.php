@@ -14,6 +14,9 @@
     $label = rwmb_meta('header_label');
     $reference = rwmb_meta('header_reference');
 
+    $secondary_label = rwmb_meta('header_secondary_label');
+    $secondary_reference = rwmb_meta('header_secondary_reference');
+
     $thumbnail_id = get_post_thumbnail_id();
     $thumbnail_attrs = array(
       'class' => 'header__image',
@@ -40,6 +43,15 @@
               class="header__action">
             <?php echo $label; ?>
           </a>
+        <?php endif; ?>
+
+        <?php if($secondary_label && $secondary_reference): ?>
+          <div>
+            <a href="<?php echo $secondary_reference; ?>"
+                class="header__secondary-action">
+              <?php echo $secondary_label; ?>
+            </a>
+          </div>
         <?php endif; ?>
 
         <div class="header__additional-content">
