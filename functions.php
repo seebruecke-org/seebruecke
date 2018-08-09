@@ -512,20 +512,29 @@ function remove_wp_version() {
   return '';
 }
 
-function enqueue_style() {
-  $main_path = '/dist/main.css';
-  $main = get_stylesheet_directory() . $main_path;
-  $main_uri = get_template_directory_uri() . $main_path;
-
-  wp_enqueue_style('style', $main_uri, false, filemtime($main));
-}
-
 function enqueue_scripts() {
   $main_path = '/dist/main.css';
   $main = get_stylesheet_directory() . $main_path;
   $main_uri = get_template_directory_uri() . $main_path;
 
   wp_enqueue_style('style', $main_uri, false, filemtime($main));
+
+  if(is_user_logged_in()) {
+    $admin_path = '/dist/admin.js';
+    $admin_js = get_template_directory() . $admin_path;
+    $admin_js_uri = get_template_directory_uri() . $admin_path;
+
+    wp_register_script(
+      'admin_js',
+      $admin_js_uri,
+      array(
+        'jquery'
+      ),
+      filemtime($admin_js)
+    );
+
+    wp_enqueue_script('admin_js');
+  }
 }
 
 function disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
@@ -579,8 +588,7 @@ add_shortcode('become_supporter_item', 'shortcode_become_supporter_item');
 add_shortcode('supporting_organizations', 'shortcode_supporting_organizations');
 add_shortcode('paypal', 'shortcode_paypal');
 
-add_action('wp_enqueue_scripts', 'enqueue_style');
-add_action( 'admin_enqueue_scripts', 'enqueue_scripts' );
+add_action('wp_enqueue_scripts', 'enqueue_scripts');
 
 /* image sizes */
 add_image_size('hero-image', 2400, 9999);
