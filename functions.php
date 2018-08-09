@@ -474,6 +474,30 @@ function shortcode_become_supporter_item($atts = [], $content = null) {
   ';
 }
 
+function shortcode_paypal() {
+  return '
+    <form action="https://www.paypal.com/cgi-bin/webscr"
+          method="post"
+          target="_top">
+      <input name="cmd"
+             type="hidden"
+             value="_s-xclick" />
+      <input name="hosted_button_id"
+             type="hidden"
+             value="NMGH6PJ5D9LKQ" />
+      <input alt="Jetzt einfach, schnell und sicher online bezahlen – mit PayPal." name="submit"
+             src="https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif"
+             type="image" />
+      <img style="display: none !important;"
+           hidden=""
+           src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif"
+           alt="" width="1"
+           height="1"
+           border="0" />
+  </form>
+  ';
+}
+
 function cleanup_admin() {
   remove_menu_page('edit.php');
   remove_menu_page('edit-comments.php');
@@ -536,6 +560,7 @@ add_shortcode('donate', 'shortcode_donate');
 add_shortcode('become_supporter', 'shortcode_become_supporter');
 add_shortcode('become_supporter_item', 'shortcode_become_supporter_item');
 add_shortcode('supporting_organizations', 'shortcode_supporting_organizations');
+add_shortcode('paypal', 'shortcode_paypal');
 
 add_action('wp_enqueue_scripts', 'enqueue_style');
 
