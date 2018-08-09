@@ -447,7 +447,7 @@ function shortcode_actions($atts = []) {
   if (!is_archive()) {
     $all_markup = '
       <a href="' . $url . '" class="actions__more">
-        ' . pll__('Alle Events') . '
+        ' . pll__('Alle Aktionen') . '
       </a>
     ';
   }
@@ -614,8 +614,8 @@ add_action('wp_enqueue_scripts', 'enqueue_scripts');
 add_image_size('hero-image', 2400, 9999);
 
 /* custom strings */
-pll_register_string('all_actions', 'Alle Aktionen');
 pll_register_string('archive_events', 'Alle Aktionen');
+pll_register_string('all_events', 'Alle Aktionen');
 pll_register_string('back_to_homepage_short', 'Zurück zur Startseite');
 pll_register_string('date_format', 'd.m.Y');
 pll_register_string('at', 'um');

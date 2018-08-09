@@ -8,7 +8,7 @@
     margin-top: .4rem;
 
     @include mq($from: tablet) {
-      margin-right: 1.5rem;
+      margin-right: 1.25rem;
       margin-top: 1.2rem;
     }
 
@@ -33,15 +33,16 @@
 
     @include mq($from: tablet) {
       font-size: 1.2rem;
+      margin-bottom: -.15rem;
     }
   }
 
   &__title {
-    color: $brand-color;
+    color: $text-color;
     font-size: 1.35rem;
     letter-spacing: .05rem;
     line-height: 1.2;
-    margin-bottom: .1rem;
+    margin-bottom: .25rem;
     margin-top: 0;
     text-transform: uppercase;
 
@@ -50,16 +51,28 @@
     }
 
     @include mq($from: desktop) {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
     }
 
     > a {
+
       color: currentColor;
+      position: relative;
       text-decoration: none;
 
-      &:hover,
-      &:focus {
-        text-decoration: underline;
+      &:before {
+        border-bottom: 2px solid lighten($brand-color, 10%);
+        bottom: 0;
+        content: '';
+        height: 1px;
+        left: 0;
+        position: absolute;
+        width: 100%;
+      }
+
+      &:hover &:before,
+      &:focus &:before {
+        border-color: $secondary-color;
       }
     }
   }
@@ -74,7 +87,7 @@
     }
 
     @include mq($from: desktop) {
-      font-size: 1rem;
+      font-size: 1.05rem;
       padding-right: 1rem;
     }
   }

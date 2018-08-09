@@ -3,11 +3,18 @@
 
   background-color: $secondary-color;
   color: white;
-  margin-bottom: 4rem;
-  margin-top: 4rem;
-  padding-bottom: 1.75rem;
-  padding-top: 1.75rem;
+  margin-bottom: 3rem;
+  margin-top: 3rem;
+  padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
   text-align: center;
+
+  @include mq($from: tablet) {
+    margin-bottom: 4rem;
+    margin-top: 4rem;
+    padding-bottom: 1.75rem;
+    padding-top: 1.75rem;
+  }
 
   &__button {
     background-color: transparent;

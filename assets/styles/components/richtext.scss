@@ -21,13 +21,13 @@
 
   h2 {
     color: $brand-color;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     margin-bottom: 1rem;
     margin-top: 1.5rem;
     text-align: center;
 
     @include mq($from: tablet) {
-      font-size: 1.8rem;
+      font-size: 2rem;
       margin-bottom: 2rem;
       margin-top: 3rem;
     }
@@ -54,7 +54,7 @@
     line-height: 1.45;
 
     @include mq($from: tablet) {
-      font-size: 1.3rem;
+      font-size: 1.25rem;
     }
   }
 

@@ -3,11 +3,10 @@
 
   background-color: $secondary-color;
   color: white;
-  padding: 3rem 2rem 2rem 2rem;
+  padding: 2rem 2rem 1rem 2rem;
 
   @include mq($from: tablet) {
-    padding-left: 0;
-    padding-right: 0;
+    padding: 3rem 0 2rem 0;
   }
 
   // in case it comes right before the footer
@@ -25,6 +24,16 @@
     margin-bottom: 0;
     margin-top: 0;
     padding-left: 0;
+
+    @include mq($from: desktop) {
+      margin-left: -4rem;
+      margin-right: -4rem;
+    }
+
+    @include mq($from: wide) {
+      margin-left: -6.5rem;
+      margin-right: -6.5rem;
+    }
   }
 
   &__organization {
@@ -32,24 +41,24 @@
     margin-right: .5rem;
 
     @include mq($from: tablet) {
-      margin-right: .85rem;
+      margin-right: .9rem;
     }
   }
 
   &__organization-link {
-    border-left: 5px solid $brand-color;
+    border-right: 3px solid $brand-color;
     color: currentColor;
     font-family: $font;
     font-size: .9rem;
     font-weight: $font-weight;
     line-height: 1.45;
-    padding-left: .5rem;
+    padding-right: .5rem;
     text-decoration: none;
 
     @include mq($from: tablet) {
-      border-left-width: 3px;
-      font-size: 1.15rem;
-      padding-left: .85rem;
+      border-right-width: 5px;
+      font-size: 1.1rem;
+      padding-right: .9rem;
     }
 
     &:hover,

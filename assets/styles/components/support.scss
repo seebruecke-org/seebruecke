@@ -7,7 +7,7 @@
   font-family: $font;
   line-height: 1;
   margin-top: -4rem;
-  padding-bottom: 1.2rem;
+  padding-bottom: 1rem;
   padding-top: 1.2rem;
 
   @include mq($until: tablet) {

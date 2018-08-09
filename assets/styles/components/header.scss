@@ -80,6 +80,8 @@
 
     @include mq($from: tablet) {
       margin-top: 4rem;
+      position: relative;
+      top: 1.5rem;
     }
   }
 
@@ -102,10 +104,12 @@
 
     @include mq($from: tablet) {
       font-size: 2.8rem;
+      margin-left: 0;
+      margin-right: 0;
     }
 
     @include mq($from: desktop) {
-      font-size: 3.6rem;
+      font-size: 4.2rem;
     }
   }
 
@@ -132,7 +136,6 @@
     color: white;
     display: inline-block;
     text-decoration: none;
-    text-shadow: 0 0 2px rgba(0, 0, 0, .3);
 
     &:hover,
     &:focus {
@@ -148,13 +151,14 @@
     background-color: $brand-color;
     font-size: 1rem;
     font-weight: $font-weight-black;
+    letter-spacing: .04rem;
     margin-top: 2rem;
     padding: .75rem 1.5rem;
     text-transform: uppercase;
 
     @include mq($from: tablet) {
       font-size: 1.2rem;
-      margin-top: 3rem;
+      margin-top: 6rem;
       padding: 1rem 2rem;
     }
 

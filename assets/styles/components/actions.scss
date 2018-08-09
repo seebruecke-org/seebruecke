@@ -39,13 +39,17 @@
   }
 
   &__day + &__day {
-    margin-top: 2rem;
+    margin-top: 3rem;
+
+    @include mq($from: tablet) {
+      margin-top: 2rem;
+    }
   }
 
   &__day-title {
     border-bottom: 4px solid $secondary-color;
     font-size: 1.2rem;
-    margin-bottom: .5rem;
+    margin-bottom: .75rem;
     margin-top: 0;
     padding-bottom: .25rem;
     padding-left: 2.6rem;
