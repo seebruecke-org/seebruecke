@@ -1,6 +1,13 @@
 const map = () => {
   const container = document.querySelector('.js-map');
-  const data = JSON.parse(container.dataset.data);
+  const data = constainer &&
+               container.dataset &&
+               JSON.parse(container.dataset.data);
+
+  if (!container || !data) {
+    return;
+  }
+
   const mapClient = window.google && new window.google.maps.Map(
     container,
     {
