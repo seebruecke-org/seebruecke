@@ -1,0 +1,10 @@
+.map {
+  @include break-constraint;
+
+  margin-bottom: 4rem;
+
+  &__canvas {
+    height: 350px;
+    width: 100%;
+  }
+}

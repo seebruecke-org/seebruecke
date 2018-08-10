@@ -375,7 +375,7 @@ function shortcode_actions($atts = []) {
       $href = get_the_permalink($id);
 
       $markup .= '
-        <li class="actions__action">
+        <li class="actions__action js-action">
           <div class="action">
             <div class="action__icon-container">
               <a href="' . $href . '" rel="nofollow">
@@ -403,7 +403,9 @@ function shortcode_actions($atts = []) {
       ';
     }
 
-    return '<ul class="actions__events">' . $markup . '</ul>';
+    return '
+      <ul class="actions__events">' . $markup . '</ul>
+    ';
   }
 
   function render_days($show_only_upcoming, $show_upcoming_count) {
@@ -455,8 +457,31 @@ function shortcode_actions($atts = []) {
   $show_only_upcoming = array_key_exists('upcoming', $atts) || in_array('upcoming', $atts);
   $show_upcoming_count = $atts['upcoming'];
 
+  // map coordinates
+  $events = get_all_upcoming_events();
+  $events_json = [];
+
+  foreach($events->posts as $event) {
+    $id = $event->ID;
+    $fields = get_post_custom($id);
+    $coordinates = $fields['event_coordinates'][0];
+
+    if($coordinates) {
+      $events_json[] = array(
+        'coordinates' => $coordinates,
+        'title' => get_the_title($id),
+        'url' => get_the_permalink($id),
+      );
+    }
+  }
+
   return '
     <div class="actions">
+      <div class="map">
+        <div class="map__canvas js-map"
+             data-data=\'' . json_encode($events_json) . '\'></div>
+      </div>
+
       <ul class="actions__list">
       ' . render_days($show_only_upcoming, $show_upcoming_count) . '
       </ul>
@@ -538,6 +563,19 @@ function enqueue_scripts() {
   $main_uri = get_template_directory_uri() . $main_path;
 
   wp_enqueue_style('style', $main_uri, false, filemtime($main));
+
+  $main_js_path = '/dist/main.js';
+  $main_js = get_template_directory() . $main_js_path;
+  $main_js_uri = get_template_directory_uri() . $main_js_path;
+
+  wp_register_script(
+    'main_js',
+    $main_js_uri,
+    array(),
+    filemtime($main_js)
+  );
+
+  wp_enqueue_script('main_js');
 
   if(is_user_logged_in()) {
     $admin_path = '/dist/admin.js';
