@@ -660,6 +660,7 @@ pll_register_string('at', 'um');
 pll_register_string('time', 'Uhrzeit');
 pll_register_string('location', 'Ort');
 pll_register_string('link', 'Link');
+pll_register_string('link_to_event', 'Link zum Event');
 pll_register_string('language', 'Sprache:');
 
 ?>

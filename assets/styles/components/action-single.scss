@@ -6,6 +6,7 @@
     color: white;
     margin-bottom: 4rem;
     margin-top: -4rem;
+    overflow-x: hidden;
     padding-bottom: .5rem;
     padding-top: 2rem;
 
@@ -31,10 +32,11 @@
     dd > a {
       border-bottom: 1px solid lighten($secondary-color, 20%);
       color: currentColor;
-      overflow-x: hidden;
+      overflow: hidden;
       padding-bottom: .2rem;
       text-decoration: none;
       text-overflow: ellipsis;
+      white-space: nowrap;
 
       &:hover,
       &:focus {

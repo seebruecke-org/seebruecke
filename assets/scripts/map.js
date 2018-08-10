@@ -1,6 +1,6 @@
 const map = () => {
   const container = document.querySelector('.js-map');
-  const data = constainer &&
+  const data = container &&
                container.dataset &&
                JSON.parse(container.dataset.data);
 
