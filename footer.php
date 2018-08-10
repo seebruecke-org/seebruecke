@@ -15,7 +15,7 @@
     <script
       async
       defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcge6nR-oLJWLJG_IdLPGvmBJUsx70mm0&callback=googleMaps">
+      src="https://maps.googleapis.com/maps/api/js?key=<?php echo $GOOGLE_MAPS_API_KEY; ?>&callback=googleMaps">
     </script>
 
   </body>
