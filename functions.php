@@ -631,7 +631,25 @@ function get_date_format() {
   return pll__('d.m.Y');
 }
 
-add_action( 'init', 'disable_emojis');
+function feed_events() {
+  $post_types = array(
+    'events'
+  );
+
+  foreach($post_types as $post_type) {
+    $feed = get_post_type_archive_feed_link($post_type);
+
+    if ($feed === '' || !is_string( $feed )) {
+      $feed = get_bloginfo('rss2_url') . '?post_type=' . $post_type;
+    }
+
+    printf(
+      __('<link rel="%1$s" type="%2$s" href="%3$s" />'), 'alternate', 'application/rss+xml', $feed);
+  }
+}
+
+add_action('init', 'disable_emojis');
+add_action('wp_head', 'feed_events');
 
 add_action('init', 'create_posttypes');
 add_filter('rwmb_meta_boxes', 'register_meta_boxes');
