@@ -234,7 +234,7 @@ function register_meta_boxes($meta_boxes) {
         ),
 
         array(
-          'api_key' => $GOOGLE_MAPS_API_KEY,
+          'api_key' => 'AIzaSyBcge6nR-oLJWLJG_IdLPGvmBJUsx70mm0',
           'name'  => 'Location',
           'desc'  => 'Coordinates of the location',
           'id'    => 'event_coordinates',
