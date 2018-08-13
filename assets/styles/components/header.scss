@@ -70,24 +70,19 @@
     fill: white;
     margin-left: auto;
     margin-right: auto;
-    width: 12rem;
+    width: 16rem;
 
     @include mq($from: tablet) {
       left: 1rem;
       top: .5rem;
       transform: none;
-      width: 14rem;
-    }
-
-    @include mq($from: desktop) {
-      width: 16rem;
     }
   }
 
   &__content {
     color: white;
     font-family: $font;
-    margin-top: 2rem;
+    margin-top: 1rem;
     text-align: center;
 
     @include mq($from: tablet) {
@@ -102,6 +97,12 @@
 
     @include mq($from: tablet) {
       margin-top: 6rem;
+    }
+  }
+
+  &--small &__content {
+    @include mq($from: tablet) {
+      margin-top: 3.5rem;
     }
   }
 
@@ -138,6 +139,12 @@
 
     @include mq($from: desktop) {
       font-size: 2.4rem;
+    }
+  }
+
+  &--small &__title {
+    @include mq($from: desktop) {
+      font-size: 3.8rem;
     }
   }
 
