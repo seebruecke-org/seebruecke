@@ -1,7 +1,6 @@
 <!doctype html>
 
-<html lang="en"
-      class="no-js">
+<html <?php language_attributes(); ?>>
 
   <?php get_template_part('html', 'head'); ?>
 
