@@ -550,6 +550,39 @@ function shortcode_paypal() {
   ';
 }
 
+function shortcode_featured($atts = []) {
+  $atts = array_change_key_case((array)$atts, CASE_LOWER);
+  $id = $atts['id'];
+  $title = $atts['title'] ? $atts['title'] : get_the_title($id);
+  $subtitle = $atts['subtitle'];
+  $subtitle_markup = '';
+  $href = get_the_permalink($id);
+  $image = get_the_post_thumbnail($id, 'hero-image', array(
+    'class' => 'featured__image'
+  ));
+
+  if ($subtitle) {
+    $subtitle_markup = '
+      <small class="featured__subtitle">
+        ' . $subtitle . '
+      </small>
+    ';
+  }
+
+  return '
+    <section class="featured">
+      ' . $image . '
+      <h3 class="featured__title">
+        ' . $subtitle_markup . '
+
+        <a href="' . $href . '">
+          ' . $title . '
+        </a>
+      </h3>
+    </section>
+  ';
+}
+
 function cleanup_admin() {
   remove_menu_page('edit.php');
   remove_menu_page('edit-comments.php');
@@ -665,6 +698,7 @@ add_shortcode('become_supporter', 'shortcode_become_supporter');
 add_shortcode('become_supporter_item', 'shortcode_become_supporter_item');
 add_shortcode('supporting_organizations', 'shortcode_supporting_organizations');
 add_shortcode('paypal', 'shortcode_paypal');
+add_shortcode('featured', 'shortcode_featured');
 
 add_action('wp_enqueue_scripts', 'enqueue_scripts');
 
