@@ -1,17 +1,6 @@
 <head>
   <meta charset="utf-8" />
 
-  <script type="text/javascript">
-    var html = document.querySelector('html');
-    var removeJSClass = function(el) {
-      el.classList.remove('no-js');
-    }
-
-    if (html) {
-      removeJSClass(html);
-    }
-  </script>
-
   <meta http-equiv="x-ua-compatible"
         content="ie=edge" />
 
