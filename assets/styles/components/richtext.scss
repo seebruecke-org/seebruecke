@@ -22,6 +22,7 @@
   h2 {
     color: $brand-color;
     font-size: 1.4rem;
+    font-weight: $font-weight-black;
     margin-bottom: 1rem;
     margin-top: 1.5rem;
     text-align: center;
@@ -37,8 +38,22 @@
     }
   }
 
+  h3 {
+    color: $brand-color;
+    font-size: 1.4rem;
+    font-weight: $font-weight-black;
+
+    @include mq($from: tablet) {
+      font-size: 1.6rem;
+    }
+  }
+
   * + h2 {
     margin-top: 5rem;
+  }
+
+  * + h3 {
+    margin-top: 1.5rem;
   }
 
   > address {
