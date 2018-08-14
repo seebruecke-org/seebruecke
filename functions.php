@@ -1,5 +1,7 @@
 <?php
 
+global $GOOGLE_MAPS_API_KEY;
+
 $GOOGLE_MAPS_API_KEY = 'AIzaSyBcge6nR-oLJWLJG_IdLPGvmBJUsx70mm0';
 
 function get_all_organizations() {
@@ -146,6 +148,8 @@ function create_posttypes() {
 }
 
 function register_meta_boxes($meta_boxes) {
+  global $GOOGLE_MAPS_API_KEY;
+
   // Header
   $meta_boxes[] = array(
     'id'         => 'header_data',
@@ -234,7 +238,7 @@ function register_meta_boxes($meta_boxes) {
         ),
 
         array(
-          'api_key' => 'AIzaSyBcge6nR-oLJWLJG_IdLPGvmBJUsx70mm0',
+          'api_key' => $GOOGLE_MAPS_API_KEY,
           'name'  => 'Location',
           'desc'  => 'Coordinates of the location',
           'id'    => 'event_coordinates',

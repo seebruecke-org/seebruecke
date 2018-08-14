@@ -1,3 +1,7 @@
+<?php
+  global $GOOGLE_MAPS_API_KEY;
+?>
+
     <footer class="footer">
       <div class="constraint">
         <?php
