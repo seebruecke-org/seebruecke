@@ -28,8 +28,8 @@ const map = () => {
     if (coordinates && coordinates[0] && coordinates[1]) {
       const mapsMarker = new google.maps.Marker({
         position: {
-          lat: parseInt(coordinates[0], 10),
-          lng: parseInt(coordinates[1], 10),
+          lat: parseFloat(coordinates[0]),
+          lng: parseFloat(coordinates[1]),
         },
         map: mapClient,
         title,
