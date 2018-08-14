@@ -76,7 +76,7 @@
 
           <?php
             $slug = pll_current_language('slug');
-            $slug = $slug == 'de' ? '' : $slug;
+            $slug = $slug == 'de' ? '' : ('/' . $slug);
             $url = $slug . '/events/';
           ?>
 
