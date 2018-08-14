@@ -74,6 +74,7 @@ Headers are used to render the hero image on the front page. Currently they cons
 
 The whole frontpage is composed through shortcodes. If you want to use any of the widgets there, or even more, please have a look into the "Startpage" of each language.
 
+
 ### Featured
 
 `[featured id="" [title=""] [subtitle=""]]`
@@ -82,19 +83,31 @@ The featured shortcode can be used to create a teaser to a certain page. It expe
 
 It is possible to overwrite `title` by setting the `title` attribute. `subtitle` is used to generate a text, which is prefixed to the title and a bit smaller.
 
+
 ### Paypal
+
+Renders a donate with paypal widget.
 
 `[paypal]`
 
 
 ### Supporting organizations
 
+Renders a list of supporting organizations.
+
 `[supporting_organizations]`
 
 
 ### Become supporter
 
-`[become_supporter]`
+Renders the "Become a supporter" columns. `[become_supporter]` always consists of `[become_supporter_item]`s.
+
+```
+[become_supporter]
+[become_supporter_item icon="flag|bulhorn|users" title=""]content[/become_supporter_item]
+[become_supporter_item title=""]content[/become_supporter_item]
+[/become_supporter]
+```
 
 
 ### Donate
