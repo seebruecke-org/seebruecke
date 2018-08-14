@@ -2,6 +2,8 @@
   global $GOOGLE_MAPS_API_KEY;
 ?>
 
+    <?php get_template_part('mailchimp', 'subscribe'); ?>
+
     <footer class="footer">
       <div class="constraint">
         <?php
