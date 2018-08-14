@@ -4,8 +4,9 @@
   while ( $footer->have_posts() ) :
     $footer->the_post();
     $action = rwmb_meta('mailchimp_url');
+    $enabled = rwmb_meta('mailchimp_enabled');
 
-    if($action) :
+    if($enabled && $action) :
 ?>
 
   <section class="newsletter-subscribe">

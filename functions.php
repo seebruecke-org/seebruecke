@@ -317,6 +317,13 @@ function register_meta_boxes($meta_boxes) {
         'id'    => 'mailchimp_url',
         'type'  => 'text',
       ),
+
+      array(
+        'name'  => 'Mailchimp Enabled',
+        'id'    => 'mailchimp_enabled',
+        'type'  => 'checkbox',
+        'std'   => 0,
+      ),
     ),
   );
 
