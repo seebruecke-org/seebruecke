@@ -1,15 +1,13 @@
 .footer {
-  background-color: $secondary-color;
+  background-color: $brand-color;
   color: white;
   font-family: $font;
   font-size: .85rem;
   line-height: 1.5;
-  margin-top: 4rem;
   padding: 2rem;
 
   @include mq($from: tablet) {
     font-size: 1rem;
-    margin-top: 6rem;
   }
 
   p {
@@ -18,19 +16,19 @@
   }
 
   a {
-    color: #b3b3b3;
+    border-bottom: 1px solid rgba(255, 255, 255, .4);
+    color: currentColor;
     text-decoration: none;
 
     &:hover,
     &:focus {
-      color: $brand-color;
-      text-decoration: underline;
+      border-bottom-color: white;
     }
   }
 
   hr {
     border: 0;
-    border-top: 1px solid $brand-color;
+    border-top: 1px solid $secondary-color;
     height: 1px;
     margin-bottom: 1.5rem;
     margin-top: 1.5rem;
