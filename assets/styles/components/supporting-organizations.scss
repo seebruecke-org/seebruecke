@@ -1,22 +1,12 @@
 .supporting-organizations {
   @include break-constraint();
 
-  background-color: $secondary-color;
-  color: white;
+  background-color: #f5f5f5;;
+  color: $text-color;
   padding: 2rem 2rem 1rem 2rem;
 
   @include mq($from: tablet) {
     padding: 3rem 0 2rem 0;
-  }
-
-  // in case it comes right before the footer
-  &:last-child {
-    border-bottom: 1px solid lighten($secondary-color, 10%);
-    margin-bottom: -4rem;
-
-    @include mq($from: tablet) {
-      margin-bottom: -6rem;
-    }
   }
 
   &__list {
@@ -41,7 +31,7 @@
     margin-right: .5rem;
 
     @include mq($from: tablet) {
-      margin-right: .9rem;
+      margin-right: .8rem;
     }
   }
 
@@ -58,7 +48,7 @@
     @include mq($from: tablet) {
       border-right-width: 5px;
       font-size: 1.1rem;
-      padding-right: .9rem;
+      padding-right: .8rem;
     }
 
     &:hover,

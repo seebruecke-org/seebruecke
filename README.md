@@ -68,6 +68,8 @@ Headers are used to render the hero image on the front page. Currently they cons
 ### Footer
 
 - `Text`
+- `Mailchimp URL`: URL where the newsletter subscribe is submitted to
+- `Mailchimp enabled`: flag which toggles the newsletter subscribe form
 
 
 ## Shortcodes

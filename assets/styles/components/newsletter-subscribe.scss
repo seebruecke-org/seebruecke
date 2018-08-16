@@ -1,0 +1,120 @@
+.newsletter-subscribe {
+  background-color: $secondary-color;
+  border-bottom: 5px solid darken($brand-color, 10%);
+  color: white;
+  margin-top: 4rem;
+  padding: 2rem;
+
+  @include mq($from: tablet) {
+    padding-bottom: 3rem;
+    padding-top: 3rem;
+  }
+
+  &__title {
+    font-family: $font;
+    font-size: 1.6rem;
+    font-weight: $font-weight-black;
+    letter-spacing: .02rem;
+    margin-bottom: .75rem;
+    margin-top: 0;
+    text-transform: uppercase;
+
+    @include mq($from: tablet) {
+      font-size: 2.25rem;
+    }
+  }
+
+  &__intro {
+    font-family: $font;
+    font-size: .95rem;
+
+    @include mq($from: tablet) {
+      font-size: 1.35rem;
+    }
+
+    > * {
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+  }
+
+  &__email {
+    background: white;
+    border: 0;
+    border-bottom: 2px solid $brand-color;
+    color: $text-color;
+    font-family: $font;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 2.5rem;
+    max-width: 100%;
+    padding: .75rem 1rem .5rem 1rem;
+    width: 35rem;
+
+    @include mq($from: tablet) {
+      border-bottom-width: 3px;
+      font-size: 1.3rem;
+    }
+
+    &:focus {
+      border-bottom-color: darken($brand-color, 10%);
+    }
+  }
+
+  &__checkbox-label {
+    font-family: $font;
+    font-size: .8rem;
+    line-height: 1.2;
+
+    @include mq($from: tablet) {
+      font-size: 1rem;
+    }
+  }
+
+  &__submit {
+    background: $brand-color;
+    border: 0;
+    border-radius: 3px;
+    color: white;
+    display: block;
+    font-family: $font;
+    font-size: 1rem;
+    font-weight: $font-weight-black;
+    letter-spacing: .025rem;
+    margin-top: 1rem;
+    padding: 1rem 1.5rem;
+    text-transform: uppercase;
+    width: auto;
+
+    @include mq($from: tablet) {
+      font-size: 1.25rem;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: darken($brand-color, 10%);
+      cursor: pointer;
+    }
+
+    &:active {
+      transform: translateY(2px);
+    }
+  }
+
+  &__gdpr {
+    color: #aaa;
+    font-family: $font;
+    font-size: .8rem;
+    line-height: 1.35;
+    margin-top: 3rem;
+
+    a {
+      color: currentColor;
+      text-decoration: underline;
+    }
+
+    > *:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
