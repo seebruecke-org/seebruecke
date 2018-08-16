@@ -131,7 +131,7 @@ Shows all upcoming events.
 
 `[actions upcoming="2"]`
 
-Shows upcoming events for the next two days.
+Shows upcoming events for the next two days. It is possible to filter the upcoming events by tags. In order to do so, please use the `tags="tag-slug1,tag-slug2"` (OR) or `tags="tag-slug1+tag-slug2"` (AND) attribute.
 
 #### Additional attributes
 
