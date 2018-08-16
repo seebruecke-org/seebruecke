@@ -50,6 +50,21 @@ function get_all_upcoming_events() {
   ));
 }
 
+function get_all_upcoming_events_by_tags($tags) {
+  return get_all_events(array(
+    'order' => 'ASC',
+    'tag' => $tags,
+    'meta_query' => array(
+      array(
+        'key' => 'event_date',
+        'compare' => '>=',
+        'value' => date('Y-m-d'),
+        'type' => 'DATE',
+      )
+    ),
+  ));
+}
+
 function get_latest_header() {
   return new WP_Query(
     array(
@@ -118,7 +133,12 @@ function create_posttypes() {
         ),
         'public' => true,
         'has_archive' => true,
-        'rewrite' => array('slug' => 'events'),
+        'rewrite' => array(
+          'slug' => 'events'
+        ),
+        'taxonomies' => array(
+          'post_tag',
+        ),
         'supports' => array(
           'title',
           'editor',
@@ -414,11 +434,15 @@ function shortcode_actions($atts = []) {
     ';
   }
 
-  function render_days($show_only_upcoming, $show_upcoming_count) {
+  function render_days($show_only_upcoming, $show_upcoming_count, $filter_by_tags) {
     $markup = '';
 
     if ($show_only_upcoming) {
-      $events = get_all_upcoming_events();
+      if ($filter_by_tags) {
+        $events = get_all_upcoming_events_by_tags($filter_by_tags);
+      } else {
+        $events = get_all_upcoming_events();
+      }
     } else {
       $events = get_all_events();
     }
@@ -462,9 +486,15 @@ function shortcode_actions($atts = []) {
 
   $show_only_upcoming = array_key_exists('upcoming', $atts) || in_array('upcoming', $atts);
   $show_upcoming_count = $atts['upcoming'];
+  $filter_by_tags = $atts['tags'];
 
   // map coordinates
-  $events = get_all_upcoming_events();
+  if ($filter_by_tags) {
+    $events = get_all_upcoming_events_by_tags($filter_by_tags);
+  } else {
+    $events = get_all_upcoming_events();
+  }
+
   $events_json = [];
 
   foreach($events->posts as $event) {
@@ -489,7 +519,7 @@ function shortcode_actions($atts = []) {
       </div>
 
       <ul class="actions__list">
-      ' . render_days($show_only_upcoming, $show_upcoming_count) . '
+      ' . render_days($show_only_upcoming, $show_upcoming_count, $filter_by_tags) . '
       </ul>
       ' . $all_markup . '
     </div>
