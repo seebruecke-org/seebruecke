@@ -1,5 +1,7 @@
 # Seebrücke Wordpress Theme
 
+![Image of seebruecke.org](./screenshot.png)
+
 ## Development
 
 ### Install dependencies
