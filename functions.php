@@ -495,7 +495,7 @@ function shortcode_actions($atts = []) {
 
   $atts = array_change_key_case((array)$atts, CASE_LOWER);
   $slug = pll_current_language('slug');
-  $slug = $slug == 'de' ? '' : $slug;
+  $slug = $slug == 'de' ? '' : ( '/' . $slug );
   $url = $slug . '/events/';
   $all_markup = '';
 
