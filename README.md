@@ -26,17 +26,15 @@
 
 ## Structure
 
-The page consists of 5 content types:
-
-- Organizations
-- Events
-- Pages
-- Header
-- Footer
+- [Organizations](#organizatios)
+- [Events](#events)
+- [Pages](#pages)
+- [Headers](#headers)
+- [Footers](#footers)
 
 ### Organizations
 
-Organizations are used to create the supporting organizations area. Currently they consist of:
+Organizations are used to create the supporting organizations area.
 
 - `Name`: Name of the organization
 - `Url`
@@ -57,9 +55,9 @@ Organizations are used to create the supporting organizations area. Currently th
 
 - `Featured Image`: if set, the page header is replaced by an image
 
-### Header
+### Headers
 
-Headers are used to render the hero image on the front page. Currently they consist of:
+Headers are used to render the hero image on the front page.
 
 - `Title`: big text, which is rendered below the logo
 - `Text`: some additional text (e.g. notes ...), which would be rendered under the action button
@@ -72,7 +70,7 @@ Headers are used to render the hero image on the front page. Currently they cons
 - `Instagram-Link`
 - `Twitter-Link`
 
-### Footer
+### Footers
 
 - `Text`
 - `Mailchimp URL`: URL where the newsletter subscribe is submitted to
