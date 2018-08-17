@@ -4,6 +4,11 @@
 
 ## Development
 
+### Wordpress plugin requirements
+
+- [meta-box](https://wordpress.org/plugins/meta-box/)
+- [polylang](https://wordpress.org/plugins/polylang/)
+
 ### Install dependencies
 
 `npm install`
