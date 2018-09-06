@@ -233,6 +233,12 @@ function register_meta_boxes($meta_boxes) {
         'id'    => 'header_support_twitter',
         'post_type' => 'text',
       ),
+
+      array(
+        'name'  => 'Youtube-Link',
+        'id'    => 'header_support_youtube',
+        'post_type' => 'text',
+      ),
     ),
   );
 
