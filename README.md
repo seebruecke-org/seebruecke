@@ -97,6 +97,11 @@ Renders a donate with paypal widget.
 
 `[paypal]`
 
+### Twingle
+
+Renders the twingle donate widget.
+
+`[twingle]`
 
 ### Supporting organizations
 

@@ -613,6 +613,20 @@ function shortcode_paypal() {
   ';
 }
 
+function shortcode_twingle() {
+  return '
+  <script type="text/javascript">
+    (function() {
+    var u="https://spenden.twingle.de/embed/mensch-mensch-mensch-e-v-seebrcke/seebrcke/tw5b90e51600cb6/widget";
+    var id = "_" + Math.random().toString(36).substr(2, 9);
+    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0];
+    document.write("<div id=\"twingle-public-embed-" + id + "\"></div>");
+    g.type="text/javascript"; g.async=true; g.defer=true; g.src=u+"/"+id; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  ';
+}
+
 function shortcode_featured($atts = []) {
   $atts = array_change_key_case((array)$atts, CASE_LOWER);
   $id = $atts['id'];
@@ -762,6 +776,7 @@ add_shortcode('become_supporter_item', 'shortcode_become_supporter_item');
 add_shortcode('supporting_organizations', 'shortcode_supporting_organizations');
 add_shortcode('paypal', 'shortcode_paypal');
 add_shortcode('featured', 'shortcode_featured');
+add_shortcode('twingle', 'shortcode_twingle');
 
 add_action('wp_enqueue_scripts', 'enqueue_scripts');
 
