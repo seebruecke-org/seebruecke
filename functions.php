@@ -542,11 +542,6 @@ function shortcode_actions($atts = []) {
 
   return '
     <div class="actions">
-      <div class="map">
-        <div class="map__canvas js-map"
-             data-data=\'' . json_encode($events_json) . '\'></div>
-      </div>
-
       <ul class="actions__list">
       ' . render_days($show_only_upcoming, $show_upcoming_count, $filter_by_tags) . '
       </ul>
