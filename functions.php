@@ -2,7 +2,7 @@
 
 global $GOOGLE_MAPS_API_KEY;
 
-$GOOGLE_MAPS_API_KEY = 'AIzaSyBcge6nR-oLJWLJG_IdLPGvmBJUsx70mm0';
+$GOOGLE_MAPS_API_KEY = 'AIzaSyAhnc8DKVnhU-TidKa_gBF1086Th_VHPGM';
 
 function get_all_organizations() {
   return new WP_Query(array(
@@ -542,6 +542,10 @@ function shortcode_actions($atts = []) {
 
   return '
     <div class="actions">
+      <div class="map">
+        <div class="map__canvas js-map"
+            data-data=\'' . json_encode($events_json) . '\'></div>
+      </div>
       <ul class="actions__list">
       ' . render_days($show_only_upcoming, $show_upcoming_count, $filter_by_tags) . '
       </ul>
