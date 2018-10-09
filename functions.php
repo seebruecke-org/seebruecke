@@ -616,7 +616,7 @@ function shortcode_twingle() {
   return '
   <script type="text/javascript">
     (function() {
-    var u="https://spenden.twingle.de/embed/mensch-mensch-mensch-e-v-seebrcke/seebrcke/tw5b90e51600cb6/widget";
+    var u="https://spenden.twingle.de/embed/mensch-mensch-mensch-e-v/seebrcke/tw5b90e51600cb6/form";
     var id = "_" + Math.random().toString(36).substr(2, 9);
     var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0];
     document.write("<div id=\"twingle-public-embed-" + id + "\"></div>");
