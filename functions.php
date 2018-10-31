@@ -92,7 +92,7 @@ function create_posttypes() {
         'name' => pll__('Headers'),
         'singular_name' => pll__('Header')
         ),
-        'public' => false,
+        'public' => true,
         'publicly_queryable' => false,
         'exclude_from_search' => true,
         'show_ui' => true,
@@ -113,7 +113,7 @@ function create_posttypes() {
         'name' => pll__('Footers'),
         'singular_name' => pll__('Footer')
         ),
-        'public' => false,
+        'public' => true,
         'publicly_queryable' => false,
         'exclude_from_search' => true,
         'show_ui' => true,
@@ -152,13 +152,13 @@ function create_posttypes() {
   register_post_type('safe-havens',
     array(
       'labels' => array(
-        'name' => pll__('Save havens'),
-        'singular_name' => pll__('Save haven')
+        'name' => pll__('Safe havens'),
+        'singular_name' => pll__('Safe haven')
         ),
         'public' => true,
         'has_archive' => true,
         'rewrite' => array(
-          'slug' => 'save-havens'
+          'slug' => 'safe-havens'
         ),
         'supports' => array(
           'title',
