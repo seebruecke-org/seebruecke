@@ -148,6 +148,26 @@ function create_posttypes() {
     )
   );
 
+  register_post_type('safe-harbours',
+    array(
+      'labels' => array(
+        'name' => pll__('Save harbours'),
+        'singular_name' => pll__('Save harbour')
+        ),
+        'public' => true,
+        'has_archive' => true,
+        'rewrite' => array(
+          'slug' => 'save-harbours'
+        ),
+        'supports' => array(
+          'title',
+          'editor',
+          'thumbnail',
+          'revisions',
+        )
+    )
+  );
+
   register_post_type('organizations',
     array(
       'labels' => array(
@@ -242,6 +262,30 @@ function register_meta_boxes($meta_boxes) {
     ),
   );
 
+  // Save harbours
+  $meta_boxes[] = array(
+    'id'         => 'harbour_data',
+    'title'      => 'Extended information',
+    'post_types' => 'safe-harbours',
+    'context'    => 'normal',
+    'priority'   => 'high',
+    'fields' => array(
+      array(
+        'name'  => 'City name',
+        'id'    => 'harbour_address',
+        'type'  => 'text',
+      ),
+
+      array(
+        'api_key' => $GOOGLE_MAPS_API_KEY,
+        'name'  => 'Location',
+        'id'    => 'harbour_coordinates',
+        'type'  => 'map',
+        'address_field' => 'harbour_address',
+      ),
+    )
+  );
+
   // Events
   $meta_boxes[] = array(
     'id'         => 'event_data',
@@ -250,7 +294,7 @@ function register_meta_boxes($meta_boxes) {
     'context'    => 'normal',
     'priority'   => 'high',
     'fields' => array(
-          array(
+        array(
             'name'  => 'City',
             'id'    => 'event_city',
             'type'  => 'text',
