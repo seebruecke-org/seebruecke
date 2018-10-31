@@ -165,6 +165,27 @@ function create_posttypes() {
         )
     )
   );
+
+  register_post_type('groups',
+    array(
+      'labels' => array(
+        'name' => pll__('Local groups'),
+        'singular_name' => pll__('Local group')
+        ),
+        'public' => true,
+        'has_archive' => true,
+        'rewrite' => array(
+          'slug' => 'groups'
+        ),
+        'supports' => array(
+          'author',
+          'title',
+          'editor',
+          'thumbnail',
+          'revisions',
+        )
+    )
+  );
 }
 
 function register_meta_boxes($meta_boxes) {
@@ -310,7 +331,44 @@ function register_meta_boxes($meta_boxes) {
           'id'    => 'event_link',
           'type'  => 'text',
         ),
+
+        array(
+          'id' => 'event_organizer',
+          'type' => 'post',
+          'name' => 'Organizer (Local group)',
+          'post_type' => 'groups',
+          'field_type' => 'select_advanced',
+        ),
       )
+  );
+
+  $meta_boxes[] = array(
+    'id'         => 'groups_data',
+    'title'      => 'Extended information',
+    'post_types' => 'groups',
+    'context'    => 'normal',
+    'priority'   => 'high',
+    'fields'     => array(
+      array(
+        'name'  => 'Facebook URL',
+        'desc'  => 'Link to the facebook page',
+        'id'    => 'group_facebook',
+        'type'  => 'text',
+      ),
+
+      array(
+        'name'  => 'Twitter URL',
+        'desc'  => 'Link to the twitter account',
+        'id'    => 'group_twitter',
+        'type'  => 'text',
+      ),
+
+      array(
+        'name'  => 'Email',
+        'id'    => 'group_email',
+        'type'  => 'text',
+      ),
+    ),
   );
 
   // Organizations
