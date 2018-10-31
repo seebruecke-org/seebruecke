@@ -84,7 +84,8 @@
 
   > a,
   > address > p > a,
-  > p > a {
+  > p > a,
+  > p > small > a {
     color: $brand-color;
     text-decoration: none;
 
