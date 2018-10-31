@@ -140,6 +140,7 @@ function create_posttypes() {
           'post_tag',
         ),
         'supports' => array(
+          'author',
           'title',
           'editor',
           'thumbnail',
