@@ -178,6 +178,7 @@ function create_posttypes() {
           'slug' => 'groups'
         ),
         'supports' => array(
+          'author',
           'title',
           'editor',
           'thumbnail',
