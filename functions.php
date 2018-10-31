@@ -148,16 +148,16 @@ function create_posttypes() {
     )
   );
 
-  register_post_type('safe-harbours',
+  register_post_type('safe-havens',
     array(
       'labels' => array(
-        'name' => pll__('Save harbours'),
-        'singular_name' => pll__('Save harbour')
+        'name' => pll__('Save havens'),
+        'singular_name' => pll__('Save haven')
         ),
         'public' => true,
         'has_archive' => true,
         'rewrite' => array(
-          'slug' => 'save-harbours'
+          'slug' => 'save-havens'
         ),
         'supports' => array(
           'title',
@@ -283,26 +283,26 @@ function register_meta_boxes($meta_boxes) {
     ),
   );
 
-  // Save harbours
+  // Save havens
   $meta_boxes[] = array(
-    'id'         => 'harbour_data',
+    'id'         => 'haven_data',
     'title'      => 'Extended information',
-    'post_types' => 'safe-harbours',
+    'post_types' => 'safe-havens',
     'context'    => 'normal',
     'priority'   => 'high',
     'fields' => array(
       array(
         'name'  => 'City name',
-        'id'    => 'harbour_address',
+        'id'    => 'haven_address',
         'type'  => 'text',
       ),
 
       array(
         'api_key' => $GOOGLE_MAPS_API_KEY,
         'name'  => 'Location',
-        'id'    => 'harbour_coordinates',
+        'id'    => 'haven_coordinates',
         'type'  => 'map',
-        'address_field' => 'harbour_address',
+        'address_field' => 'haven_address',
       ),
     )
   );
