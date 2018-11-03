@@ -36,6 +36,25 @@ function get_all_upcoming_events() {
   ));
 }
 
+function get_all_upcoming_events_by_localgroup($id) {
+  return get_all_events(array(
+    'meta_query' => array(
+      array(
+        'key' => 'event_date',
+        'compare' => '>=',
+        'value' => date('Y-m-d'),
+        'type' => 'DATE',
+      ),
+
+      array(
+        'key' => 'event_organizer',
+        'compare' => '=',
+        'value' => $id,
+      )
+    ),
+  ));
+}
+
 function get_all_upcoming_events_by_tags($tags) {
   return get_all_events(array(
     'order' => 'ASC',

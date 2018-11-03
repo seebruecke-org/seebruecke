@@ -96,7 +96,7 @@
           </div>
         </div>
 
-        <article class="richtext">
+        <article class="richtext richtext--single">
           <?php the_content(); ?>
 
           <div class="back">

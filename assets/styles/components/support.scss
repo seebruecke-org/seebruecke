@@ -1,14 +1,14 @@
 .support {
-  background-color: white;
+  background-color: #f8f8f8;
   border-bottom: 1px solid #e8e8e8;
-  color: lighten($text-color, 15%);
+  color: $text-color;
   display: flex;
   flex-direction: row;
   font-family: $font;
   line-height: 1;
   margin-top: -4rem;
   padding-bottom: 1rem;
-  padding-top: 1.2rem;
+  padding-top: 1.3rem;
 
   @include mq($until: tablet) {
     text-align: center;
@@ -18,11 +18,12 @@
     display: block;
     font-size: 1rem;
     font-style: normal;
+    letter-spacing: -0.025rem;
     margin-bottom: 1rem;
 
     @include mq($from: tablet) {
       display: inline-block;
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       margin-bottom: 0;
       margin-right: 1.2rem;
     }

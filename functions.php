@@ -363,16 +363,30 @@ function register_meta_boxes($meta_boxes) {
       ),
 
       array(
-        'name'  => 'Facebook URL',
+        'name'  => 'Facebook',
         'desc'  => 'Link to the facebook page',
         'id'    => 'group_facebook',
         'type'  => 'text',
       ),
 
       array(
-        'name'  => 'Twitter URL',
+        'name'  => 'Twitter',
         'desc'  => 'Link to the twitter account',
         'id'    => 'group_twitter',
+        'type'  => 'text',
+      ),
+
+      array(
+        'name'  => 'Instagram',
+        'desc'  => 'Link to the instagram account',
+        'id'    => 'group_instagram',
+        'type'  => 'text',
+      ),
+
+      array(
+        'name'  => 'Youtube',
+        'desc'  => 'Link to the youtube account',
+        'id'    => 'group_youtube',
         'type'  => 'text',
       ),
 
