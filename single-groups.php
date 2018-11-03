@@ -89,7 +89,7 @@
     <div class="support">
       <div class="constraint">
         <em class="support__label">
-          <?php the_title(); ?> auf
+          <?php the_title(); ?> <?php echo pll__('auf'); ?>
         </em>
 
         <?php if ($facebook_link) : ?>

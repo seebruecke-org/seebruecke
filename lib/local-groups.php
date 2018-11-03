@@ -76,5 +76,6 @@ add_shortcode('localgroups', 'shortcode_groups');
 pll_register_string('group', 'Lokalgruppe');
 pll_register_string('all_groups', 'Alle Lokalgruppen');
 pll_register_string('next_actions', 'Nächste Aktion');
+pll_register_string('auf', 'auf');
 
 ?>
