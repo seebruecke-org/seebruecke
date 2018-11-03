@@ -1,0 +1,25 @@
+.localgroups {
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__group {
+    padding: 1.5rem 0;
+  }
+
+  &__group-title {
+    border-bottom: 2px solid $brand-color;
+    color: $text-color;
+    font-family: $font;
+    font-size: 2rem;
+    font-weight: $font-weight-black;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: $brand-color;
+    }
+  }
+}
