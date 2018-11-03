@@ -66,4 +66,14 @@
     padding-left: 2rem;
     position: relative;
   }
+
+  &__meta-title {
+    color: currentColor;
+    font-family: $font;
+    font-size: 0.9rem;
+    font-weight: $font-weight;
+    margin-top: -0.5rem;
+    text-align: center;
+    text-transform: uppercase;
+  }
 }
