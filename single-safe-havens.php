@@ -4,7 +4,7 @@
   <?php while ( have_posts() ) : the_post(); ?>
     <div class="constraint">
       <div class="action-single">
-        <article class="richtext">
+        <article class="richtext richtext--single">
           <?php the_content(); ?>
         </article>
       </div>
