@@ -83,8 +83,8 @@
             </div>
           </div>
         </div>
-      </div>
-    <?php endif; ?>
+      <?php endif; ?>
+    </div>
 
     <div class="support">
       <div class="constraint">
