@@ -6,6 +6,7 @@ $GOOGLE_MAPS_API_KEY = 'AIzaSyAhnc8DKVnhU-TidKa_gBF1086Th_VHPGM';
 
 require('lib/events.php');
 require('lib/local-groups.php');
+require('lib/save-havens.php');
 
 function get_all_organizations() {
   return new WP_Query(array(

@@ -1,11 +1,11 @@
 <?php
 
-function get_all_localgroups($extend_query = []) {
+function get_all_havens($extend_query = []) {
   $args = array_merge(
     array(
       'orderby' => 'title',
       'order' => 'ASC',
-      'post_type' => 'groups',
+      'post_type' => 'safe-havens',
       'post_status' => 'publish',
       'posts_per_page' => -1,
     ),
@@ -17,19 +17,19 @@ function get_all_localgroups($extend_query = []) {
   return $query;
 }
 
-function shortcode_groups($atts = []) {
-  function render_groups($groups) {
+function shortcode_havens($atts = []) {
+  function render_havens($havens) {
     $markup = '';
 
-    foreach($groups->posts as $group) {
-      $id = $group->ID;
+    foreach($havens->posts as $haven) {
+      $id = $haven->ID;
       $fields = get_post_custom($id);
       $href = get_the_permalink($id);
 
       $markup .= '
         <li class="localgroups__group">
           <a href="' . $href . '" rel="nofollow" class="localgroups__group-title">
-            ' . $group->post_title . '
+            ' . $haven->post_title . '
           </a>
         </li>
       ';
@@ -41,8 +41,8 @@ function shortcode_groups($atts = []) {
   $atts = array_change_key_case((array)$atts, CASE_LOWER);
 
   // map coordinates
-  $groups = get_all_localgroups();
-  $groups_json = [];
+  $havens = get_all_havens();
+  $havens_json = [];
 
   $archive_class = '';
 
@@ -50,13 +50,13 @@ function shortcode_groups($atts = []) {
     $archive_class = 'map--is-in-archive';
   }
 
-  foreach($groups->posts as $group) {
+  foreach($havens->posts as $group) {
     $id = $group->ID;
     $fields = get_post_custom($id);
-    $coordinates = $fields['group_coordinates'][0];
+    $coordinates = $fields['haven_coordinates'][0];
 
     if($coordinates) {
-      $groups_json[] = array(
+      $havens_json[] = array(
         'coordinates' => $coordinates,
         'title' => get_the_title($id),
         'url' => get_the_permalink($id),
@@ -68,16 +68,16 @@ function shortcode_groups($atts = []) {
     <div class="localgroups">
       <div class="map map--is-large ' . $archive_class . '">
         <div class="map__canvas js-map"
-            data-data=\'' . json_encode($groups_json) . '\'></div>
+            data-data=\'' . json_encode($havens_json) . '\'></div>
       </div>
-      <ul class="localgroups__list">
-        ' . render_groups($groups) . '
+      <ul class="localhavens__list">
+        ' . render_havens($havens) . '
       </ul>
     </div>
   ';
 }
 
-add_shortcode('localgroups', 'shortcode_groups');
+add_shortcode('safe-havens', 'shortcode_havens');
 
 pll_register_string('group', 'Lokalgruppe');
 pll_register_string('all_groups', 'Alle Lokalgruppen');
