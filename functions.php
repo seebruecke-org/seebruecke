@@ -707,8 +707,6 @@ add_action('wp_enqueue_scripts', 'enqueue_scripts');
 add_image_size('hero-image', 2400, 9999);
 
 /* custom strings */
-pll_register_string('archive_events', 'Alle Aktionen');
-pll_register_string('all_events', 'Alle Aktionen');
 pll_register_string('back_to_homepage_short', 'Zurück zur Startseite');
 pll_register_string('date_format', 'd.m.Y');
 pll_register_string('at', 'um');

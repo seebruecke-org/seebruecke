@@ -60,7 +60,7 @@ function shortcode_groups($atts = []) {
 
   return '
     <div class="localgroups">
-      <div class="map">
+      <div class="map map--is-large">
         <div class="map__canvas js-map"
             data-data=\'' . json_encode($groups_json) . '\'></div>
       </div>

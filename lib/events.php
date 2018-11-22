@@ -167,6 +167,11 @@ function shortcode_actions($atts = []) {
   $slug = $slug == 'de' ? '' : ( '/' . $slug );
   $url = $slug . '/events/';
   $all_markup = '';
+  $archive_class = '';
+
+  if (is_archive()) {
+    $archive_class = 'map--is-in-archive';
+  }
 
   if (!is_archive()) {
     $all_markup = '
@@ -205,7 +210,7 @@ function shortcode_actions($atts = []) {
 
   return '
     <div class="actions">
-      <div class="map">
+      <div class="map map--is-large ' . $archive_class . '">
         <div class="map__canvas js-map"
             data-data=\'' . json_encode($events_json) . '\'></div>
       </div>
@@ -235,5 +240,7 @@ function feed_events() {
 }
 
 add_shortcode('actions', 'shortcode_actions');
+
+pll_register_string('Alle Events', 'Alle Aktionen');
 
 ?>
