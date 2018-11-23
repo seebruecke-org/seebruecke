@@ -319,6 +319,7 @@ function register_meta_boxes($meta_boxes) {
             'bastelaktion' => pll__('Bastelaktion'),
             'aktion' => pll__('Aktion'),
             'mahnwache' => pll__('Mahnwache'),
+            'lesung' => pll__('Lesung'),
           ),
           'multiple' => false,
         ),
