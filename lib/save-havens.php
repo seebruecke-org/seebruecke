@@ -68,6 +68,8 @@ function shortcode_havens($atts = []) {
     <div class="localgroups">
       <div class="map map--is-large ' . $archive_class . '">
         <div class="map__canvas js-map"
+            data-icon="map-circle"
+            data-show-label="true"
             data-data=\'' . json_encode($havens_json) . '\'></div>
       </div>
       <ul class="localhavens__list">
