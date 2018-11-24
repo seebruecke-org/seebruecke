@@ -204,6 +204,12 @@ function register_meta_boxes($meta_boxes) {
         'type'  => 'text',
       ),
 
+      array(
+        'name'  => 'Number of supporters',
+        'id'    => 'header_suppors-count',
+        'type'  => 'number',
+      ),
+
       // Support widget
       array(
         'name'  => 'Support text',
