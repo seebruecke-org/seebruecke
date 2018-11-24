@@ -252,11 +252,48 @@ function register_meta_boxes($meta_boxes) {
       ),
 
       array(
+        'name'  => 'Since when is this city a safe haven?',
+        'id'    => 'haven_since',
+        'type'  => 'date',
+      ),
+
+      array(
         'api_key' => $GOOGLE_MAPS_API_KEY,
         'name'  => 'Location',
         'id'    => 'haven_coordinates',
         'type'  => 'map',
         'address_field' => 'haven_address',
+      ),
+
+      array(
+        'name'  => 'Action-Button: link',
+        'desc'  => 'In case you are running e.g. a petition, this will create an action button in the header',
+        'id'    => 'haven_action-link',
+        'type'  => 'text',
+      ),
+
+      array(
+        'name'  => 'Action-Button: label',
+        'id'    => 'haven_action-label',
+        'type'  => 'text',
+      ),
+
+      array(
+        'id' => 'haven_localgroup',
+        'type' => 'post',
+        'name' => 'Responsible local group',
+        'post_type' => 'groups',
+        'field_type' => 'select_advanced',
+      ),
+
+      array(
+        'name'  => 'Presse',
+        'id'    => 'haven_press',
+        'type'  => 'key_value',
+        'placeholder' => array(
+          'key' => 'Link',
+          'value' => 'Titel',
+        )
       ),
     )
   );
