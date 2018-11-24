@@ -727,6 +727,10 @@ function get_date_format() {
   return pll__('d.m.Y');
 }
 
+function register_menus() {
+  register_nav_menu('header-menu', 'Header Menu');
+}
+
 add_action('init', 'disable_emojis');
 add_action('wp_head', 'feed_events');
 
@@ -747,6 +751,7 @@ add_shortcode('featured', 'shortcode_featured');
 add_shortcode('twingle', 'shortcode_twingle');
 
 add_action('wp_enqueue_scripts', 'enqueue_scripts');
+add_action( 'init', 'register_menus' );
 
 /* image sizes */
 add_image_size('hero-image', 2400, 9999);

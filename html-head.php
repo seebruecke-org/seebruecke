@@ -11,10 +11,6 @@
         type="image/png"
         href="<?php echo get_template_directory_uri(); ?>/dist/images/favicon.png"/>
 
-  <link rel="shortcut icon"
-        type="image/png"
-        href="<?php echo get_template_directory_uri(); ?>/dist/images/favicon.png"/>
-
   <title>
     <?php wp_title(' - ', true, 'right'); ?>
     <?php bloginfo('name'); ?>

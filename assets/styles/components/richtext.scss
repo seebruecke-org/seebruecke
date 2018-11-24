@@ -30,8 +30,7 @@
     font-weight: $font-weight-black;
     margin-bottom: 1rem;
     margin-top: 1.5rem;
-    letter-spacing: .02rem;
-    text-align: center;
+    letter-spacing: 0.05rem;
 
     @include mq($from: tablet) {
       font-size: 2rem;

@@ -12,9 +12,7 @@
     ?>
 
     <header class="header header--without-image">
-      <div class="header__language-switcher">
-        <?php get_template_part('language', 'switcher'); ?>
-      </div>
+      <?php get_template_part('navigation'); ?>
 
       <a href="<?php echo pll_home_url(); ?>"
          class="header__logo-container">

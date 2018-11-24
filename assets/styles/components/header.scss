@@ -109,6 +109,7 @@
   &__title {
     font-size: 2.2rem;
     font-weight: $font-weight-black;
+    letter-spacing: 0.05rem;
     line-height: 1.1;
     margin: 0 2rem;
     text-align: center;
@@ -144,7 +145,7 @@
 
   &--small &__title {
     @include mq($from: desktop) {
-      font-size: 3.8rem;
+      font-size: 3.4rem;
     }
   }
 

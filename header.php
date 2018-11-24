@@ -11,9 +11,7 @@
     ?>
 
     <header class="header <?php if (!is_front_page() && $thumbnail_id) { echo 'header--small'; } elseif(!is_front_page() && !$thumbnail_id) { echo 'header--without-image'; } ?>">
-      <div class="header__language-switcher">
-        <?php get_template_part('language', 'switcher'); ?>
-      </div>
+      <?php get_template_part('navigation'); ?>
 
       <a href="<?php echo pll_home_url(); ?>"
          class="header__logo-container">
