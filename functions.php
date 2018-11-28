@@ -114,6 +114,7 @@ function create_posttypes() {
           'slug' => 'safe-havens'
         ),
         'supports' => array(
+          'author',
           'title',
           'editor',
           'thumbnail',
