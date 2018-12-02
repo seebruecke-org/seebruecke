@@ -10,7 +10,7 @@
 
   &--single {
     padding-bottom: 5rem;
-    padding-top: 3rem;
+    padding-top: 0;
   }
 
   h2,
@@ -74,12 +74,16 @@
     line-height: 1.45;
 
     @include mq($from: tablet) {
-      font-size: 1.25rem;
+      font-size: 1.4rem;
     }
   }
 
   > p + p {
     margin-top: 2rem;
+  }
+
+  > p:first-child {
+    margin-top: 0;
   }
 
   > p:last-child {
@@ -89,7 +93,8 @@
   > a,
   > address > p > a,
   > p > a,
-  > p > small > a {
+  > p > small > a,
+  > ul > li > a {
     color: $brand-color;
     text-decoration: none;
 

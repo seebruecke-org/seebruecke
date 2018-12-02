@@ -26,7 +26,7 @@
       <div class="header__content">
         <div class="constraint">
           <h1 class="header__title">
-            <?php echo pll__('Alle ' . $title); ?>
+            <?php pll_e('Alle ' . $title); ?>
           </h1>
         </div>
       </div>

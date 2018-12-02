@@ -82,7 +82,7 @@ function shortcode_havens($atts = []) {
 add_shortcode('safe-havens', 'shortcode_havens');
 
 pll_register_string('group', 'Lokalgruppe');
-pll_register_string('all_groups', 'Alle Lokalgruppen');
+pll_register_string('Alle Safe havens', 'Alle Lokalgruppen');
 pll_register_string('next_actions', 'Nächste Aktion');
 pll_register_string('auf', 'auf');
 

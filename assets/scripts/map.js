@@ -157,6 +157,8 @@ const map = () => {
         { "visibility": "off" }
       ]
     });
+
+    MAP_DEFAULTS.zoom = 11;
   }
 
   const markerOptions = {
