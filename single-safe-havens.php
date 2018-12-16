@@ -5,6 +5,7 @@
     the_post();
     $fields = get_post_custom();
     $press = rwmb_meta('haven_press');
+    $application = rwmb_meta('haven_application');
   ?>
     <div class="constraint">
       <div class="action-single">
@@ -18,6 +19,23 @@
               <?php
 
                 foreach ($press as $pair) :
+              ?>
+                  <li>
+                    <a href="<?php echo $pair[0]; ?>">
+                        <?php echo $pair[1]; ?>
+                    </a>
+                  </li>
+              <?php endforeach; ?>
+            </ul>
+          <?php endif; ?>
+
+          <?php if($application) : ?>
+            <h2>Antrag</h2>
+
+            <ul>
+              <?php
+
+                foreach ($application as $pair) :
               ?>
                   <li>
                     <a href="<?php echo $pair[0]; ?>">

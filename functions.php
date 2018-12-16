@@ -294,12 +294,22 @@ function register_meta_boxes($meta_boxes) {
       ),
 
       array(
+        'name'  => 'Application document',
+        'id'    => 'haven_application',
+        'type'  => 'key_value',
+        'placeholder' => array(
+          'key' => 'Link',
+          'value' => 'Title',
+        )
+      ),
+
+      array(
         'name'  => 'Presse',
         'id'    => 'haven_press',
         'type'  => 'key_value',
         'placeholder' => array(
           'key' => 'Link',
-          'value' => 'Titel',
+          'value' => 'Title',
         )
       ),
     )
