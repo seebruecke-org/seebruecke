@@ -18,22 +18,88 @@ function get_all_havens($extend_query = []) {
 }
 
 function shortcode_havens($atts = []) {
-  function render_havens($havens) {
-    $markup = '';
+  function group_havens_by_state($havens) {
+    $grouped = [];
 
     foreach($havens->posts as $haven) {
-      $id = $haven->ID;
-      $fields = get_post_custom($id);
-      $href = get_the_permalink($id);
+      $fields = get_post_custom($haven->ID);
+      $district = $fields['haven_district'][0];
 
+      if (!$district) {
+        $district = 'Unsorted';
+      }
+
+      if (!$grouped[$district]) {
+        $grouped[$district] = [];
+      }
+
+      $grouped[$district][] = $haven;
+    }
+
+    ksort($grouped);
+
+    return $grouped;
+  }
+
+  function render_list($havens) {
+    $markup = '';
+    $grouped = group_havens_by_state($havens);
+
+    foreach($grouped as $state => $state_havens) {
       $markup .= '
-        <li class="localgroups__group">
-          <a href="' . $href . '" rel="nofollow" class="localgroups__group-title">
-            ' . $haven->post_title . '
-          </a>
+        <li class="actions__day">
+          <h3 class="actions__day-title">' . $state . '</h3>
+          ' . render_havens($state_havens) . '
         </li>
       ';
     }
+
+    return $markup;
+  }
+
+  function render_havens($havens) {
+    $markup = '<ul class="actions__events">';
+
+    foreach($havens as $haven) {
+      $id = $haven->ID;
+      $fields = get_post_custom($id);
+      $href = get_the_permalink($id);
+      $meta = '';
+
+      if ($fields['haven_since'][0]) {
+        $since = date(get_date_format(), strtotime($fields['haven_since'][0]));
+
+        $meta = '<div class="action__meta">
+          <small class="action__time">
+            seit '. $since .'
+          </small>
+        </div>';
+      }
+
+      $markup .= '
+        <li class="actions__action actions__action--wide">
+          <div class="action">
+            <div class="action__icon-container">
+              <a href="' . $href . '" rel="nofollow">
+                <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <path fill="#dc6e28" d="M256 56c110.532 0 200 89.451 200 200 0 110.532-89.451 200-200 200-110.532 0-200-89.451-200-200 0-110.532 89.451-200 200-200m0-48C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 168c-44.183 0-80 35.817-80 80s35.817 80 80 80 80-35.817 80-80-35.817-80-80-80z"></path>
+                </svg>
+              </a>
+            </div>
+            <div class="action__content-container">
+              <h4 class="action__title">
+                ' . $meta . '
+                <a href="' . $href . '" rel="nofollow">
+                  ' . $fields['haven_address'][0] . '
+                </a>
+              </h4>
+            </div>
+          </div>
+        </li>
+      ';
+    }
+
+    $markup .= '</ul>';
 
     return $markup;
   }
@@ -65,15 +131,16 @@ function shortcode_havens($atts = []) {
   }
 
   return '
-    <div class="localgroups">
+    <div class="havens">
       <div class="map map--is-large ' . $archive_class . '">
         <div class="map__canvas js-map"
             data-icon="map-circle"
             data-show-label="true"
             data-data=\'' . json_encode($havens_json) . '\'></div>
       </div>
-      <ul class="localhavens__list">
-        ' . render_havens($havens) . '
+
+      <ul class="actions__list">
+        ' . render_list($havens) . '
       </ul>
     </div>
   ';

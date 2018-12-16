@@ -30,7 +30,7 @@
           <?php endif; ?>
 
           <?php if($application) : ?>
-            <h2>Antrag</h2>
+            <h2>Anträge</h2>
 
             <ul>
               <?php

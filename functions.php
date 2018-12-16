@@ -260,6 +260,12 @@ function register_meta_boxes($meta_boxes) {
       ),
 
       array(
+        'name'  => 'District',
+        'id'    => 'haven_district',
+        'type'  => 'text',
+      ),
+
+      array(
         'name'  => 'Since when is this city a safe haven?',
         'id'    => 'haven_since',
         'type'  => 'date',

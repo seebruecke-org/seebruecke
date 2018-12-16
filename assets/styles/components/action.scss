@@ -50,7 +50,7 @@
     }
 
     @include mq($from: desktop) {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
     }
 
     > a {
@@ -73,6 +73,12 @@
         color: $brand-color;
       }
     }
+  }
+
+  &__time {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: none;
   }
 
   &__content {

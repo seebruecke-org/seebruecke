@@ -38,6 +38,12 @@
     }
   }
 
+  &__action--wide {
+    @include mq($from: desktop) {
+      flex-basis: 50%;
+    }
+  }
+
   &__day + &__day {
     margin-top: 3rem;
 
@@ -48,15 +54,15 @@
 
   &__day-title {
     border-bottom: 4px solid $secondary-color;
-
     font-size: 1.2rem;
+    letter-spacing: 0.05rem;
     margin-bottom: .75rem;
     margin-top: 0;
     padding-bottom: .25rem;
     padding-left: 2.6rem;
 
     @include mq($from: tablet) {
-      font-size: 1.6rem;
+      font-size: 1.75rem;
       margin-bottom: 1rem;
       padding-bottom: .5rem;
       padding-left: 4.2rem;
