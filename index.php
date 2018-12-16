@@ -1,4 +1,13 @@
-<?php get_header(); ?>
+<?php
+  $page_id = get_queried_object_id();
+  $header_id = rwmb_meta('page_header_reference', null, $page_id);
+
+  if (!$header_id) {
+    get_header();
+  } else {
+    get_header('hero');
+  }
+?>
 
 <main class="main">
   <?php while ( have_posts() ) : the_post(); ?>

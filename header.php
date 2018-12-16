@@ -1,9 +1,7 @@
 <!doctype html>
 
 <html <?php language_attributes(); ?>>
-
   <?php get_template_part('html', 'head'); ?>
-
   <body>
     <?php
       wp_admin_bar_render();

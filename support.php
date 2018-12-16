@@ -1,9 +1,11 @@
 <?php
-  $label = rwmb_meta('header_support_label');
-  $facebook_link = rwmb_meta('header_support_facebook');
-  $twitter_link = rwmb_meta('header_support_twitter');
-  $instagram_link = rwmb_meta('header_support_instagram');
-  $youtube_link = rwmb_meta('header_support_youtube');
+  global $header_id;
+
+  $label = rwmb_meta('header_support_label', null, $header_id);
+  $facebook_link = rwmb_meta('header_support_facebook', null, $header_id);
+  $twitter_link = rwmb_meta('header_support_twitter', null, $header_id);
+  $instagram_link = rwmb_meta('header_support_instagram', null, $header_id);
+  $youtube_link = rwmb_meta('header_support_youtube', null, $header_id);
 ?>
 
 <?php if ($label || $twitter_link || $facebook_link || $instagram_link || $youtube_link) : ?>

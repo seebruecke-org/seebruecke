@@ -4,6 +4,7 @@ global $GOOGLE_MAPS_API_KEY;
 
 $GOOGLE_MAPS_API_KEY = 'AIzaSyAhnc8DKVnhU-TidKa_gBF1086Th_VHPGM';
 
+require('lib/demands.php');
 require('lib/events.php');
 require('lib/local-groups.php');
 require('lib/save-havens.php');
@@ -490,6 +491,23 @@ function register_meta_boxes($meta_boxes) {
         'id'    => 'mailchimp_enabled',
         'type'  => 'checkbox',
         'std'   => 0,
+      ),
+    ),
+  );
+
+  $meta_boxes[] = array(
+    'id'         => 'page_header',
+    'title'      => 'Header',
+    'post_types' => 'page',
+    'context'    => 'normal',
+    'priority'   => 'high',
+    'fields'     => array(
+      array(
+        'id' => 'page_header_reference',
+        'type' => 'post',
+        'name' => 'Header',
+        'post_type' => 'headers',
+        'field_type' => 'select_advanced',
       ),
     ),
   );
