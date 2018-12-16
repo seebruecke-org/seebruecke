@@ -3,29 +3,21 @@
   flex-direction: row;
   justify-content: center;
 
-  @include mq($until: tablet) {
-    background-color: white;
-    padding-bottom: .5rem;
-    padding-top: .4rem;
-    width: 100%;
-  }
-
   &__label {
-    color: $text-color;
+    color: currentColor;
+    display: none;
     font-family: $font;
-    font-size: .7rem;
+    font-size: .65rem;
     font-weight: $font-weight;
-    line-height: 1;
+    letter-spacing: 0.05rem;
     margin-bottom: 0;
     margin-right: .5rem;
     margin-top: 0;
     position: relative;
-    top: .3rem;
+    top: 0.15rem;
 
     @include mq($from: tablet) {
-      color: white;
-      font-size: .8rem;
-      top: .2rem;
+      display: inline-block;
     }
   }
 
@@ -40,16 +32,19 @@
   }
 
   &__item {
-    & + & {
-      margin-left: .25rem;
+    @include mq($from: tablet) {
+      & + & {
+        margin-left: .15rem;
+      }
     }
   }
 
   &__language {
-    color: $brand-color;
+    color: currentColor;
     font-family: $font;
-    font-size: .65rem;
-    font-weight: $font-weight;
+    font-size: .5rem;
+    font-weight: $font-weight-black;
+    letter-spacing: 0.075rem;
     line-height: 1;
     margin: 0 .4rem;
     padding-bottom: .1rem;
@@ -57,23 +52,16 @@
     text-transform: uppercase;
 
     @include mq($from: tablet) {
-      color: white;
-      font-size: .8rem;
-      font-weight: $font-weight-black;
-      letter-spacing: .02rem;
+      font-size: .65rem;
       margin-left: .25rem;
       margin-right: .25rem;
-      padding-bottom: .18rem;
     }
   }
 
-  &__language:not(&__language--is-active):hover,
-  &__language:not(&__language--is-active):focus {
-    border-bottom: 2px solid white;
-  }
-
-  &__language--is-active {
-    border-bottom: 1px solid transparentize($brand-color, .5);
+  &__language--is-active,
+  &__language:hover,
+  &__language:focus {
+    border-bottom: 1px solid white;
 
     @include mq($from: tablet) {
       border-bottom-width: 2px;

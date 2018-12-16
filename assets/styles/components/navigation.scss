@@ -1,0 +1,55 @@
+.navigation {
+  color: white;
+  left: 0;
+  padding-top: 0.25rem;
+  position: absolute;
+  top: 0.5rem;
+  width: 100%;
+  z-index: 10;
+
+  @include mq($from: tablet) {
+    top: 1.5rem;
+  }
+
+  &__language-switch {
+    position: absolute;
+    right: 0.75rem;
+    top: -0.25rem;
+  }
+
+  &__container {
+    background-color: $secondary-color;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    height: 2.25rem;
+    margin-top: 1rem;
+    overflow-x: scroll;
+    padding-left: 7.5rem;
+    width: 100%;
+
+    @include mq($from: tablet) {
+      flex-direction: row;
+      height: auto;
+      padding-left: 15rem;
+    }
+  }
+
+  &__logo {
+    bottom: -1rem;
+    position: absolute;
+    left: 0;
+
+    @include mq($from: tablet) {
+      bottom: -2.2rem;
+      position: absolute;
+      left: 4rem;
+    }
+  }
+
+  &__language-switcher {
+    align-self: flex-end;
+    display: flex;
+    margin-left: auto;
+  }
+}

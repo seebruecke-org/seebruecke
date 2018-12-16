@@ -8,8 +8,6 @@
     <header class="header">
       <?php get_template_part('navigation'); ?>
 
-      <?php get_template_part('logo'); ?>
-
       <?php
         global $header_id;
 
@@ -35,7 +33,7 @@
       ?>
 
         <div class="header__content">
-          <div class="constraint">
+          <div class="constraint constraint--wide">
             <h1 class="header__title">
               <?php echo get_the_title($header_id); ?>
             </h1>

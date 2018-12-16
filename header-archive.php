@@ -12,15 +12,6 @@
     <header class="header header--without-image">
       <?php get_template_part('navigation'); ?>
 
-      <a href="<?php echo pll_home_url(); ?>"
-         class="header__logo-container">
-        <?php get_template_part('logo'); ?>
-
-        <span class="visually-hidden">
-          <?php echo pll__('Zurück zur Seebrücke Startseite') ?>
-        </span>
-      </a>
-
       <div class="header__content">
         <div class="constraint">
           <h1 class="header__title">
