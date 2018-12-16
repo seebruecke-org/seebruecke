@@ -14,16 +14,16 @@
   "author": "Gustav Pursche <pursche@posteo.de>",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.1.6",
-    "autoprefixer": "^9.3.1",
+    "@babel/core": "^7.2.2",
+    "autoprefixer": "^9.4.2",
     "babel-loader": "^8.0.4",
-    "css-loader": "^1.0.1",
+    "css-loader": "^2.0.1",
     "file-loader": "^2.0.0",
-    "mini-css-extract-plugin": "^0.4.5",
-    "node-sass": "^4.10.0",
+    "mini-css-extract-plugin": "^0.5.0",
+    "node-sass": "^4.11.0",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
-    "webpack": "^4.26.0",
+    "webpack": "^4.27.1",
     "webpack-cli": "^3.1.2"
   },
   "dependencies": {
