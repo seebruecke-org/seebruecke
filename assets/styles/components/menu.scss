@@ -1,37 +1,51 @@
 .menu {
-  display: flex;
+  background-color: darken($secondary-color, 5%);
+  display: none;
   flex: 1 0 auto;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: nowrap;
   font-size: 0;
+  left: 0;
   list-style: none;
   line-height: 1;
   margin: 0;
   padding: 0;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+
+  @include mq($from: desktop) {
+    display: flex;
+    flex-direction: row;
+    position: static;
+  }
+
+  .navigation--is-open & {
+    display: flex;
+  }
 
   > li {
     height: 100%;
   }
 
   > li + li {
-    border-top: 1px solid lighten($secondary-color, 10%);
+    border-top: 1px solid darken($secondary-color, 10%);
 
-    @include mq($from: tablet) {
-      border-left: 1px solid lighten($secondary-color, 10%);
+    @include mq($from: desktop) {
+      border-left: 2px solid darken($secondary-color, 5%);
       border-top: 0;
     }
   }
 
-  @include mq($from: tablet) {
+  @include mq($from: desktop) {
     > li:last-child {
       background-color: darken($secondary-color, 5%);
-      border-left: none;
       align-self: flex-end;
       margin-left: auto;
     }
   }
 
-  @include mq($from: tablet) {
+  @include mq($from: desktop) {
     > li:last-child > a {
       font-weight: $font-weight-black;
       letter-spacing: 0.075rem;
@@ -42,19 +56,20 @@
   a {
     color: currentColor;
     display: block;
-    font-size: 0.75rem;
+    font-size: 0.95rem;
     font-family: $font;
     font-weight: $font-weight;
     letter-spacing: 0.025rem;
-    padding: 0.65rem 0.75rem;
+    line-height: 1;
+    padding: 0.75rem;
     text-align: center;
     text-decoration: none;
-    white-space: nowrap;
 
-    @include mq($from: tablet) {
+    @include mq($from: desktop) {
       font-size: 1rem;
       padding: 0.75rem 1rem;
       text-align: left;
+      white-space: nowrap;
     }
   }
 

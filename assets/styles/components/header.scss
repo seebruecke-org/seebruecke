@@ -18,6 +18,7 @@
 
   &--without-image {
     height: auto;
+    min-height: 40vh;
   }
 
   &__logo,
@@ -70,8 +71,8 @@
   &__title {
     font-size: 2.2rem;
     font-weight: $font-weight-black;
-    letter-spacing: 0.075rem;
-    line-height: 1.1;
+    letter-spacing: 0.085rem;
+    line-height: 1.05;
     margin: 0 2rem;
     text-align: center;
     text-transform: uppercase;

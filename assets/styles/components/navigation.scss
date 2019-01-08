@@ -24,26 +24,29 @@
     flex-direction: column;
     height: 2.25rem;
     margin-top: 1rem;
-    overflow-x: scroll;
     padding-left: 7.5rem;
     width: 100%;
 
-    @include mq($from: tablet) {
+    @include mq($from: desktop) {
       flex-direction: row;
-      height: auto;
-      padding-left: 15rem;
+      height: 2.5rem;
+      padding-left: 12rem;
     }
   }
 
   &__logo {
-    bottom: -1rem;
+    bottom: -0.1rem;
     position: absolute;
-    left: 0;
+    left: 1rem;
 
     @include mq($from: tablet) {
-      bottom: -2.2rem;
+      bottom: -0.65rem;
       position: absolute;
-      left: 4rem;
+      left: 2rem;
+    }
+
+    @include mq($from: desktop) {
+      bottom: -0.5rem;
     }
   }
 
@@ -51,5 +54,14 @@
     align-self: flex-end;
     display: flex;
     margin-left: auto;
+  }
+
+  &__burger-container {
+    display: flex;
+    justify-content: flex-end;
+
+    @include mq($from: desktop) {
+      display: none;
+    }
   }
 }

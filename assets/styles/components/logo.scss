@@ -1,13 +1,14 @@
 .logo {
   color: white;
+  display: block;
 
   > svg {
-    height: 5rem;
-    width: 8rem;
+    height: 4rem;
+    width: 6rem;
 
     @include mq($from: tablet) {
-      height: 8.5rem;
-      width: 11.5rem;
+      height: 6rem;
+      width: 8rem;
     }
   }
 
