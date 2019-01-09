@@ -7,7 +7,7 @@
     color: currentColor;
     display: none;
     font-family: $font;
-    font-size: .65rem;
+    font-size: .7rem;
     font-weight: $font-weight;
     letter-spacing: 0.05rem;
     margin-bottom: 0;
@@ -42,7 +42,7 @@
   &__language {
     color: currentColor;
     font-family: $font;
-    font-size: .5rem;
+    font-size: .6rem;
     font-weight: $font-weight;
     letter-spacing: 0.075rem;
     line-height: 1;
@@ -61,7 +61,7 @@
   &__language--is-active,
   &__language:hover,
   &__language:focus {
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid rgba(255, 255, 255, .4);
 
     @include mq($from: tablet) {
       border-bottom-width: 2px;
