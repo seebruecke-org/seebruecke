@@ -1,14 +1,15 @@
 .burger-menu {
   appearance: none;
-  background-color: darken($secondary-color, 5%);
+  background-color: $brand-color;
   border: 0;
   display: inline-block;
   margin: 0;
   padding: 0.35rem 1rem;
 
+  .navigation--is-open &,
   &:hover,
   &:focus {
-    background-color: $brand-color;
+    background-color: darken($secondary-color, 5%);
     cursor: pointer;
   }
 
