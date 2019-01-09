@@ -94,7 +94,8 @@
   > address > p > a,
   > p > a,
   > p > small > a,
-  > ul > li > a {
+  > ul > li > a,
+  > ul > li > ul > li > a {
     color: $brand-color;
     text-decoration: none;
 
