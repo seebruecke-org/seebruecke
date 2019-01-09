@@ -4,15 +4,17 @@
   border: 0;
   display: inline-block;
   margin: 0;
-  padding: 0.3rem 1rem 0.25rem 1rem;
+  padding: 0.35rem 1rem;
+
+  &:hover,
+  &:focus {
+    background-color: $brand-color;
+    cursor: pointer;
+  }
 
   &__icon {
     color: white;
-    height: 1.5rem;
-    width: 1.5rem;
-  }
-
-  &__label {
-
+    height: 1.75rem;
+    width: 1.75rem;
   }
 }

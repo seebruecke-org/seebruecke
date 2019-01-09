@@ -15,6 +15,7 @@
   width: 100%;
 
   @include mq($from: desktop) {
+    background-color: transparent;
     display: flex;
     flex-direction: row;
     position: static;
@@ -35,6 +36,10 @@
       border-left: 2px solid darken($secondary-color, 5%);
       border-top: 0;
     }
+  }
+
+  > li:last-child {
+    background-color: darken($secondary-color, 10%);
   }
 
   @include mq($from: desktop) {
@@ -76,6 +81,10 @@
   li.current-menu-item > a,
   a:hover,
   a:focus {
-    background-color: darken($secondary-color, 5%);
+    background-color: darken($secondary-color, 10%);
+
+    @include mq($from: desktop) {
+      background-color: darken($secondary-color, 5%);
+    }
   }
 }

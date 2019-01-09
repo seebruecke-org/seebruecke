@@ -1,7 +1,7 @@
 .navigation {
   color: white;
   left: 0;
-  padding-top: 0.25rem;
+  padding-top: 0.5rem;
   position: absolute;
   top: 0.5rem;
   width: 100%;
@@ -22,8 +22,9 @@
     color: white;
     display: flex;
     flex-direction: column;
-    height: 2.25rem;
+    height: 2.5rem;
     margin-top: 1rem;
+    overflow-y: hidden;
     padding-left: 7.5rem;
     width: 100%;
 
@@ -34,8 +35,12 @@
     }
   }
 
+  &--is-open &__container {
+    overflow-y: visible;
+  }
+
   &__logo {
-    bottom: -0.1rem;
+    bottom: -0.2rem;
     position: absolute;
     left: 1rem;
 
