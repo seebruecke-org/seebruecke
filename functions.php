@@ -242,6 +242,12 @@ function register_meta_boxes($meta_boxes) {
         'id'    => 'header_support_youtube',
         'post_type' => 'text',
       ),
+
+      array(
+        'name'  => 'Image caption',
+        'id'    => 'header_image-caption',
+        'type'  => 'text',
+      ),
     ),
   );
 

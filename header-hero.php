@@ -16,6 +16,7 @@
 
         $secondary_label = rwmb_meta('header_secondary_label', null, $header_id);
         $secondary_reference = rwmb_meta('header_secondary_reference', null, $header_id);
+        $image_caption = rwmb_meta('header_image-caption', null, $header_id);
 
         $thumbnail_id = get_post_thumbnail_id($header_id);
         $thumbnail_attrs = array(
@@ -59,6 +60,12 @@
             </div>
           </div>
         </div>
+
+        <?php if($image_caption) : ?>
+          <div class="header__image-caption">
+            <?php echo $image_caption; ?>
+          </div>
+        <?php endif; ?>
     </header>
 
     <?php get_template_part('support'); ?>

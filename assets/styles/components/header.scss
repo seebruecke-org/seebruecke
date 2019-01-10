@@ -178,6 +178,19 @@
     width: auto;
   }
 
+  &__image-caption {
+    background-color: rgba(0, 0, 0, .4);
+    bottom: 0;
+    color: white;
+    font-family: $font;
+    font-size: 0.55rem;
+    letter-spacing: 0.05rem;
+    padding: 0.35rem;
+    position: absolute;
+    right: 0;
+    z-index: 10;
+  }
+
   &__additional-content {
     font-size: .8rem;
     font-weight: $font-weight;
