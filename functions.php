@@ -47,6 +47,7 @@ function create_posttypes() {
         'singular_name' => pll__('Header')
         ),
         'public' => true,
+        'menu_icon' => 'dashicons-feedback',
         'publicly_queryable' => false,
         'exclude_from_search' => true,
         'show_ui' => true,
@@ -68,6 +69,7 @@ function create_posttypes() {
         'singular_name' => pll__('Footer')
         ),
         'public' => true,
+        'menu_icon' => 'dashicons-feedback',
         'publicly_queryable' => false,
         'exclude_from_search' => true,
         'show_ui' => true,
@@ -87,6 +89,7 @@ function create_posttypes() {
         ),
         'public' => true,
         'has_archive' => true,
+        'menu_icon' => 'dashicons-location',
         'rewrite' => array(
           'slug' => 'events'
         ),
@@ -110,6 +113,7 @@ function create_posttypes() {
         'singular_name' => pll__('Safe haven')
         ),
         'public' => true,
+        'menu_icon' => 'dashicons-admin-multisite',
         'has_archive' => true,
         'rewrite' => array(
           'slug' => 'safe-havens'
@@ -130,6 +134,7 @@ function create_posttypes() {
         'name' => pll__('Organisations'),
         'singular_name' => pll__('Organisation')
         ),
+        'menu_icon' => 'dashicons-networking',
         'public' => false,
         'publicly_queryable' => false,
         'exclude_from_search' => true,
@@ -142,16 +147,17 @@ function create_posttypes() {
     )
   );
 
-  register_post_type('groups',
+  register_post_type('lokalgruppen',
     array(
       'labels' => array(
         'name' => pll__('Local groups'),
         'singular_name' => pll__('Local group')
         ),
         'public' => true,
+        'menu_icon' => 'dashicons-groups',
         'has_archive' => true,
         'rewrite' => array(
-          'slug' => 'groups'
+          'slug' => 'lokalgruppen'
         ),
         'supports' => array(
           'author',
@@ -340,7 +346,7 @@ function register_meta_boxes($meta_boxes) {
         'id' => 'haven_localgroup',
         'type' => 'post',
         'name' => 'Responsible local group',
-        'post_type' => 'groups',
+        'post_type' => 'localgruppen',
         'field_type' => 'select_advanced',
       ),
 
@@ -440,7 +446,7 @@ function register_meta_boxes($meta_boxes) {
           'id' => 'event_organizer',
           'type' => 'post',
           'name' => 'Organizer (Local group)',
-          'post_type' => 'groups',
+          'post_type' => 'lokalgruppen',
           'field_type' => 'select_advanced',
         ),
       )
@@ -450,7 +456,7 @@ function register_meta_boxes($meta_boxes) {
   $meta_boxes[] = array(
     'id'         => 'groups_data',
     'title'      => 'Extended information',
-    'post_types' => 'groups',
+    'post_types' => 'lokalgruppen',
     'context'    => 'normal',
     'priority'   => 'high',
     'fields'     => array(

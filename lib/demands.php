@@ -8,6 +8,7 @@ function create_demands_posttype() {
         'singular_name' => pll__('Demand')
         ),
         'public' => true,
+        'menu_icon' => 'dashicons-welcome-comments',
         'publicly_queryable' => false,
         'exclude_from_search' => true,
         'show_ui' => true,
