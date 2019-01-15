@@ -1,5 +1,4 @@
-import mapIcon from '../images/map-marker.svg';
-import mapIconCircle from '../images/map-circle.svg';
+import mapIcon from '../images/map-pin.svg';
 
 const MAP_DEFAULTS = {
   center: {
@@ -67,17 +66,16 @@ const MAP_DEFAULTS = {
   rotateControl: false,
   fullscreenControl: false,
   streetViewControl: false,
-  zoom: 5.5,
+  zoom: 5.8,
 };
 
 const addMaker = (marker, map, options = {}) => {
   const coordinates = marker.coordinates && marker.coordinates.split(',');
   const { title, url } = marker;
   const icon = {
-    url: 'https://seebruecke.org/wp-content/themes/seebruecke/dist/images/map-circle.svg',
-    anchor: new google.maps.Point(8.5, 8.5),
-    scaledSize: new google.maps.Size(17, 17),
-    labelOrigin: new google.maps.Point(0, 25),
+    url: 'https://seebruecke.org/wp-content/themes/seebruecke/dist/images/map-pin.svg',
+    anchor: new google.maps.Point(18, 36),
+    scaledSize: new google.maps.Size(36, 36),
   };
 
   if (coordinates && coordinates[0] && coordinates[1]) {
@@ -88,14 +86,7 @@ const addMaker = (marker, map, options = {}) => {
         lng: parseFloat(coordinates[1]),
       },
       map,
-      title,
-      label: options.showLabel && {
-        text: title,
-        color: 'white',
-        fontFamily: '"Work Sans", sans-serif',
-        fontSize: '11px',
-        fontWeight: 'normal',
-      },
+      title
     });
 
     mapsMarker.addListener('click', () => window.location.href = url);
@@ -116,50 +107,6 @@ const map = () => {
     container,
     MAP_DEFAULTS,
   );
-
-  if (container.dataset && container.dataset.showLabel && container.dataset.showLabel === "true") {
-    MAP_DEFAULTS.styles.push({
-      featureType: "administrative.country",
-      elementType: "labels",
-      stylers: [
-          { visibility: "off" }
-      ]
-    });
-
-    MAP_DEFAULTS.styles.push({
-      featureType: "administrative.country",
-      elementType: "labels",
-      stylers: [
-          { visibility: "off" }
-      ]
-    });
-
-    MAP_DEFAULTS.styles.push({
-      "featureType": "administrative.neighborhood",
-      "elementType": "labels",
-      "stylers": [
-        { "visibility": "off" }
-      ]
-    });
-
-    MAP_DEFAULTS.styles.push({
-      "featureType": "administrative.land_parcel",
-      "elementType": "labels",
-      "stylers": [
-        { "visibility": "off" }
-      ]
-    });
-
-    MAP_DEFAULTS.styles.push({
-      "featureType": "administrative.locality",
-      "elementType": "labels",
-      "stylers": [
-        { "visibility": "off" }
-      ]
-    });
-
-    MAP_DEFAULTS.zoom = 11;
-  }
 
   const markerOptions = {
     icon: container.dataset &&

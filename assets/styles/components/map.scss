@@ -9,12 +9,12 @@
   }
 
   &__canvas {
-    height: 450px;
+    height: 550px;
     width: 100%;
   }
 
   &--is-in-archive &__canvas {
-    height: 600px;
+    height: 650px;
   }
 
   &__poi-label {
