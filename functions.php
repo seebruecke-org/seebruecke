@@ -299,6 +299,44 @@ function register_meta_boxes($meta_boxes) {
       ),
 
       array(
+        'name'  => 'Demands',
+        'id'    => 'haven_demands',
+        'type'  => 'group',
+        'clone' => true,
+        'fields' => array(
+          array(
+            'id'   => 'haven_demand',
+            'type' => 'post',
+            'name' => 'Demand',
+            'post_type' => 'demands',
+            'field_type' => 'select_advanced',
+          ),
+
+          array(
+            'name'  => 'Decided',
+            'id'    => 'haven_demand-decided',
+            'type'  => 'select',
+            'options' => array(
+              'yes' => 'Yes',
+              'no' => 'No',
+              'unclear' => 'Unclear'
+            )
+          ),
+
+          array(
+            'name'  => 'Fullfilled',
+            'id'    => 'haven_demand-fullfilled',
+            'type'  => 'select',
+            'options' => array(
+              'yes' => 'Yes',
+              'no' => 'No',
+              'unclear' => 'Unclear'
+            )
+          ),
+        ),
+      ),
+
+      array(
         'id' => 'haven_localgroup',
         'type' => 'post',
         'name' => 'Responsible local group',

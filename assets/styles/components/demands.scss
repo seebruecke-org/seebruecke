@@ -1,0 +1,120 @@
+.demands {
+  @include break-constraint();
+
+  background-color: $secondary-color;
+  border-top: 10px solid $brand-color;
+  color: white;
+  margin-bottom: 3rem;
+  margin-top: 3rem;
+  padding: 2.5rem 1.5rem 4rem 1.5rem;
+
+  .richtext &__title {
+    color: white;
+    font-size: 1.5rem;
+    letter-spacing: 0.1rem;
+    margin-bottom: 2.5rem;
+    margin-left: -0.75rem;
+    margin-top: 0;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+
+    @include mq($from: tablet) {
+      font-size: 2.5rem;
+    }
+  }
+
+  &__table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  thead {
+    border-bottom: 1px solid lighten($secondary-color, 10%);
+  }
+
+  th {
+    font-family: $font;
+    font-size: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 0.05rem;
+    padding: 0 0.5rem 0.25rem 0.25rem;
+    text-transform: uppercase;
+
+    @include mq($from: tablet) {
+      font-size: 0.75rem;
+      padding: 0 1rem 0.75rem 1rem;
+    }
+  }
+
+  &__demand {
+    & + & {
+      border-top: 1px solid lighten($secondary-color, 10%);
+
+      > td {
+        padding-top: 1.5rem;
+      }
+    }
+
+    > td {
+      padding-bottom: 1.5rem;
+      vertical-align: top;
+    }
+
+    &:first-child > td {
+      padding-top: 1rem;
+    }
+
+    svg {
+      height: 1.5rem;
+      width: 1.5rem;
+
+      @include mq($from: desktop) {
+        height: 2.5rem;
+        width: 2.5rem;
+      }
+    }
+
+    .richtext &-title {
+      border-bottom: 2px solid $brand-color;
+      color: white;
+      display: inline;
+      font-size: 1rem;
+      letter-spacing: 0.1rem;
+      line-height: 1.4;
+      padding-right: 0.75rem;
+
+      @include mq($from: tablet) {
+        border-bottom-width: 6px;
+        font-size: 1.8rem;
+      }
+    }
+
+    &-content {
+      color: white;
+      font-family: $font;
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin-bottom: 0;
+      margin-right: 1.5rem;
+      margin-top: 1rem;
+
+      > ul {
+        padding-left: 1.25rem;
+      }
+
+      li + li {
+        margin-top: 1rem;
+      }
+    }
+
+    &-decided,
+    &-fullfilled {
+      text-align: center;
+    }
+
+    &-decided {
+      border-left: 1px solid lighten($secondary-color, 10%);
+      border-right: 1px solid lighten($secondary-color, 10%);
+    }
+  }
+}

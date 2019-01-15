@@ -7,6 +7,7 @@
 ### Wordpress plugin requirements
 
 - [meta-box](https://wordpress.org/plugins/meta-box/)
+- [meta-box-group](https://docs.metabox.io/extensions/meta-box-group/)
 - [polylang](https://wordpress.org/plugins/polylang/)
 
 ### Install dependencies
@@ -31,6 +32,8 @@
 - [Pages](#pages)
 - [Headers](#headers)
 - [Footers](#footers)
+- [Demands](#demands)
+- [Safe Havens](#safe-havens)
 
 ### Organizations
 
@@ -76,6 +79,14 @@ Headers are used to render the hero image on the front page.
 - `Mailchimp URL`: URL where the newsletter subscribe is submitted to
 - `Mailchimp enabled`: flag which toggles the newsletter subscribe form
 
+
+### Demands
+
+Demands, which the Seebruecke has, towards the cities, which are safe havens.
+
+### Safe Havens
+
+Cities, which became safe havens.
 
 ## Shortcodes
 

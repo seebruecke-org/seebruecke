@@ -6,11 +6,14 @@
     $fields = get_post_custom();
     $press = rwmb_meta('haven_press');
     $application = rwmb_meta('haven_application');
+    $demands = rwmb_meta('haven_demands');
   ?>
     <div class="constraint">
       <div class="action-single">
         <article class="richtext richtext--single">
           <?php the_content(); ?>
+
+          <?php if ($demands) { echo do_shortcode('[demands]'); } ?>
 
           <?php if($press) : ?>
             <h2>Presse</h2>
