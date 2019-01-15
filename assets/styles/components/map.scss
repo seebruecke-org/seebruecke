@@ -3,11 +3,6 @@
 
   margin-bottom: 4rem;
 
-  // move the map close to the the header in archive pages
-  &--is-in-archive {
-    margin-top: -4rem;
-  }
-
   &__canvas {
     height: 550px;
     width: 100%;

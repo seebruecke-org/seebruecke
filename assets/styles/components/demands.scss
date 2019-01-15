@@ -2,10 +2,8 @@
   @include break-constraint();
 
   background-color: $secondary-color;
-  border-top: 10px solid $brand-color;
   color: white;
   margin-bottom: 3rem;
-  margin-top: 3rem;
   padding: 2.5rem 1.5rem 4rem 1.5rem;
 
   .richtext &__title {

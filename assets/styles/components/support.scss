@@ -6,9 +6,8 @@
   flex-direction: row;
   font-family: $font;
   line-height: 1;
-  margin-top: -4rem;
-  padding-bottom: 1rem;
-  padding-top: 1.3rem;
+  padding-bottom: 0.75rem;
+  padding-top: 1.15rem;
 
   @include mq($until: tablet) {
     text-align: center;

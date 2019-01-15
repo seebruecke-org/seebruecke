@@ -14,9 +14,15 @@
     <div class="constraint">
       <div class="action-single">
         <article class="richtext richtext--single">
-          <?php the_content(); ?>
-
           <?php if ($demands) { echo do_shortcode('[demands]'); } ?>
+
+          <?php
+            if (!$demands) {
+              echo '<br/>';
+            }
+
+            the_content();
+          ?>
 
           <?php if($press) : ?>
             <h2>Presse</h2>
