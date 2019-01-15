@@ -33,7 +33,7 @@
         <div class="header__content">
           <div class="constraint constraint--wide">
             <h1 class="header__title">
-              <?php if (isset($TITLE)) { echo $TITLE; } else { echo get_the_title(); } ?>
+              <?php global $TITLE; if (isset($TITLE)) { echo $TITLE; } else { echo get_the_title(); } ?>
             </h1>
           </div>
         </div>

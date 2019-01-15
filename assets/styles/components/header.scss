@@ -89,6 +89,19 @@
     }
   }
 
+  &__title-byline {
+    display: block;
+    font-size: 1.8rem;
+
+    @include mq($from: tablet) {
+      font-size: 2.2rem;
+    }
+
+    @include mq($from: desktop) {
+      font-size: 4.4rem;
+    }
+  }
+
   &--without-image &__title {
     font-size: 1.6rem;
     letter-spacing: 0.08rem;
@@ -103,6 +116,18 @@
 
     @include mq($from: desktop) {
       font-size: 2.4rem;
+    }
+  }
+
+  &--without-image &__title-byline {
+    font-size: 1rem;
+
+    @include mq($from: tablet) {
+      font-size: 1.4rem;
+    }
+
+    @include mq($from: desktop) {
+      font-size: 1.8rem;
     }
   }
 

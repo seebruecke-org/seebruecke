@@ -1,5 +1,6 @@
 <?php
   $site_description = get_bloginfo('description');
+  $site_name = get_bloginfo('name');
 ?>
 
 <head>
@@ -22,8 +23,27 @@
         href="<?php echo get_template_directory_uri(); ?>/dist/images/favicon.png"/>
 
   <title>
-    <?php wp_title(' - ', true, 'right'); ?>
-    <?php bloginfo('name'); ?>
+    <?php
+      $post_type = get_post_type();
+      $post_title = get_the_title();
+
+      switch($post_type) {
+        case 'page':
+          if(is_front_page()) {
+            echo $site_name;
+          } else {
+            echo $post_title . ' - ' . $site_name;
+          }
+          break;
+
+        case 'safe-havens':
+          echo 'Sicherer Hafen ' . $post_title . ' - Seebrücke';
+          break;
+
+        default:
+          echo $post_title . ' - ' . $site_name;
+      }
+    ?>
   </title>
 
   <?php wp_head(); ?>
