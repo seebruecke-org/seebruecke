@@ -1,3 +1,7 @@
+<?php
+  $site_description = get_bloginfo('description');
+?>
+
 <head>
   <meta charset="utf-8" />
 
@@ -6,6 +10,12 @@
 
   <meta name="viewport"
         content="width=device-width, initial-scale=1" />
+
+  <meta name="google-site-verification"
+        content="GDcufxtgT9spcsNJitT3rgxFisa4Ky-2MmplVI3u2wY" />
+
+  <meta name="description"
+        content="<?php echo $site_description; ?>">
 
   <link rel="shortcut icon"
         type="image/png"
