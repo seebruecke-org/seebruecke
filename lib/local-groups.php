@@ -5,7 +5,7 @@ function get_all_localgroups($extend_query = []) {
     array(
       'orderby' => 'title',
       'order' => 'ASC',
-      'post_type' => 'groups',
+      'post_type' => 'lokalgruppen',
       'post_status' => 'publish',
       'posts_per_page' => -1,
     ),
