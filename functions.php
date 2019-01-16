@@ -259,8 +259,8 @@ function register_meta_boxes($meta_boxes) {
 
   // Save havens
   $meta_boxes[] = array(
-    'id'         => 'haven_data',
-    'title'      => 'Extended information',
+    'id'         => 'haven_data-location',
+    'title'      => 'Location data',
     'post_types' => 'safe-havens',
     'context'    => 'normal',
     'priority'   => 'high',
@@ -272,15 +272,9 @@ function register_meta_boxes($meta_boxes) {
       ),
 
       array(
-        'name'  => 'District',
+        'name'  => 'Federal state',
         'id'    => 'haven_district',
         'type'  => 'text',
-      ),
-
-      array(
-        'name'  => 'Since when is this city a safe haven?',
-        'id'    => 'haven_since',
-        'type'  => 'date',
       ),
 
       array(
@@ -290,18 +284,34 @@ function register_meta_boxes($meta_boxes) {
         'type'  => 'map',
         'address_field' => 'haven_address',
       ),
+    )
+  );
 
+  $meta_boxes[] = array(
+    'id'         => 'haven_data-documents',
+    'title'      => 'Documents & Links',
+    'post_types' => 'safe-havens',
+    'context'    => 'normal',
+    'priority'   => 'high',
+    'fields' => array(
       array(
-        'name'  => 'Action-Button: link',
-        'desc'  => 'In case you are running e.g. a petition, this will create an action button in the header',
-        'id'    => 'haven_action-link',
-        'type'  => 'text',
+        'name'  => 'Application documents',
+        'id'    => 'haven_application',
+        'type'  => 'key_value',
+        'placeholder' => array(
+          'key' => 'Link',
+          'value' => 'Title',
+        )
       ),
 
       array(
-        'name'  => 'Action-Button: label',
-        'id'    => 'haven_action-label',
-        'type'  => 'text',
+        'name'  => 'Press',
+        'id'    => 'haven_press',
+        'type'  => 'key_value',
+        'placeholder' => array(
+          'key' => 'Link',
+          'value' => 'Title',
+        )
       ),
 
       array(
@@ -341,33 +351,41 @@ function register_meta_boxes($meta_boxes) {
           ),
         ),
       ),
+    )
+  );
+
+  $meta_boxes[] = array(
+    'id'         => 'haven_data-extended',
+    'title'      => 'Meta information',
+    'post_types' => 'safe-havens',
+    'context'    => 'normal',
+    'priority'   => 'high',
+    'fields' => array(
+      array(
+        'name'  => 'Since when is this city a safe haven?',
+        'id'    => 'haven_since',
+        'type'  => 'date',
+      ),
 
       array(
         'id' => 'haven_localgroup',
         'type' => 'post',
         'name' => 'Responsible local group',
-        'post_type' => 'localgruppen',
+        'post_type' => 'lokalgruppen',
         'field_type' => 'select_advanced',
       ),
 
       array(
-        'name'  => 'Application document',
-        'id'    => 'haven_application',
-        'type'  => 'key_value',
-        'placeholder' => array(
-          'key' => 'Link',
-          'value' => 'Title',
-        )
+        'name'  => 'Action-Button: link',
+        'desc'  => 'In case the safe haven is running e.g. a petition, this will create an action button in the header',
+        'id'    => 'haven_action-link',
+        'type'  => 'text',
       ),
 
       array(
-        'name'  => 'Presse',
-        'id'    => 'haven_press',
-        'type'  => 'key_value',
-        'placeholder' => array(
-          'key' => 'Link',
-          'value' => 'Title',
-        )
+        'name'  => 'Action-Button: label',
+        'id'    => 'haven_action-label',
+        'type'  => 'text',
       ),
     )
   );
@@ -454,16 +472,16 @@ function register_meta_boxes($meta_boxes) {
 
   // Local groups
   $meta_boxes[] = array(
-    'id'         => 'groups_data',
-    'title'      => 'Extended information',
+    'id'         => 'groups_data-location',
+    'title'      => 'Location data',
     'post_types' => 'lokalgruppen',
     'context'    => 'normal',
     'priority'   => 'high',
     'fields'     => array(
-        array(
-          'name'  => 'City',
-          'id'    => 'group_address',
-          'type'  => 'text',
+      array(
+        'name'  => 'City',
+        'id'    => 'group_address',
+        'type'  => 'text',
       ),
 
       array(
@@ -475,6 +493,21 @@ function register_meta_boxes($meta_boxes) {
         'address_field' => 'group_address',
       ),
 
+      array(
+        'name'  => 'Federal state',
+        'id'    => 'haven_district',
+        'type'  => 'text',
+      )
+    ),
+  );
+
+  $meta_boxes[] = array(
+    'id'         => 'groups_data-social',
+    'title'      => 'Social information',
+    'post_types' => 'lokalgruppen',
+    'context'    => 'normal',
+    'priority'   => 'high',
+    'fields'     => array(
       array(
         'name'  => 'Facebook',
         'desc'  => 'Link to the facebook page',
