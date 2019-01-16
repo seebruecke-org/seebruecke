@@ -1,4 +1,7 @@
-<?php get_header(); ?>
+<?php
+  $TITLE = '<small class="header__title-byline">Seebrücke Lokalgruppe </small>' . get_the_title();
+  get_header();
+?>
 
 <main class="main">
   <?php while ( have_posts() ) :
@@ -89,7 +92,7 @@
     <div class="support">
       <div class="constraint">
         <em class="support__label">
-          <?php the_title(); ?> <?php echo pll__('auf'); ?>
+          <?php echo pll__('Lokalgruppe'); ?> <?php the_title(); ?> <?php echo pll__('auf'); ?>
         </em>
 
         <?php if ($facebook_link) : ?>
