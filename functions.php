@@ -40,47 +40,6 @@ function get_latest_footer() {
 }
 
 function create_posttypes() {
-  register_post_type('headers',
-    array(
-      'labels' => array(
-        'name' => pll__('Headers'),
-        'singular_name' => pll__('Header')
-        ),
-        'public' => true,
-        'menu_icon' => 'dashicons-feedback',
-        'publicly_queryable' => false,
-        'exclude_from_search' => true,
-        'show_ui' => true,
-        'show_in_menu' => true,
-        'has_archive' => false,
-        'supports' => array(
-          'title',
-          'editor',
-          'thumbnail',
-          'revisions',
-        )
-    )
-  );
-
-  register_post_type('footers',
-    array(
-      'labels' => array(
-        'name' => pll__('Footers'),
-        'singular_name' => pll__('Footer')
-        ),
-        'public' => true,
-        'menu_icon' => 'dashicons-feedback',
-        'publicly_queryable' => false,
-        'exclude_from_search' => true,
-        'show_ui' => true,
-        'show_in_menu' => true,
-        'has_archive' => false,
-        'supports' => array(
-          'editor',
-        )
-    )
-  );
-
   register_post_type('events',
     array(
       'labels' => array(
@@ -128,21 +87,24 @@ function create_posttypes() {
     )
   );
 
-  register_post_type('organizations',
+  register_post_type('news',
     array(
       'labels' => array(
-        'name' => pll__('Organisations'),
-        'singular_name' => pll__('Organisation')
+        'name' => pll__('News'),
+        'singular_name' => pll__('News')
         ),
-        'menu_icon' => 'dashicons-networking',
-        'public' => false,
-        'publicly_queryable' => false,
-        'exclude_from_search' => true,
-        'show_ui' => true,
-        'show_in_menu' => true,
-        'has_archive' => false,
+        'public' => true,
+        'menu_icon' => 'dashicons-id',
+        'has_archive' => true,
+        'rewrite' => array(
+          'slug' => 'news'
+        ),
         'supports' => array(
+          'author',
           'title',
+          'editor',
+          'thumbnail',
+          'revisions',
         )
     )
   );
@@ -169,24 +131,83 @@ function create_posttypes() {
     )
   );
 
-  register_post_type('news',
+  register_post_type('organizations',
     array(
       'labels' => array(
-        'name' => pll__('News'),
-        'singular_name' => pll__('News')
+        'name' => pll__('Organisations'),
+        'singular_name' => pll__('Organisation')
+        ),
+        'menu_icon' => 'dashicons-networking',
+        'public' => false,
+        'publicly_queryable' => false,
+        'exclude_from_search' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'has_archive' => false,
+        'supports' => array(
+          'title',
+        )
+    )
+  );
+
+  register_post_type('demands',
+    array(
+      'labels' => array(
+        'name' => pll__('Demands'),
+        'singular_name' => pll__('Demand')
         ),
         'public' => true,
-        'menu_icon' => 'dashicons-id',
-        'has_archive' => true,
-        'rewrite' => array(
-          'slug' => 'news'
-        ),
+        'menu_icon' => 'dashicons-welcome-comments',
+        'publicly_queryable' => false,
+        'exclude_from_search' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'has_archive' => false,
         'supports' => array(
-          'author',
+          'title',
+          'editor',
+          'revisions',
+        )
+    )
+  );
+
+  register_post_type('headers',
+    array(
+      'labels' => array(
+        'name' => pll__('Headers'),
+        'singular_name' => pll__('Header')
+        ),
+        'public' => true,
+        'menu_icon' => 'dashicons-feedback',
+        'publicly_queryable' => false,
+        'exclude_from_search' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'has_archive' => false,
+        'supports' => array(
           'title',
           'editor',
           'thumbnail',
           'revisions',
+        )
+    )
+  );
+
+  register_post_type('footers',
+    array(
+      'labels' => array(
+        'name' => pll__('Footers'),
+        'singular_name' => pll__('Footer')
+        ),
+        'public' => true,
+        'menu_icon' => 'dashicons-feedback',
+        'publicly_queryable' => false,
+        'exclude_from_search' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'has_archive' => false,
+        'supports' => array(
+          'editor',
         )
     )
   );
