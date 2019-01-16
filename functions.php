@@ -168,6 +168,28 @@ function create_posttypes() {
         )
     )
   );
+
+  register_post_type('news',
+    array(
+      'labels' => array(
+        'name' => pll__('News'),
+        'singular_name' => pll__('News')
+        ),
+        'public' => true,
+        'menu_icon' => 'dashicons-id',
+        'has_archive' => true,
+        'rewrite' => array(
+          'slug' => 'news'
+        ),
+        'supports' => array(
+          'author',
+          'title',
+          'editor',
+          'thumbnail',
+          'revisions',
+        )
+    )
+  );
 }
 
 function register_meta_boxes($meta_boxes) {
@@ -597,6 +619,31 @@ function register_meta_boxes($meta_boxes) {
         'name' => 'Header',
         'post_type' => 'headers',
         'field_type' => 'select_advanced',
+      ),
+    ),
+  );
+
+  // News
+  $meta_boxes[] = array(
+    'id'         => 'news_meta',
+    'title'      => 'Meta information',
+    'post_types' => 'news',
+    'context'    => 'normal',
+    'priority'   => 'high',
+    'fields'     => array(
+      array(
+        'name'  => 'Show on localgroup',
+        'id'    => 'news_localgroups',
+        'type'  => 'group',
+        'clone' => true,
+        'fields' => array(
+          array(
+            'id'    => 'news_localgroup',
+            'type'  => 'post',
+            'post_type'   => 'lokalgruppen',
+            'field_type'  => 'select_advanced'
+          ),
+        ),
       ),
     ),
   );
