@@ -538,7 +538,7 @@ function register_meta_boxes($meta_boxes) {
 
       array(
         'name'  => 'Federal state',
-        'id'    => 'haven_district',
+        'id'    => 'group_district',
         'type'  => 'text',
       )
     ),

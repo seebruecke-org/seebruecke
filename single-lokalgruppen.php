@@ -1,5 +1,5 @@
 <?php
-  $TITLE = '<small class="header__title-byline">Seebrücke Lokalgruppe </small>' . get_the_title();
+  $TITLE = '<small class="header__title-byline">Lokalgruppe </small>' . get_the_title();
   get_header();
 ?>
 

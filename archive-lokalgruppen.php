@@ -1,4 +1,7 @@
-<?php get_header('archive'); ?>
+<?php
+  $TITLE = 'Seebrücke Lokalgruppen';
+  get_header('archive');
+?>
 
 <main class="main">
   <div class="constraint">

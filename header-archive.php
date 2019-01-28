@@ -15,7 +15,15 @@
       <div class="header__content">
         <div class="constraint">
           <h1 class="header__title">
-            <?php pll_e('Alle ' . $title); ?>
+            <?php
+              global $TITLE;
+
+              if (isset($TITLE)) {
+                echo $TITLE;
+              } else {
+                pll_e('Alle ' . $title);
+              }
+            ?>
           </h1>
         </div>
       </div>

@@ -52,7 +52,7 @@
 
   @include mq($from: desktop) {
     > li:last-child > a {
-      font-weight: $font-weight-black;
+      font-weight: $font-weight-medium;
       letter-spacing: 0.075rem;
       text-transform: uppercase;
     }
@@ -63,7 +63,7 @@
     display: block;
     font-size: 0.95rem;
     font-family: $font;
-    font-weight: $font-weight;
+    font-weight: $font-weight-medium;
     letter-spacing: 0.025rem;
     line-height: 1;
     padding: 0.75rem;

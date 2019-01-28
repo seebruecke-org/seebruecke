@@ -1,4 +1,7 @@
-<?php get_header('archive'); ?>
+<?php
+  $TITLE = 'Veranstaltungen';
+  get_header('archive');
+?>
 
 <main class="main">
   <div class="constraint">

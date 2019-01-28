@@ -40,6 +40,10 @@
           echo 'Sicherer Hafen ' . $post_title . ' - Seebrücke';
           break;
 
+        case 'lokalgruppen':
+          echo 'Lokalgruppe ' . $post_title . ' - Seebrücke';
+          break;
+
         default:
           echo $post_title . ' - ' . $site_name;
       }
