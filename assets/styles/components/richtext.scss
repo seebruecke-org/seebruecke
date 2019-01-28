@@ -28,6 +28,7 @@
     color: $brand-color;
     font-size: 1.4rem;
     font-weight: $font-weight-black;
+    letter-spacing: 0.1rem;
     margin-bottom: 1rem;
     margin-top: 1.5rem;
     letter-spacing: 0.05rem;
@@ -47,6 +48,7 @@
     color: $brand-color;
     font-size: 1.4rem;
     font-weight: $font-weight-black;
+    letter-spacing: 0.1rem;
 
     @include mq($from: tablet) {
       font-size: 1.6rem;

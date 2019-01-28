@@ -12,8 +12,8 @@
   font-family: 'Work Sans';
   font-style: normal;
   font-weight: 500;
-  src: local('../fonts/Work-Sans-Medium.woff2') format('woff2'),
-       local('../fonts/Work-Sans-Medium.woff') format('woff');
+  src: url('../fonts/Work-Sans-Medium.woff2') format('woff2'),
+       url('../fonts/Work-Sans-Medium.woff') format('woff');
 }
 
 @font-face {

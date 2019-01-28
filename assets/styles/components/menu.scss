@@ -64,14 +64,14 @@
     font-size: 0.95rem;
     font-family: $font;
     font-weight: $font-weight-medium;
-    letter-spacing: 0.025rem;
+    letter-spacing: 0.035rem;
     line-height: 1;
     padding: 0.75rem;
     text-align: center;
     text-decoration: none;
 
     @include mq($from: desktop) {
-      font-size: 1rem;
+      font-size: 1.05rem;
       padding: 0.75rem 1rem;
       text-align: left;
       white-space: nowrap;

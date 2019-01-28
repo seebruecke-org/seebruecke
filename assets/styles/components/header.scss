@@ -70,8 +70,8 @@
   &__title {
     font-size: 2.2rem;
     font-weight: $font-weight-black;
-    letter-spacing: 0.085rem;
-    line-height: 1.05;
+    letter-spacing: 0.15rem;
+    line-height: 1.15;
     margin: 0 2rem;
     text-align: center;
     text-transform: uppercase;
@@ -84,7 +84,7 @@
     }
 
     @include mq($from: desktop) {
-      font-size: 4.8rem;
+      font-size: 5rem;
     }
   }
 
@@ -160,15 +160,16 @@
     background-color: $brand-color;
     font-size: 1rem;
     font-weight: $font-weight-black;
-    letter-spacing: 0.075rem;
+    letter-spacing: 0.1rem;
     margin-top: 2rem;
+    max-width: 27rem;
     padding: .75rem 1.5rem;
     text-transform: uppercase;
 
     @include mq($from: tablet) {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       margin-top: 6rem;
-      padding: 0.9rem 2rem;
+      padding: 1rem 2rem;
     }
 
     &:hover,
