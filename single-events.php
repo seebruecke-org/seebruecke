@@ -84,9 +84,8 @@
                       $group_link = get_permalink($group_id);
                     ?>
 
-                    <?php echo pll__('Lokalgruppe'); ?>
-
                     <a href="<?php echo $group_link; ?>" rel="nofollow" itemprop="url">
+                      <?php echo pll__('Lokalgruppe'); ?>
                       <?php echo $group->post_title; ?>
                     </a>
                   </p>
