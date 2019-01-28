@@ -376,6 +376,7 @@ function register_meta_boxes($meta_boxes) {
             'id'    => 'haven_demand-decided',
             'type'  => 'select',
             'options' => array(
+              '' => '',
               'yes' => 'Yes',
               'no' => 'No',
               'unclear' => 'Unclear'
@@ -387,6 +388,7 @@ function register_meta_boxes($meta_boxes) {
             'id'    => 'haven_demand-fullfilled',
             'type'  => 'select',
             'options' => array(
+              '' => '',
               'yes' => 'Yes',
               'no' => 'No',
               'unclear' => 'Unclear'
@@ -583,6 +585,22 @@ function register_meta_boxes($meta_boxes) {
         'name'  => 'Email',
         'id'    => 'group_email',
         'type'  => 'text',
+      ),
+    ),
+  );
+
+  // Demands
+  $meta_boxes[] = array(
+    'id'         => 'demands_data',
+    'title'      => 'Extended information',
+    'post_types' => 'demands',
+    'context'    => 'normal',
+    'priority'   => 'high',
+    'fields'     => array(
+      array(
+        'name'  => 'Long text',
+        'id'    => 'demand_long',
+        'type'  => 'wysiwyg',
       ),
     ),
   );
