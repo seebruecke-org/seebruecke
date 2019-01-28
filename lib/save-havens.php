@@ -132,6 +132,8 @@ function shortcode_havens($atts = []) {
 
   return '
     <div class="havens">
+      <h2>' . sizeof($havens->posts) . ' Sichere Häfen in Deutschland</h2>
+
       <div class="map map--is-large ' . $archive_class . '">
         <div class="map__canvas js-map"
             data-icon="map-circle"
