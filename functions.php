@@ -1,9 +1,4 @@
 <?php
-
-global $GOOGLE_MAPS_API_KEY;
-
-$GOOGLE_MAPS_API_KEY = 'AIzaSyAhnc8DKVnhU-TidKa_gBF1086Th_VHPGM';
-
 require('lib/demands.php');
 require('lib/events.php');
 require('lib/local-groups.php');

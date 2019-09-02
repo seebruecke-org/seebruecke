@@ -1,95 +1,24 @@
-import mapIcon from '../images/map-pin.svg';
+import mapboxgl from 'mapbox-gl';
+
+const { Marker, Map } = mapboxgl;
+
+mapboxgl.accessToken = 'pk.eyJ1Ijoic2VlYnJ1ZWNrZSIsImEiOiJjanp4eGN2c3QwdzNlM29xOTFuNmxxcHF0In0.i7iVogDa5KoEOxKBiZ_l1Q';
 
 const MAP_DEFAULTS = {
-  center: {
-    lat: 51.1657,
-    lng: 10.4515,
-  },
-  styles: [
-    {
-      elementType: 'geometry.fill',
-      stylers: [
-        {
-          color: '#242830'
-        }
-      ]
-    },
 
-    {
-      elementType: 'geometry.stroke',
-      stylers: [
-        {
-          color: '#414141'
-        }
-      ]
-    },
-
-    {
-      featureType: 'water',
-      elementType: 'geometry',
-      stylers: [
-        {
-          color: '#414141'
-        }
-      ]
-    },
-
-
-    {
-      elementType: 'labels.text.fill',
-      stylers: [
-        {
-          color: '#989898'
-        }
-      ]
-    },
-
-    {
-      elementType: 'labels.text.stroke',
-      stylers: [
-        {
-          color: '#242830'
-        }
-      ]
-    },
-
-    {
-      featureType: 'road',
-      stylers: [
-        {
-          visibility: 'off'
-        }
-      ]
-    }
-  ],
-  mapTypeControl: false,
-  rotateControl: false,
-  fullscreenControl: false,
-  streetViewControl: false,
-  zoom: 5.8,
 };
 
-const addMaker = (marker, map, options = {}) => {
+const addMaker = (marker, map) => {
   const coordinates = marker.coordinates && marker.coordinates.split(',');
-  const { title, url } = marker;
-  const icon = {
-    url: 'https://seebruecke.org/wp-content/themes/seebruecke/dist/images/map-pin.svg',
-    anchor: new google.maps.Point(18, 36),
-    scaledSize: new google.maps.Size(36, 36),
-  };
 
   if (coordinates && coordinates[0] && coordinates[1]) {
-    const mapsMarker = new window.google.maps.Marker({
-      icon,
-      position: {
-        lat: parseFloat(coordinates[0]),
-        lng: parseFloat(coordinates[1]),
-      },
-      map,
-      title
-    });
+    const mapsMarker = new Marker();
 
-    mapsMarker.addListener('click', () => window.location.href = url);
+    console.log(coordinates);
+
+    mapsMarker
+      .setLngLat([parseFloat(coordinates[1]), parseFloat(coordinates[0])])
+      .addTo(map);
   }
 };
 
@@ -103,20 +32,16 @@ const map = () => {
     return;
   }
 
-  const client = window.google && new window.google.maps.Map(
+  const client = new Map({
     container,
-    MAP_DEFAULTS,
-  );
+    style: 'mapbox://styles/mapbox/light-v9',
+    center: [10.4515, 51.1657],
+    zoom: 4.5,
+  });
 
-  const markerOptions = {
-    icon: container.dataset &&
-          container.dataset.icon,
-    showLabel: container.dataset &&
-               container.dataset.showLabel &&
-               container.dataset.showLabel === "true"
-  };
+  client.scrollZoom.disable();
 
-  data.forEach(marker => addMaker(marker, client, markerOptions));
+  data.forEach(marker => addMaker(marker, client));
 };
 
 export default map;
