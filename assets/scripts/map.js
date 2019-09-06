@@ -4,10 +4,6 @@ const { Marker, Map } = mapboxgl;
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoic2VlYnJ1ZWNrZSIsImEiOiJjanp4eGN2c3QwdzNlM29xOTFuNmxxcHF0In0.i7iVogDa5KoEOxKBiZ_l1Q';
 
-const MAP_DEFAULTS = {
-
-};
-
 const addMaker = (marker, map) => {
   const coordinates = marker.coordinates && marker.coordinates.split(',');
 
