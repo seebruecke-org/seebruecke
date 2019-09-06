@@ -14,8 +14,6 @@ const addMaker = (marker, map) => {
   if (coordinates && coordinates[0] && coordinates[1]) {
     const mapsMarker = new Marker();
 
-    console.log(coordinates);
-
     mapsMarker
       .setLngLat([parseFloat(coordinates[1]), parseFloat(coordinates[0])])
       .addTo(map);
