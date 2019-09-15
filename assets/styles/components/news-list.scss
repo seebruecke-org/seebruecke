@@ -1,0 +1,10 @@
+.news-list {
+  list-style: none;
+  margin-bottom: 4rem;
+  margin-top: 4rem;
+  padding-left: 0;
+
+  > * + * {
+    margin-top: 2.5rem;
+  }
+}

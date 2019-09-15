@@ -5,11 +5,11 @@ function shortcode_news($atts) {
     ob_start();
 
     foreach($posts as $item) {
-      setup_postdata($item);
-      get_template_part('components/news/item');
+      get_component('news/item', [
+        'post' => $item->to_array()
+      ]);
     }
 
-    wp_reset_postdata();
     $markup = ob_get_contents();
     ob_end_clean();
 

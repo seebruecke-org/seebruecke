@@ -6,3 +6,9 @@
   right: 50%;
   width: 100vw;
 }
+
+@mixin dash() {
+  &:before {
+    content: '—';
+  }
+}
