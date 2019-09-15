@@ -6,3 +6,51 @@
   right: 50%;
   width: 100vw;
 }
+
+@mixin typo-richtext() {
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+@mixin typo-richtext-small() {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+@mixin headline-1() {
+  font-size: 60px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+@mixin headline-2() {
+  font-size: 53px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+@mixin headline-3() {
+  font-size: 43px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+@mixin headline-4() {
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+@mixin more() {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+@mixin date() {
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 1.2;
+}
