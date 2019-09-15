@@ -7,6 +7,7 @@ require('lib/demands.php');
 require('lib/events.php');
 require('lib/local-groups.php');
 require('lib/save-havens.php');
+require('lib/news.php');
 
 function get_all_organizations() {
   return new WP_Query(array(
@@ -978,6 +979,12 @@ if (function_exists('pll_register_string')) {
   pll_register_string('newsletter_subscribe_confirm', 'Ja, ich möchte per E-Mail informiert werden.');
   pll_register_string('newsletter_subscribe_gdpr_1', 'Du kannst deine Meinung jederzeit ändern, indem du auf den Abbestellungs-Link klickst, den du in der Fußzeile jeder E-Mail, die du von uns erhältst, finden kannst, oder indem du uns unter action@seebruecke.org kontaktierst. Wir werden deine Daten mit Sorgfalt und Respekt behandeln. Weitere Informationen zu unseren Datenschutzpraktiken findest du auf unserer Website. Indem du unten auf "Für die Liste anmelden" klickst, erklärst du dich damit einverstanden, dass wir deine Daten in Übereinstimmung mit diesen Bedingungen verarbeiten dürfen.');
   pll_register_string('newsletter_subscribe_gdpr_2', 'Wir verwenden MailChimp als unsere Marketing-Plattform. Wenn Sie unten auf "Abonnieren" klicken, bestätigen Sie, dass Ihre Daten zur Verarbeitung an MailChimp übertragen werden. Bitte klicken Sie <a href="https://mailchimp.com/legal/" rel="nofollow">hier</a>, um mehr über die Datenschutzpraktiken von MailChimp zu erfahren.');
+}
+
+function get_component($path, array $params = [])
+{
+    extract($params, EXTR_SKIP);
+    require get_template_directory() . '/components/' . $path . '.php';
 }
 
 ?>
