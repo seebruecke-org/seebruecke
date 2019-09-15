@@ -99,6 +99,7 @@ function create_posttypes() {
         'rewrite' => array(
           'slug' => 'news'
         ),
+        'show_in_rest' => true,
         'supports' => array(
           'author',
           'title',
