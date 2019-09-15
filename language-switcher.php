@@ -1,10 +1,13 @@
 <div class="language-switcher">
   <p class="language-switcher__label">
-    <?php echo pll__('Sprache:'); ?>
+    <?php if (function_exists('pll__')) : ?>
+      <?php echo pll__('Sprache:'); ?>
+    <?php endif; ?>
   </p>
 
   <ul class="language-switcher__languages">
     <?php
+      if (function_exists('pll_the_languages')) {
       foreach(pll_the_languages( array( 'raw' => 1 ) ) as $language):
         $is_current_lang = $language['current_lang'];
     ?>
@@ -16,6 +19,7 @@
         </li>
     <?php
       endforeach;
+    }
     ?>
   </ul>
 </div>

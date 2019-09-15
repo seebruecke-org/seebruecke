@@ -242,9 +242,11 @@ function shortcode_demands()  {
 add_shortcode('safe-havens', 'shortcode_havens');
 add_shortcode('demands', 'shortcode_demands');
 
-pll_register_string('group', 'Lokalgruppe');
-pll_register_string('Alle Safe havens', 'Alle Lokalgruppen');
-pll_register_string('next_actions', 'Nächste Aktion');
-pll_register_string('auf', 'auf');
+if (function_exists('pll_register_string')) {
+  pll_register_string('group', 'Lokalgruppe');
+  pll_register_string('Alle Safe havens', 'Alle Lokalgruppen');
+  pll_register_string('next_actions', 'Nächste Aktion');
+  pll_register_string('auf', 'auf');
+}
 
 ?>

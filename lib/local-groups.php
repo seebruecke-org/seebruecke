@@ -142,9 +142,11 @@ function shortcode_groups($atts = []) {
 
 add_shortcode('localgroups', 'shortcode_groups');
 
-pll_register_string('group', 'Lokalgruppe');
-pll_register_string('all_groups', 'Alle Lokalgruppen');
-pll_register_string('next_actions', 'Nächste Aktion');
-pll_register_string('auf', 'auf');
+if (function_exists('pll_register_string')) {
+  pll_register_string('group', 'Lokalgruppe');
+  pll_register_string('all_groups', 'Alle Lokalgruppen');
+  pll_register_string('next_actions', 'Nächste Aktion');
+  pll_register_string('auf', 'auf');
+}
 
 ?>

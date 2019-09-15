@@ -1,4 +1,8 @@
 <?php
+
+global $GOOGLE_MAPS_API_KEY;
+$GOOGLE_MAPS_API_KEY = 'AIzaSyAhnc8DKVnhU-TidKa_gBF1086Th_VHPGM';
+
 require('lib/demands.php');
 require('lib/events.php');
 require('lib/local-groups.php');
@@ -38,8 +42,8 @@ function create_posttypes() {
   register_post_type('events',
     array(
       'labels' => array(
-        'name' => pll__('Events'),
-        'singular_name' => pll__('Event')
+        'name' => 'Events',
+        'singular_name' => 'Event'
         ),
         'public' => true,
         'has_archive' => true,
@@ -63,8 +67,8 @@ function create_posttypes() {
   register_post_type('safe-havens',
     array(
       'labels' => array(
-        'name' => pll__('Safe havens'),
-        'singular_name' => pll__('Safe haven')
+        'name' => 'Safe havens',
+        'singular_name' => 'Safe haven'
         ),
         'public' => true,
         'menu_icon' => 'dashicons-admin-multisite',
@@ -85,8 +89,8 @@ function create_posttypes() {
   register_post_type('news',
     array(
       'labels' => array(
-        'name' => pll__('News'),
-        'singular_name' => pll__('News')
+        'name' => 'News',
+        'singular_name' => 'News'
         ),
         'public' => true,
         'menu_icon' => 'dashicons-id',
@@ -107,8 +111,8 @@ function create_posttypes() {
   register_post_type('lokalgruppen',
     array(
       'labels' => array(
-        'name' => pll__('Local groups'),
-        'singular_name' => pll__('Local group')
+        'name' => 'Local groups',
+        'singular_name' => 'Local group'
         ),
         'public' => true,
         'menu_icon' => 'dashicons-groups',
@@ -129,8 +133,8 @@ function create_posttypes() {
   register_post_type('organizations',
     array(
       'labels' => array(
-        'name' => pll__('Organisations'),
-        'singular_name' => pll__('Organisation')
+        'name' => 'Organisations',
+        'singular_name' => 'Organisation'
         ),
         'menu_icon' => 'dashicons-networking',
         'public' => false,
@@ -148,8 +152,8 @@ function create_posttypes() {
   register_post_type('demands',
     array(
       'labels' => array(
-        'name' => pll__('Demands'),
-        'singular_name' => pll__('Demand')
+        'name' => 'Demands',
+        'singular_name' => 'Demand'
         ),
         'public' => true,
         'menu_icon' => 'dashicons-welcome-comments',
@@ -169,8 +173,8 @@ function create_posttypes() {
   register_post_type('headers',
     array(
       'labels' => array(
-        'name' => pll__('Headers'),
-        'singular_name' => pll__('Header')
+        'name' => 'Headers',
+        'singular_name' => 'Header'
         ),
         'public' => true,
         'menu_icon' => 'dashicons-feedback',
@@ -191,8 +195,8 @@ function create_posttypes() {
   register_post_type('footers',
     array(
       'labels' => array(
-        'name' => pll__('Footers'),
-        'singular_name' => pll__('Footer')
+        'name' => 'Footers',
+        'singular_name' => 'Footer'
         ),
         'public' => true,
         'menu_icon' => 'dashicons-feedback',
@@ -480,15 +484,15 @@ function register_meta_boxes($meta_boxes) {
           'id'    => 'event_type',
           'type'  => 'select',
           'options' => array(
-            'kundgebung' => pll__('Kundgebung'),
-            'flashmob' => pll__('Flashmob'),
-            'demo' => pll__('Demo'),
-            'planungstreffen' => pll__('Planungstreffen'),
-            'filmvorführung' => pll__('Filmvorführung'),
-            'bastelaktion' => pll__('Bastelaktion'),
-            'aktion' => pll__('Aktion'),
-            'mahnwache' => pll__('Mahnwache'),
-            'lesung' => pll__('Lesung'),
+            'kundgebung' => 'Kundgebung',
+            'flashmob' => 'Flashmob',
+            'demo' => 'Demo',
+            'planungstreffen' => 'Planungstreffen',
+            'filmvorführung' => 'Filmvorführung',
+            'bastelaktion' => 'Bastelaktion',
+            'aktion' => 'Aktion',
+            'mahnwache' => 'Mahnwache',
+            'lesung' => 'Lesung',
           ),
           'multiple' => false,
         ),
@@ -955,23 +959,25 @@ add_action( 'init', 'register_menus' );
 /* image sizes */
 add_image_size('hero-image', 2400, 9999);
 
-/* custom strings */
-pll_register_string('back_to_homepage_short', 'Zurück zur Startseite');
-pll_register_string('date_format', 'd.m.Y');
-pll_register_string('at', 'um');
-pll_register_string('time', 'Uhrzeit');
-pll_register_string('location', 'Ort');
-pll_register_string('link', 'Link');
-pll_register_string('link_to_event', 'Link zum Event');
-pll_register_string('language', 'Sprache:');
+if (function_exists('pll_register_string')) {
+  /* custom strings */
+  pll_register_string('back_to_homepage_short', 'Zurück zur Startseite');
+  pll_register_string('date_format', 'd.m.Y');
+  pll_register_string('at', 'um');
+  pll_register_string('time', 'Uhrzeit');
+  pll_register_string('location', 'Ort');
+  pll_register_string('link', 'Link');
+  pll_register_string('link_to_event', 'Link zum Event');
+  pll_register_string('language', 'Sprache:');
 
-/* Newsletter Subscribe */
-pll_register_string('newsletter_subscribe', 'Newsletter abonnieren');
-pll_register_string('newsletter_subscribe_action', 'Abonnieren');
-pll_register_string('newsletter_subscribe_email', 'Deine Email Adresse');
-pll_register_string('newsletter_subscribe_intro', 'SEEBRÜCKE wird die Daten, die du in diesem Formular angibst, dazu verwenden, um mit dir in Kontakt zu bleiben und dir Updates und News zu unserer Arbeit zu schicken.');
-pll_register_string('newsletter_subscribe_confirm', 'Ja, ich möchte per E-Mail informiert werden.');
-pll_register_string('newsletter_subscribe_gdpr_1', 'Du kannst deine Meinung jederzeit ändern, indem du auf den Abbestellungs-Link klickst, den du in der Fußzeile jeder E-Mail, die du von uns erhältst, finden kannst, oder indem du uns unter action@seebruecke.org kontaktierst. Wir werden deine Daten mit Sorgfalt und Respekt behandeln. Weitere Informationen zu unseren Datenschutzpraktiken findest du auf unserer Website. Indem du unten auf "Für die Liste anmelden" klickst, erklärst du dich damit einverstanden, dass wir deine Daten in Übereinstimmung mit diesen Bedingungen verarbeiten dürfen.');
-pll_register_string('newsletter_subscribe_gdpr_2', 'Wir verwenden MailChimp als unsere Marketing-Plattform. Wenn Sie unten auf "Abonnieren" klicken, bestätigen Sie, dass Ihre Daten zur Verarbeitung an MailChimp übertragen werden. Bitte klicken Sie <a href="https://mailchimp.com/legal/" rel="nofollow">hier</a>, um mehr über die Datenschutzpraktiken von MailChimp zu erfahren.');
+  /* Newsletter Subscribe */
+  pll_register_string('newsletter_subscribe', 'Newsletter abonnieren');
+  pll_register_string('newsletter_subscribe_action', 'Abonnieren');
+  pll_register_string('newsletter_subscribe_email', 'Deine Email Adresse');
+  pll_register_string('newsletter_subscribe_intro', 'SEEBRÜCKE wird die Daten, die du in diesem Formular angibst, dazu verwenden, um mit dir in Kontakt zu bleiben und dir Updates und News zu unserer Arbeit zu schicken.');
+  pll_register_string('newsletter_subscribe_confirm', 'Ja, ich möchte per E-Mail informiert werden.');
+  pll_register_string('newsletter_subscribe_gdpr_1', 'Du kannst deine Meinung jederzeit ändern, indem du auf den Abbestellungs-Link klickst, den du in der Fußzeile jeder E-Mail, die du von uns erhältst, finden kannst, oder indem du uns unter action@seebruecke.org kontaktierst. Wir werden deine Daten mit Sorgfalt und Respekt behandeln. Weitere Informationen zu unseren Datenschutzpraktiken findest du auf unserer Website. Indem du unten auf "Für die Liste anmelden" klickst, erklärst du dich damit einverstanden, dass wir deine Daten in Übereinstimmung mit diesen Bedingungen verarbeiten dürfen.');
+  pll_register_string('newsletter_subscribe_gdpr_2', 'Wir verwenden MailChimp als unsere Marketing-Plattform. Wenn Sie unten auf "Abonnieren" klicken, bestätigen Sie, dass Ihre Daten zur Verarbeitung an MailChimp übertragen werden. Bitte klicken Sie <a href="https://mailchimp.com/legal/" rel="nofollow">hier</a>, um mehr über die Datenschutzpraktiken von MailChimp zu erfahren.');
+}
 
 ?>

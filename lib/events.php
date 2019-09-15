@@ -242,6 +242,8 @@ function feed_events() {
 
 add_shortcode('actions', 'shortcode_actions');
 
-pll_register_string('Alle Events', 'Alle Aktionen');
+if (function_exists('pll_register_string')) {
+  pll_register_string('Alle Events', 'Alle Aktionen');
+}
 
 ?>
