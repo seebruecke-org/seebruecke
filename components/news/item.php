@@ -16,7 +16,11 @@
         </span>
       </h3>
       <div class="news-item__excerpt">
-        <?php the_excerpt(); ?>
+        <?php if ($post['post_excerpt']) : ?>
+          <?php echo $post['post_excerpt']; ?>
+        <?php else : ?>
+          <?php echo wp_trim_words($post['post_content'], 40, ' &hellip;'); ?>
+        <?php endif; ?>
       </div>
     </div>
   </a>

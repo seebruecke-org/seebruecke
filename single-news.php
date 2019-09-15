@@ -22,6 +22,7 @@
       </figure>
 
       <div class="block-content richtext">
+        <?php the_excerpt(); ?>
         <?php the_content(); ?>
       </div>
     </div>

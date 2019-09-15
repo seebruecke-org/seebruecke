@@ -95,7 +95,7 @@ function create_posttypes() {
         ),
         'public' => true,
         'menu_icon' => 'dashicons-id',
-        'has_archive' => true,
+        'has_archive' => false,
         'rewrite' => array(
           'slug' => 'news'
         ),
@@ -104,6 +104,7 @@ function create_posttypes() {
           'author',
           'title',
           'editor',
+          'excerpt',
           'thumbnail',
           'revisions',
         )
