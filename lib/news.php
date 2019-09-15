@@ -17,7 +17,11 @@ function shortcode_news($atts) {
   }
 
   $atts = array_change_key_case((array)$atts, CASE_LOWER);
-  $atts['count'] = 5;
+  $atts_defaults = [
+    'count' => 5
+  ];
+
+  $atts = array_merge($atts_defaults, $atts);
 
   $news = get_posts([
     'numberposts' => $atts['count'],
