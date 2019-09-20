@@ -1,0 +1,36 @@
+.v2-header-menu-list-secondary {
+  @include reset-list();
+
+  display: flex;
+  grid-column: main-start / main-end;
+  justify-content: flex-end;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  width: 100%;
+
+  @include mq($from: tablet) {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+
+  > li + li {
+    margin-left: 0.5rem;
+
+    @include mq($from: tablet) {
+      margin-left: 1.5rem;
+    }
+  }
+
+  a {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+    display: block;
+    font-family: $font;
+    font-size: 12px;
+    text-decoration: none;
+
+    @include mq($from: tablet) {
+      font-size: 16px;
+    }
+  }
+}

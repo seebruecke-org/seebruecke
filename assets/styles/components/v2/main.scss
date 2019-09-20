@@ -1,0 +1,8 @@
+.v2-main {
+  margin-left: 1rem;
+  min-height: 75vh;
+
+  @include mq($from: tablet) {
+    margin-left: 1rem;
+  }
+}

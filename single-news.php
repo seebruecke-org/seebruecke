@@ -1,16 +1,8 @@
-<?php get_header(); ?>
+<?php get_header('v2-single'); ?>
 
-<main class="main">
+<main class="v2-main">
   <article class="news-entry">
-    <div class="constraint">
-      <h1 class="news-entry__title">
-        <small class="news-entry__date">
-          <?php the_date(); ?>
-          <span class="visually-hidden">:</span>
-        </small>
-        <?php the_title(); ?>
-      </h1>
-
+    <div class="v2-constraint">
       <figure class="figure">
         <?php the_post_thumbnail('news', [
           'class' => 'figure__image'

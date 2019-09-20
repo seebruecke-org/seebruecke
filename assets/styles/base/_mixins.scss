@@ -8,9 +8,14 @@
 }
 
 @mixin typo-richtext() {
-  font-size: 30px;
+  font-family: $font;
+  font-size: 16px;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.45;
+
+  @include mq($from: tablet) {
+    font-size: 22px;
+  }
 }
 
 @mixin typo-richtext-small() {
@@ -20,9 +25,14 @@
 }
 
 @mixin headline-1() {
-  font-size: 60px;
+  font-family: $font;
+  font-size: 32px;
   font-weight: 800;
   line-height: 1.2;
+
+  @include mq($from: tablet) {
+    font-size: 60px;
+  }
 }
 
 @mixin headline-2() {
@@ -44,18 +54,30 @@
 }
 
 @mixin more() {
-  font-size: 24px;
+  font-size: 14px;
   font-weight: 700;
   line-height: 1.2;
+
+  @include mq($from: tablet) {
+    font-size: 20px;
+  }
 }
 
 @mixin date() {
   font-size: 25px;
   font-weight: 600;
   line-height: 1.2;
+}
 
 @mixin dash() {
   &:before {
     content: '—';
   }
+}
+
+@mixin reset-list() {
+  list-style: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-left: 0;
 }

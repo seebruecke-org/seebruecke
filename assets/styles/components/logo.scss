@@ -3,8 +3,8 @@
   display: block;
 
   > svg {
-    height: 4.9rem;
-    width: 6.9rem;
+    height: 3.5rem;
+    width: 5rem;
 
     @include mq($from: tablet) {
       height: 6rem;
