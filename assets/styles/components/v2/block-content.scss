@@ -30,6 +30,8 @@
 
   > p {
     @include typo-richtext();
+
+    margin-bottom: 0;
   }
 
   a {
