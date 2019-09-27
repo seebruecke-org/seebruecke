@@ -64,7 +64,7 @@
   font-family: $font;
   font-size: 30px;
   font-weight: 800;
-  line-height: 1.2;
+  line-height: 1.1;
 
   @include mq($from: mobileLarge) {
     font-size: 34px;
@@ -80,18 +80,45 @@
 }
 
 @mixin headline-2() {
-  font-size: 53px;
-  font-weight: 700;
+  font-family: $font;
+  font-size: 28px;
+  font-weight: 600;
   line-height: 1.2;
+
+  @include mq($from: mobileLarge) {
+    font-size: 30px;
+  }
+
+  @include mq($from: tablet) {
+    font-size: 34px;
+  }
+
+  @include mq($from: desktop) {
+    font-size: 44px;
+  }
 }
 
 @mixin headline-3() {
-  font-size: 43px;
-  font-weight: 500;
+  font-family: $font;
+  font-size: 24px;
+  font-weight: 600;
   line-height: 1.2;
+
+  @include mq($from: mobileLarge) {
+    font-size: 26px;
+  }
+
+  @include mq($from: tablet) {
+    font-size: 30px;
+  }
+
+  @include mq($from: desktop) {
+    font-size: 40px;
+  }
 }
 
 @mixin headline-4() {
+  font-family: $font;
   font-size: 40px;
   font-weight: 500;
   line-height: 1.2;

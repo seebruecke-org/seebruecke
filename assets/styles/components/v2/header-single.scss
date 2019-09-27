@@ -20,6 +20,7 @@
     color: $color-brand-dark;
     display: block;
     font-weight: 500;
+    margin-bottom: 0.5rem;
 
     &:before {
       color: $color-brand;
@@ -30,6 +31,7 @@
     @include headline-1();
 
     color: $color-brand;
+    hyphens: auto;
     margin-bottom: 0;
     margin-top: 0;
   }
