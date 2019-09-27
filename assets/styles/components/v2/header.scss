@@ -1,30 +1,24 @@
 .v2-header {
+  @include grid-columns();
+
   display: grid;
-  grid-template-columns:
-    [full-start] minmax(1rem, 1fr)
-    [logo] auto
-    [main-start] minmax(0, 100rem)
-    [main-end] minmax(1rem, 1fr)
-    [full-end];
 
   grid-template-rows:
     [secondary] auto
     [menu] auto
     [logo] auto;
 
-  margin-bottom: 1.5rem;
-
   .logo {
     align-self: flex-start;
     background-color: $color-brand;
     display: flex;
     grid-column: logo;
-    grid-row: secondary / logo-end;
+    grid-row: menu;
     justify-content: center;
-    padding: 1.8rem 1rem 5rem 1rem;
 
     @include mq($from: tablet) {
-      padding: 1.8rem 2rem 10rem 2rem;
+      grid-row: secondary / logo-end;
+      padding: 1rem 1.25rem 8rem 1.25rem;
     }
   }
 }

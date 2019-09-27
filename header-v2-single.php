@@ -38,13 +38,18 @@
         <?php get_template_part('v2-social-media'); ?>
       </nav>
 
-      <div class="v2-header-single">
-        <h1 class="v2-header-single__title">
-          <?php echo the_title(); ?>
-        </h1>
+      <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+        <div class="v2-header-single">
+          <h1 class="v2-header-single__title">
+            <small class="v2-header-single__date">
+              <?php the_date(); ?>
+            </small>
+            <?php the_title(); ?>
+          </h1>
 
-        <div class="v2-header-single__excerpt">
-          <?php the_excerpt(); ?>
+          <div class="v2-header-single__excerpt">
+            <?php the_excerpt(); ?>
+          </div>
         </div>
-      </div>
+      <?php endwhile; endif; ?>
     </header>

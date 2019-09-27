@@ -2,15 +2,17 @@
   @include reset-list();
 
   display: flex;
-  grid-column: main-start / main-end;
+  grid-column-start: full-start;
+  grid-column-end: main-end;
   justify-content: flex-end;
   margin-bottom: 0.5rem;
   margin-top: 0.5rem;
   width: 100%;
 
   @include mq($from: tablet) {
-    margin-bottom: 1rem;
-    margin-top: 1rem;
+    grid-column-start: main-start;
+    margin-bottom: 0.75rem;
+    margin-top: 0.75rem;
   }
 
   > li + li {
@@ -27,10 +29,11 @@
     display: block;
     font-family: $font;
     font-size: 12px;
+    font-weight: 500;
     text-decoration: none;
 
     @include mq($from: tablet) {
-      font-size: 16px;
+      font-size: 13px;
     }
   }
 }

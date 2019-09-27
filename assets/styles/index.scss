@@ -38,6 +38,7 @@
 
 /* V2 */
 
+@import './components/v2/block-content.scss';
 @import './components/v2/constraint.scss';
 @import './components/v2/header-menu.scss';
 @import './components/v2/header-menu-before.scss';
@@ -46,3 +47,6 @@
 @import './components/v2/header-single.scss';
 @import './components/v2/header.scss';
 @import './components/v2/main.scss';
+
+/* V2 Gutenberg Blocks */
+@import './components/v2/blocks/wp-block-figure.scss';

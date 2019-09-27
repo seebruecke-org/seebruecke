@@ -1,3 +1,30 @@
+@mixin grid-columns() {
+  grid-template-columns:
+    [full-start] 0.5rem
+    [logo] 4rem
+    [main-start] minmax(0, 50rem)
+    [main-end] minmax(0.5rem, 1fr)
+    [full-end];
+
+  @include mq($from: tablet) {
+    grid-template-columns:
+      [full-start] 1rem
+      [logo] 9rem
+      [main-start] minmax(0, 50rem)
+      [main-end] minmax(1rem, 1fr)
+      [full-end];
+  }
+
+  @include mq($from: desktop) {
+    grid-template-columns:
+      [full-start] 3rem
+      [logo] 10rem
+      [main-start] minmax(0, 50rem)
+      [main-end] minmax(1.5rem, 1fr)
+      [full-end];
+  }
+}
+
 @mixin break-constraint() {
   left: 50%;
   margin-left: -50vw;
@@ -11,10 +38,19 @@
   font-family: $font;
   font-size: 16px;
   font-weight: 400;
-  line-height: 1.45;
+  line-height: 1.4;
+
+  @include mq($from: mobileLarge) {
+    font-size: 18px;
+  }
 
   @include mq($from: tablet) {
-    font-size: 22px;
+    font-size: 19px;
+    line-height: 1.35;
+  }
+
+  @include mq($from: desktop) {
+    font-size: 21px;
   }
 }
 
@@ -26,12 +62,20 @@
 
 @mixin headline-1() {
   font-family: $font;
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 800;
   line-height: 1.2;
 
+  @include mq($from: mobileLarge) {
+    font-size: 34px;
+  }
+
   @include mq($from: tablet) {
-    font-size: 60px;
+    font-size: 38px;
+  }
+
+  @include mq($from: desktop) {
+    font-size: 48px;
   }
 }
 
@@ -54,19 +98,35 @@
 }
 
 @mixin more() {
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
   line-height: 1.2;
 
+  @include mq($from: mobileLarge) {
+    font-size: 13px;
+  }
+
   @include mq($from: tablet) {
-    font-size: 20px;
+    font-size: 16px;
   }
 }
 
-@mixin date() {
-  font-size: 25px;
+@mixin typo-date() {
+  font-size: 14px;
   font-weight: 600;
   line-height: 1.2;
+
+  @include mq($from: mobileLarge) {
+    font-size: 16px;
+  }
+
+  @include mq($from: tablet) {
+    font-size: 18px;
+  }
+
+  @include mq($from: desktop) {
+    font-size: 20px;
+  }
 }
 
 @mixin dash() {
