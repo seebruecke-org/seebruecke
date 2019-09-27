@@ -1,0 +1,40 @@
+.v2-block-content {
+  @include grid-columns();
+
+  color: $color-brand-dark;
+  display: grid;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+
+  @include mq($from: tablet) {
+    margin-left: 2rem;
+  }
+
+  @include mq($from: desktop) {
+    margin-left: 5rem;
+  }
+
+  > * {
+    grid-column-start: logo;
+    grid-column-end:  main-end;
+
+    @include mq($from: tablet) {
+      grid-column-start: main-start;
+    }
+  }
+
+  > .wp-block-figure.wp-block-figure--is-featured {
+    grid-column: logo / main-end;
+    margin-bottom: 2rem;
+  }
+
+  > p {
+    @include typo-richtext();
+
+    margin-bottom: 0;
+  }
+
+  a {
+    color: $color-brand;
+  }
+}

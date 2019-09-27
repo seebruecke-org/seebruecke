@@ -1,31 +1,10 @@
-<?php get_header(); ?>
+<?php get_header('v2-single'); ?>
 
-<main class="main">
-  <article class="news-entry">
-    <div class="constraint">
-      <h1 class="news-entry__title">
-        <small class="news-entry__date">
-          <?php the_date(); ?>
-          <span class="visually-hidden">:</span>
-        </small>
-        <?php the_title(); ?>
-      </h1>
-
-      <figure class="figure">
-        <?php the_post_thumbnail('news', [
-          'class' => 'figure__image'
-        ]); ?>
-
-        <figcaption class="figure__caption">
-          <?php the_post_thumbnail_caption(); ?>
-        </figcaption>
-      </figure>
-
-      <div class="block-content richtext">
-        <?php the_excerpt(); ?>
+<main class="v2-main">
+  <article class="v2-block-content">
+      <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
         <?php the_content(); ?>
-      </div>
-    </div>
+      <?php endwhile; endif; ?>
   </article>
 </main>
 

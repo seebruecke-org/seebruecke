@@ -1,3 +1,30 @@
+@mixin grid-columns() {
+  grid-template-columns:
+    [full-start] 0.5rem
+    [logo] 4rem
+    [main-start] minmax(0, 50rem)
+    [main-end] minmax(0.5rem, 1fr)
+    [full-end];
+
+  @include mq($from: tablet) {
+    grid-template-columns:
+      [full-start] 1rem
+      [logo] 9rem
+      [main-start] minmax(0, 50rem)
+      [main-end] minmax(1rem, 1fr)
+      [full-end];
+  }
+
+  @include mq($from: desktop) {
+    grid-template-columns:
+      [full-start] 3rem
+      [logo] 10rem
+      [main-start] minmax(0, 50rem)
+      [main-end] minmax(1.5rem, 1fr)
+      [full-end];
+  }
+}
+
 @mixin break-constraint() {
   left: 50%;
   margin-left: -50vw;
@@ -7,8 +34,110 @@
   width: 100vw;
 }
 
+@mixin typo-richtext() {
+  font-family: $font;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+
+  @include mq($from: mobileLarge) {
+    font-size: 18px;
+  }
+
+  @include mq($from: tablet) {
+    font-size: 19px;
+    line-height: 1.35;
+  }
+
+  @include mq($from: desktop) {
+    font-size: 21px;
+  }
+}
+
+@mixin typo-richtext-small() {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+@mixin headline-1() {
+  font-family: $font;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.2;
+
+  @include mq($from: mobileLarge) {
+    font-size: 34px;
+  }
+
+  @include mq($from: tablet) {
+    font-size: 38px;
+  }
+
+  @include mq($from: desktop) {
+    font-size: 48px;
+  }
+}
+
+@mixin headline-2() {
+  font-size: 53px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+@mixin headline-3() {
+  font-size: 43px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+@mixin headline-4() {
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+@mixin more() {
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.2;
+
+  @include mq($from: mobileLarge) {
+    font-size: 13px;
+  }
+
+  @include mq($from: tablet) {
+    font-size: 16px;
+  }
+}
+
+@mixin typo-date() {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+
+  @include mq($from: mobileLarge) {
+    font-size: 16px;
+  }
+
+  @include mq($from: tablet) {
+    font-size: 18px;
+  }
+
+  @include mq($from: desktop) {
+    font-size: 20px;
+  }
+}
+
 @mixin dash() {
   &:before {
     content: '—';
   }
+}
+
+@mixin reset-list() {
+  list-style: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-left: 0;
 }

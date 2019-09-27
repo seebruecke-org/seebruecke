@@ -38,26 +38,6 @@
     }
   }
 
-  > li:last-child {
-    background-color: darken($secondary-color, 10%);
-  }
-
-  @include mq($from: desktop) {
-    > li:last-child {
-      background-color: darken($secondary-color, 5%);
-      align-self: flex-end;
-      margin-left: auto;
-    }
-  }
-
-  @include mq($from: desktop) {
-    > li:last-child > a {
-      font-weight: $font-weight-medium;
-      letter-spacing: 0.075rem;
-      text-transform: uppercase;
-    }
-  }
-
   a {
     color: currentColor;
     display: block;

@@ -935,6 +935,7 @@ function get_date_format() {
 
 function register_menus() {
   register_nav_menu('header-menu', 'Header Menu');
+  register_nav_menu('header-secondary', 'Header Secondary');
 }
 
 add_action('init', 'disable_emojis');

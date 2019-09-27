@@ -1,9 +1,17 @@
 <nav class="navigation js-navigation">
-  <div class="navigation__language-switch">
-    <?php get_template_part('language', 'switcher'); ?>
+  <div class="navigation__secondary">
+    <div class="navigation__language-switch">
+      <?php get_template_part('language', 'switcher'); ?>
+      <?php
+        wp_nav_menu([
+          'theme_location' => 'header-secondary',
+          'container' => false
+        ]);
+      ?>
+    </div>
   </div>
 
-  <div class="navigation__container">
+  <div class="navigation__primary">
     <div class="navigation__logo">
       <?php get_template_part('logo'); ?>
     </div>

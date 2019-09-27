@@ -1,0 +1,49 @@
+.v2-header-menu-list {
+  @include reset-list();
+
+  background-color: $color-brand-dark;
+  color: white;
+  display: flex;
+  margin-left: 0.25rem;
+  width: 100%;
+
+  @include mq($from: mobileLarge) {
+    align-items: center;
+    margin-left: 0.75rem;
+  }
+
+  @include mq($from: desktop) {
+    margin-left: 3rem;
+  }
+
+  a {
+    @include more();
+
+    color: currentColor;
+    display: block;
+    font-family: $font;
+    padding: 0.75rem 0.5rem;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    @include mq($from: mobileLarge) {
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+      white-space: nowrap;
+    }
+
+    @include mq($from: tablet) {
+      padding: 1rem 1.5rem;
+    }
+
+    @include mq($from: desktop) {
+      padding: 1rem 2rem;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: lighten($color-brand-dark, 10%);
+    }
+  }
+}

@@ -1,0 +1,24 @@
+.v2-header {
+  @include grid-columns();
+
+  display: grid;
+
+  grid-template-rows:
+    [secondary] auto
+    [menu] auto
+    [logo] auto;
+
+  .logo {
+    align-self: flex-start;
+    background-color: $color-brand;
+    display: flex;
+    grid-column: logo;
+    grid-row: menu;
+    justify-content: center;
+
+    @include mq($from: tablet) {
+      grid-row: secondary / logo-end;
+      padding: 1rem 1.25rem 8rem 1.25rem;
+    }
+  }
+}
