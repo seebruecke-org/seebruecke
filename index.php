@@ -3,9 +3,9 @@
   $header_id = rwmb_meta('page_header_reference', null, $page_id);
 
   if (!$header_id) {
-    get_header();
+    get_header('v2-single');
   } else {
-    get_header('hero');
+    get_header('v2-hero');
   }
 ?>
 

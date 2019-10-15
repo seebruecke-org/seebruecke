@@ -9,11 +9,12 @@ $font-weight-medium: 500;
 $font-weight-black: 900;
 
 $mq-breakpoints: (
-    mobile:      320px,
-    mobileLarge: 480px,
-    tablet:      740px,
-    desktop:     980px,
-    wide:        1280px,
+    mobile:       320px,
+    mobileMedium: 430px,
+    mobileLarge:  480px,
+    tablet:       740px,
+    desktop:      980px,
+    wide:         1280px,
 );
 
 /* V2 */

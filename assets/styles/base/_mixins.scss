@@ -1,10 +1,19 @@
 @mixin grid-columns() {
   grid-template-columns:
     [full-start] 0.5rem
-    [logo] 4rem
+    [logo] 3.5rem
     [main-start] minmax(0, 50rem)
     [main-end] minmax(0.5rem, 1fr)
     [full-end];
+
+  @include mq($from: mobileLarge) {
+    grid-template-columns:
+      [full-start] 0.5rem
+      [logo] 5.5rem
+      [main-start] minmax(0, 50rem)
+      [main-end] minmax(1rem, 1fr)
+      [full-end];
+  }
 
   @include mq($from: tablet) {
     grid-template-columns:
@@ -125,20 +134,27 @@
 }
 
 @mixin more() {
-  font-size: 11px;
+  font-family: $font;
+  font-size: 10px;
   font-weight: 600;
   line-height: 1.2;
+
+  @include mq($from: mobileMedium) {
+    font-size: 12px;
+  }
 
   @include mq($from: mobileLarge) {
     font-size: 13px;
   }
 
   @include mq($from: tablet) {
-    font-size: 16px;
+    font-size: 17px;
+    letter-spacing: 0.025rem;
   }
 }
 
 @mixin typo-date() {
+  font-family: $font;
   font-size: 14px;
   font-weight: 600;
   line-height: 1.2;
@@ -153,6 +169,25 @@
 
   @include mq($from: desktop) {
     font-size: 20px;
+  }
+}
+
+@mixin typo-hero-title() {
+  font-family: $font;
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1;
+
+  @include mq($from: mobileLarge) {
+    font-size: 45px;
+  }
+
+  @include mq($from: tablet) {
+    font-size: 56px;
+  }
+
+  @include mq($from: desktop) {
+    font-size: 72px;
   }
 }
 

@@ -2,4 +2,6 @@
   background-color: $color-brand-dark;
   grid-column: full-start / logo-start;
   grid-row: menu;
+  position: relative;
+  z-index: 2;
 }

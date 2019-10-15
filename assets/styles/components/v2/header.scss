@@ -2,19 +2,60 @@
   @include grid-columns();
 
   display: grid;
-
   grid-template-rows:
-    [secondary] auto
-    [menu] auto
-    [logo] auto;
+    [secondary] 2.25rem
+    [menu] 2.75rem
+    [logo] auto
+    [end];
+  margin-bottom: 2rem;
+  overflow: hidden;
+
+  @include mq($from: tablet) {
+    grid-template-rows:
+      [secondary] 3rem
+      [menu] 3rem
+      [logo] auto
+      [end];
+    margin-bottom: 4rem;
+  }
+
+  &--is-hero {
+    background-color: $color-brand-dark;
+  }
+
+  &__image {
+    grid-column: full-start / full-end;
+    grid-row: secondary / end;
+    max-height: 50vh;
+    min-width: 100%;
+    object-fit: cover;
+    opacity: 0.75;
+    width: auto;
+    z-index: 1;
+
+    @include mq($from: tablet) {
+      max-height: 100vh;
+    }
+  }
 
   .logo {
     align-self: flex-start;
     background-color: $color-brand;
     display: flex;
-    grid-column: logo;
+    grid-column: full-start / main-start;
     grid-row: menu;
     justify-content: center;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+
+    @include mq($from: mobileLarge) {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    @include mq($from: tablet) {
+      grid-column: logo;
+    }
 
     @include mq($from: tablet) {
       grid-row: secondary / logo-end;

@@ -1,0 +1,27 @@
+.v2-button {
+  @include more();
+
+  background-color: $color-brand;
+  border: none;
+  border-radius: 0.25rem;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-family: $font;
+  font-weight: 700;
+  letter-spacing: 0.025rem;
+  padding: 0.75rem 1.85rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  @include mq($from: tablet) {
+    padding-bottom: 1.1rem;
+    padding-top: 1.1rem;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: darken($color-brand, 15%);
+  }
+}

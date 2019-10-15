@@ -16,13 +16,20 @@
     margin-left: 3rem;
   }
 
+  > li {
+    display: flex;
+    height: 100%;
+  }
+
   a {
     @include more();
 
+    align-items: center;
     color: currentColor;
-    display: block;
+    display: flex;
     font-family: $font;
-    padding: 0.75rem 0.5rem;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
@@ -34,11 +41,8 @@
     }
 
     @include mq($from: tablet) {
-      padding: 1rem 1.5rem;
-    }
-
-    @include mq($from: desktop) {
-      padding: 1rem 2rem;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
     }
 
     &:hover,

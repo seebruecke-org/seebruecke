@@ -13,8 +13,12 @@
   }
 
   &__thumbnail {
-    flex: 0 0 25%;
+    flex: 0 0 15%;
     margin: 0;
+
+    @include mq($from: tablet) {
+      flex-basis: 25%;
+    }
 
     &-image {
       height: auto;
@@ -23,14 +27,17 @@
   }
 
   &__content {
-    margin-left: 1.5rem;
+    margin-left: 1rem;
+
+    @include mq($from: tablet) {
+      margin-left: 1.5rem;
+    }
   }
 
   &__title {
+    @include headline-3();
+
     color: currentColor !important;
-    font-size: 2rem !important;
-    font-weight: 500 !important;
-    letter-spacing: 0 !important;
     margin-bottom: 0.5rem;
     margin-top: 0;
     text-transform: none !important;

@@ -3,11 +3,19 @@
 
   display: flex;
   grid-column-start: full-start;
-  grid-column-end: main-end;
+  grid-column-end: full-end;
+  grid-row: secondary;
   justify-content: flex-end;
   margin-bottom: 0.5rem;
   margin-top: 0.5rem;
+  padding-right: 0.5rem;
+  position: relative;
   width: 100%;
+  z-index: 2;
+
+  @include mq($from: mobileLarge) {
+    padding-right: 2rem;
+  }
 
   @include mq($from: tablet) {
     grid-column-start: main-start;
@@ -19,21 +27,59 @@
     margin-left: 0.5rem;
 
     @include mq($from: tablet) {
-      margin-left: 1.5rem;
+      margin-left: 0.75rem;
     }
   }
 
   a {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: 0.1rem;
     color: black;
     display: block;
     font-family: $font;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 500;
+    padding: 0.15rem 0.5rem;
     text-decoration: none;
 
+    @include mq($from: mobileLarge) {
+      font-size: 11px;
+    }
+
     @include mq($from: tablet) {
+      background-color: rgba(255, 255, 255, 0.5);
       font-size: 13px;
+      padding: 0.25rem 0.7rem;
+    }
+
+    @include mq($from: desktop) {
+      font-size: 14px;
+      padding-left: 0.9rem;
+      padding-right: 0.9rem;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+  }
+
+  > li:last-child > a {
+    background-color: $color-brand;
+    color: white;
+    font-weight: 700;
+    letter-spacing: 0.025rem;
+    text-transform: uppercase;
+
+    // Increase spacing to make the link more promient
+    @include mq($from: tablet) {
+      padding-left: 1.35rem;
+      padding-right: 1.35rem;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: darken($color-brand, 15%);
     }
   }
 }

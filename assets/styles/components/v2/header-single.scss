@@ -2,6 +2,8 @@
   grid-column: logo / main-end;
   grid-row: logo;
   margin: 1.5rem 0.5rem 0.5rem 0.5rem;
+  position: relative;
+  z-index: 2;
 
   @include mq($from: tablet) {
     grid-column: main-start / main-end;
@@ -11,6 +13,13 @@
 
   @include mq($from: desktop) {
     margin-left: 5rem;
+  }
+
+  .v2-header--is-hero & {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   &__date {
@@ -34,6 +43,15 @@
     hyphens: auto;
     margin-bottom: 0;
     margin-top: 0;
+
+    .v2-header--is-hero & {
+      @include typo-hero-title();
+
+      text-shadow: 0 0 4px rgba(0, 0, 0, .8);
+      color: white;
+      hyphens: none;
+      text-align: center;
+    }
   }
 
   &__excerpt {
@@ -46,6 +64,15 @@
     > p {
       margin-bottom: 0;
       margin-top: 0;
+    }
+  }
+
+  .v2-button {
+    box-shadow: 0 0 4px rgba(0, 0, 0, .6);
+    margin-top: 2rem;
+
+    @include mq($from: tablet) {
+      margin-top: 5rem;
     }
   }
 }
