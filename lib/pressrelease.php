@@ -23,12 +23,12 @@ function shortcode_pressreleases($atts) {
 
   $atts = array_merge($atts_defaults, $atts);
 
-  $news = get_posts([
+  $pressreleases = get_posts([
     'numberposts' => $atts['count'],
     'post_type' => 'pressrelease'
   ]);
 
-  return '<ul class="news-list">' . get_pressrelease_markup($news) . '</ul>';
+  return '<ul class="news-list">' . get_pressrelease_markup($pressreleases) . '</ul>';
 }
 
 add_shortcode('pressreleases', 'shortcode_pressreleases');
