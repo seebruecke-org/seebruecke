@@ -1,0 +1,29 @@
+on:
+  push:
+    branches:
+      - master
+name: Deploy Website
+jobs:
+  ftp-deploy:
+    name: FTP-Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js 12.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+
+    - name: npm install, build
+      run: |
+        npm install
+        NODE_ENV="production" npm run build
+
+    - name: Deploy Theme (FTP)
+      uses: gustavpursche/FTP-Deploy-Action@master
+      env:
+        FTP_SERVER: ${{ secrets.FTP_HOST }}
+        FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+        FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        REMOTE_DIR: /22688_seebruecke/wordpress/wp-content/themes/seebruecke
+        ARGS: --exclude=node_modules/ --exclude=.git/ --exclude=.Icon
