@@ -8,6 +8,7 @@ require('lib/events.php');
 require('lib/local-groups.php');
 require('lib/save-havens.php');
 require('lib/news.php');
+require('lib/pressrelease.php');
 
 function get_all_organizations() {
   return new WP_Query(array(
@@ -98,6 +99,30 @@ function create_posttypes() {
         'has_archive' => false,
         'rewrite' => array(
           'slug' => 'news'
+        ),
+        'show_in_rest' => true,
+        'supports' => array(
+          'author',
+          'title',
+          'editor',
+          'excerpt',
+          'thumbnail',
+          'revisions',
+        )
+    )
+  );
+
+  register_post_type('pressrelease',
+    array(
+      'labels' => array(
+        'name' => 'Presse',
+        'singular_name' => 'Presse'
+        ),
+        'public' => true,
+        'menu_icon' => 'dashicons-id',
+        'has_archive' => false,
+        'rewrite' => array(
+          'slug' => 'press'
         ),
         'show_in_rest' => true,
         'supports' => array(

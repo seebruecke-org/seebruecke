@@ -37,28 +37,30 @@
       <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
         <div class="v2-header-single">
           <h1 class="v2-header-single__title">
-            <small class="v2-header-single__date">
-              <?php if (get_post_type() !== 'events') : ?>
-                <?php the_date(); ?>
-              <?php else: ?>
-                <?php
-                  $fields = get_post_custom();
-                  echo date(get_date_format(), strtotime($fields['event_date'][0]));
-                ?>
-                  um
-                <?php echo $fields['event_time'][0]; ?>
-                  in
-                <?php
-                  $address = $fields['event_city'][0];
+            <?php if(get_post_type() !== 'page' && get_post_type() !== 'safe-havens') : ?>
+              <small class="v2-header-single__date">
+                <?php if (get_post_type() !== 'events') : ?>
+                  <?php the_date(); ?>
+                <?php else: ?>
+                  <?php
+                    $fields = get_post_custom();
+                    echo date(get_date_format(), strtotime($fields['event_date'][0]));
+                  ?>
+                    um
+                  <?php echo $fields['event_time'][0]; ?>
+                    in
+                  <?php
+                    $address = $fields['event_city'][0];
 
-                  if ($fields['event_address'][0]) {
-                    $address .= ', ' . $fields['event_address'][0];
-                  }
+                    if ($fields['event_address'][0]) {
+                      $address .= ', ' . $fields['event_address'][0];
+                    }
 
-                  echo $address;
-                ?>
-              <?php endif; ?>
-            </small>
+                    echo $address;
+                  ?>
+                <?php endif; ?>
+              </small>
+            <?php endif; ?>
             <?php the_title(); ?>
           </h1>
 
