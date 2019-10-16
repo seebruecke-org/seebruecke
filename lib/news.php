@@ -1,10 +1,10 @@
 <?php
 
 function shortcode_news($atts) {
-  function get_news_markup($posts) {
+  function get_news_markup($news) {
     ob_start();
 
-    foreach($posts as $item) {
+    foreach($news as $item) {
       get_component('news/item', [
         'post' => $item->to_array()
       ]);
@@ -18,15 +18,11 @@ function shortcode_news($atts) {
 
   $atts = array_change_key_case((array)$atts, CASE_LOWER);
   $atts_defaults = [
-    'count' => -1
+    'post_type' => 'news',
+    'posts_per_page' => -1
   ];
 
-  $atts = array_merge($atts_defaults, $atts);
-
-  $news = get_posts([
-    'numberposts' => $atts['count'],
-    'post_type' => 'news'
-  ]);
+  $news = get_posts(array_merge($atts_defaults, $atts));
 
   return '<ul class="news-list">' . get_news_markup($news) . '</ul>';
 }

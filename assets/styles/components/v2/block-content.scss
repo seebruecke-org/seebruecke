@@ -49,7 +49,7 @@
     margin-top: 1rem;
   }
 
-  > p {
+  p {
     @include typo-richtext();
 
     margin-bottom: 0;

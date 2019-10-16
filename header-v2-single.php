@@ -63,12 +63,6 @@
             <?php endif; ?>
             <?php the_title(); ?>
           </h1>
-
-          <?php if(get_post_type() === 'news') : ?>
-            <div class="v2-header-single__excerpt">
-              <?php the_excerpt(); ?>
-            </div>
-          <?php endif; ?>
         </div>
       <?php endwhile; endif; ?>
     </header>
