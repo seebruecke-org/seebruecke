@@ -1,9 +1,11 @@
 <li>
   <a href="<?php echo get_the_permalink($post['ID']); ?>" class="news-item">
     <figure class="news-item__thumbnail">
-      <?php echo get_the_post_thumbnail($post['ID'], 'news-item', [
-        'class' => 'news-item__thumbnail-image'
-      ]); ?>
+      <?php if (has_post_thumbnail($post['ID'])) : ?>
+        <?php echo get_the_post_thumbnail($post['ID'], 'news-item', [
+          'class' => 'news-item__thumbnail-image'
+        ]); ?>
+      <?php endif; ?>
     </figure>
 
     <div class="news-item__content">
