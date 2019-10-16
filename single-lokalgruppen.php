@@ -1,6 +1,5 @@
 <?php
-  $TITLE = '<small class="header__title-byline">Lokalgruppe </small>' . get_the_title();
-  get_header();
+  get_header('v2-single');
 ?>
 
 <main class="main">
