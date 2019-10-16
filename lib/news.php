@@ -18,7 +18,7 @@ function shortcode_news($atts) {
 
   $atts = array_change_key_case((array)$atts, CASE_LOWER);
   $atts_defaults = [
-    'count' => 5
+    'count' => -1
   ];
 
   $atts = array_merge($atts_defaults, $atts);

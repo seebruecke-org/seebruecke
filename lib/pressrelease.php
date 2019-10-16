@@ -1,7 +1,7 @@
 <?php
 
 function shortcode_pressreleases($atts) {
-  function get_markup($posts) {
+  function get_pressrelease_markup($posts) {
     ob_start();
 
     foreach($posts as $item) {
@@ -18,7 +18,7 @@ function shortcode_pressreleases($atts) {
 
   $atts = array_change_key_case((array)$atts, CASE_LOWER);
   $atts_defaults = [
-    'count' => 5
+    'count' => -1
   ];
 
   $atts = array_merge($atts_defaults, $atts);
@@ -28,7 +28,7 @@ function shortcode_pressreleases($atts) {
     'post_type' => 'pressrelease'
   ]);
 
-  return '<ul class="news-list">' . get_markup($news) . '</ul>';
+  return '<ul class="news-list">' . get_pressrelease_markup($news) . '</ul>';
 }
 
 add_shortcode('pressreleases', 'shortcode_pressreleases');
