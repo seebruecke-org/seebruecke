@@ -239,6 +239,31 @@ function shortcode_demands()  {
   </div>';
 }
 
+function save_havens_register_post_type() {
+  register_post_type('safe-havens',
+    array(
+      'labels' => array(
+        'name' => 'Safe havens',
+        'singular_name' => 'Safe haven'
+        ),
+        'public' => true,
+        'menu_icon' => 'dashicons-admin-multisite',
+        'has_archive' => true,
+        'rewrite' => array(
+          'slug' => 'safe-havens'
+        ),
+        'supports' => array(
+          'author',
+          'title',
+          'editor',
+          'thumbnail',
+          'revisions',
+        )
+    )
+  );
+}
+
+add_action('init', 'save_havens_register_post_type');
 add_shortcode('safe-havens', 'shortcode_havens');
 add_shortcode('demands', 'shortcode_demands');
 

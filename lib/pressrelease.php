@@ -31,6 +31,33 @@ function shortcode_pressreleases($atts) {
   return '<ul class="news-list">' . get_pressrelease_markup($pressreleases) . '</ul>';
 }
 
+function pressrelease_register_post_type() {
+  register_post_type('pressrelease',
+    array(
+      'labels' => array(
+        'name' => 'Press',
+        'singular_name' => 'Press'
+        ),
+        'public' => true,
+        'menu_icon' => 'dashicons-id',
+        'has_archive' => false,
+        'rewrite' => array(
+          'slug' => 'press'
+        ),
+        'show_in_rest' => true,
+        'supports' => array(
+          'author',
+          'title',
+          'editor',
+          'excerpt',
+          'thumbnail',
+          'revisions',
+        )
+    )
+  );
+}
+
+add_action('init', 'pressrelease_register_post_type');
 add_shortcode('pressreleases', 'shortcode_pressreleases');
 
 ?>
