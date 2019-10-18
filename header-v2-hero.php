@@ -72,8 +72,10 @@ $thumbnail_attrs = array(
           } ?>
         </h1>
 
-        <a href="<?php the_permalink($reference); ?>" class="v2-button">
-          <?php echo $label; ?>
-        </a>
+        <?php if ($reference && $label) : ?>
+          <a href="<?php the_permalink($reference); ?>" class="v2-button">
+            <?php echo $label; ?>
+          </a>
+        <?php endif; ?>
       </div>
     </header>
