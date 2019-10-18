@@ -1,5 +1,5 @@
 <?php if (!is_front_page()): ?>
-  <a href="<?php echo pll_home_url(); ?>" class="logo" aria-label="Zurück zur Startseite">
+  <a href="<?php echo pll_home_url(); ?>" class="v2-logo" aria-label="Zurück zur Startseite">
 <?php else : ?>
   <span class="v2-logo">
 <?php endif; ?>
