@@ -45,8 +45,12 @@
       padding-right: 1.5rem;
     }
 
-    &:hover,
-    &:focus {
+    &[aria-current] {
+      background-color: $color-brand;
+    }
+
+    &:not([aria-current]):hover,
+    &:not([aria-current]):focus {
       background-color: lighten($color-brand-dark, 10%);
     }
   }

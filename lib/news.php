@@ -27,6 +27,33 @@ function shortcode_news($atts) {
   return '<ul class="news-list">' . get_news_markup($news) . '</ul>';
 }
 
+function news_register_post_type() {
+  register_post_type('news',
+    array(
+      'labels' => array(
+        'name' => 'News',
+        'singular_name' => 'News'
+        ),
+        'public' => true,
+        'menu_icon' => 'dashicons-id',
+        'has_archive' => false,
+        'rewrite' => array(
+          'slug' => 'news'
+        ),
+        'show_in_rest' => true,
+        'supports' => array(
+          'author',
+          'title',
+          'editor',
+          'excerpt',
+          'thumbnail',
+          'revisions',
+        )
+    )
+  );
+}
+
+add_action('init', 'news_register_post_type');
 add_shortcode('news', 'shortcode_news');
 
 ?>

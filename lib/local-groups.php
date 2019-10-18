@@ -140,6 +140,31 @@ function shortcode_groups($atts = []) {
   ';
 }
 
+function localgroups_register_post_type() {
+  register_post_type('lokalgruppen',
+    array(
+      'labels' => array(
+        'name' => 'Local groups',
+        'singular_name' => 'Local group'
+        ),
+        'public' => true,
+        'menu_icon' => 'dashicons-groups',
+        'has_archive' => true,
+        'rewrite' => array(
+          'slug' => 'lokalgruppen'
+        ),
+        'supports' => array(
+          'author',
+          'title',
+          'editor',
+          'thumbnail',
+          'revisions',
+        )
+    )
+  );
+}
+
+add_action('init', 'localgroups_register_post_type');
 add_shortcode('localgroups', 'shortcode_groups');
 
 if (function_exists('pll_register_string')) {

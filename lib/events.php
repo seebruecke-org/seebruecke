@@ -240,6 +240,34 @@ function feed_events() {
   }
 }
 
+function events_register_post_type() {
+  register_post_type('events',
+    array(
+      'labels' => array(
+        'name' => 'Events',
+        'singular_name' => 'Event'
+        ),
+        'public' => true,
+        'has_archive' => true,
+        'menu_icon' => 'dashicons-location',
+        'rewrite' => array(
+          'slug' => 'events'
+        ),
+        'taxonomies' => array(
+          'post_tag',
+        ),
+        'supports' => array(
+          'author',
+          'title',
+          'editor',
+          'thumbnail',
+          'revisions',
+        )
+    )
+  );
+}
+
+add_action('init', 'events_register_post_type');
 add_shortcode('actions', 'shortcode_actions');
 
 if (function_exists('pll_register_string')) {
