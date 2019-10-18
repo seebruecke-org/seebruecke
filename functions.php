@@ -1,8 +1,5 @@
 <?php
 
-global $GOOGLE_MAPS_API_KEY;
-$GOOGLE_MAPS_API_KEY = 'AIzaSyAhnc8DKVnhU-TidKa_gBF1086Th_VHPGM';
-
 require('lib/demands.php');
 require('lib/events.php');
 require('lib/local-groups.php');
@@ -241,8 +238,6 @@ function create_posttypes() {
 }
 
 function register_meta_boxes($meta_boxes) {
-  global $GOOGLE_MAPS_API_KEY;
-
   // Header
   $meta_boxes[] = array(
     'id'         => 'header_data',
@@ -348,10 +343,9 @@ function register_meta_boxes($meta_boxes) {
       ),
 
       array(
-        'api_key' => $GOOGLE_MAPS_API_KEY,
         'name'  => 'Location',
         'id'    => 'haven_coordinates',
-        'type'  => 'map',
+        'type'  => 'osm',
         'address_field' => 'haven_address',
       ),
     )
@@ -484,11 +478,10 @@ function register_meta_boxes($meta_boxes) {
         ),
 
         array(
-          'api_key' => $GOOGLE_MAPS_API_KEY,
           'name'  => 'Location',
           'desc'  => 'Coordinates of the location',
           'id'    => 'event_coordinates',
-          'type'  => 'map',
+          'type'  => 'osm',
           'address_field' => 'event_address',
         ),
 
@@ -557,11 +550,10 @@ function register_meta_boxes($meta_boxes) {
       ),
 
       array(
-        'api_key' => $GOOGLE_MAPS_API_KEY,
         'name'  => 'Location',
         'desc'  => 'Coordinates of the group',
         'id'    => 'group_coordinates',
-        'type'  => 'map',
+        'type'  => 'osm',
         'address_field' => 'group_address',
       ),
 
