@@ -32,30 +32,22 @@
   }
 
   a {
+    @include fluid('font-size', 0.55, 0.7, 18, 47);
+    @include fluid('padding-bottom', 0.1, 0.15, 18, 47);
+    @include fluid('padding-left', 0.4, 0.6, 18, 47);
+    @include fluid('padding-right', 0.4, 0.6, 18, 47);
+    @include fluid('padding-top', 0.1, 0.15, 18, 47);
+
     background-color: rgba(255, 255, 255, 0.75);
     border-radius: 0.1rem;
     color: black;
     display: block;
     font-family: $font;
-    font-size: 10px;
     font-weight: 500;
-    padding: 0.15rem 0.5rem;
     text-decoration: none;
-
-    @include mq($from: mobileLarge) {
-      font-size: 11px;
-    }
 
     @include mq($from: tablet) {
       background-color: rgba(255, 255, 255, 0.5);
-      font-size: 13px;
-      padding: 0.25rem 0.7rem;
-    }
-
-    @include mq($from: desktop) {
-      font-size: 14px;
-      padding-left: 0.9rem;
-      padding-right: 0.9rem;
     }
 
     &:hover,
@@ -70,12 +62,6 @@
     font-weight: 700;
     letter-spacing: 0.025rem;
     text-transform: uppercase;
-
-    // Increase spacing to make the link more promient
-    @include mq($from: tablet) {
-      padding-left: 1.15rem;
-      padding-right: 1.15rem;
-    }
 
     &:hover,
     &:focus {

@@ -134,22 +134,11 @@
 }
 
 @mixin more() {
+  @include fluid('font-size', 0.55, 0.9, 18, 47);
+
   font-family: $font;
-  font-size: 10px;
   font-weight: 600;
   line-height: 1.2;
-
-  @include mq($from: mobileMedium) {
-    font-size: 12px;
-  }
-
-  @include mq($from: mobileLarge) {
-    font-size: 13px;
-  }
-
-  @include mq($from: tablet) {
-    font-size: 14px;
-  }
 
   @include mq($from: desktop) {
     font-size: 17px;
@@ -206,4 +195,9 @@
   margin-bottom: 0;
   margin-top: 0;
   padding-left: 0;
+}
+
+// Scale [unit] from: [min]rem to [max]rem, starting at [start]rem until [stop]rem
+@mixin fluid($property_name, $min, $max, $start, $stop) {
+  #{$property_name}: calc( #{$min + 'rem'} + ( #{$max} - #{$min} ) * ((100vw - #{$start + 'rem'} ) / ( #{$stop} - #{$start} )));
 }
