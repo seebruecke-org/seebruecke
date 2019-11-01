@@ -31,7 +31,7 @@
           );
         ?>
 
-        <?php get_template_part('v2-social-media'); ?>
+        <?php get_template_part('social-media-v2'); ?>
       </nav>
 
       <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>

@@ -41,6 +41,11 @@
     }
 
     @include mq($from: tablet) {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    @include mq($from: desktop) {
       padding-left: 1.5rem;
       padding-right: 1.5rem;
     }

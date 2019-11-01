@@ -14,7 +14,7 @@
   z-index: 2;
 
   @include mq($from: mobileLarge) {
-    padding-right: 2rem;
+    padding-right: 0.75rem;
   }
 
   @include mq($from: tablet) {
@@ -73,13 +73,13 @@
 
     // Increase spacing to make the link more promient
     @include mq($from: tablet) {
-      padding-left: 1.35rem;
-      padding-right: 1.35rem;
+      padding-left: 1.15rem;
+      padding-right: 1.15rem;
     }
 
     &:hover,
     &:focus {
-      background-color: darken($color-brand, 15%);
+      background-color: $color-brand-dark;
     }
   }
 }
