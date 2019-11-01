@@ -37,7 +37,7 @@
       <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
         <div class="v2-header-single">
           <h1 class="v2-header-single__title">
-            <?php if(get_post_type() !== 'page' && get_post_type() !== 'safe-havens') : ?>
+            <?php if(get_post_type() === 'news' || get_post_type() === 'events' || get_post_type() === 'pressrelease') : ?>
               <small class="v2-header-single__date">
                 <?php if (get_post_type() !== 'events') : ?>
                   <?php the_date(); ?>
