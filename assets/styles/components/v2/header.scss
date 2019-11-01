@@ -20,7 +20,7 @@
   }
 
   &--is-hero {
-    background-color: $color-brand-dark;
+    background-color: rgb(40, 40, 40);
   }
 
   &__image {
@@ -29,7 +29,7 @@
     max-height: 50vh;
     min-width: 100%;
     object-fit: cover;
-    opacity: 0.75;
+    opacity: 0.5;
     width: auto;
     z-index: 1;
 

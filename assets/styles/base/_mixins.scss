@@ -148,6 +148,10 @@
   }
 
   @include mq($from: tablet) {
+    font-size: 14px;
+  }
+
+  @include mq($from: desktop) {
     font-size: 17px;
     letter-spacing: 0.025rem;
   }

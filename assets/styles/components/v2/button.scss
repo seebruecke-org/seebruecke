@@ -22,6 +22,6 @@
 
   &:hover,
   &:focus {
-    background-color: darken($color-brand, 15%);
+    background-color: $color-brand-dark;
   }
 }

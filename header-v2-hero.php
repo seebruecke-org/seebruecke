@@ -60,7 +60,7 @@ $thumbnail_attrs = array(
           );
         ?>
 
-        <?php get_template_part('v2-social-media'); ?>
+        <?php get_template_part('social-media-v2'); ?>
       </nav>
 
       <div class="v2-header-single">
