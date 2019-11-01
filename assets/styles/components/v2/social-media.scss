@@ -1,0 +1,40 @@
+.v2-social-media {
+  @include reset-list();
+
+  background-color: $color-brand-dark-brighter;
+  color: white;
+  display: none;
+
+  @include mq($from: mobileLarge) {
+    display: flex;
+  }
+
+  &__item {
+    align-items: center;
+    color: currentColor;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    padding: 0.5rem;
+
+    @include mq($from: desktop) {
+      padding: 0.75rem;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: $color-brand;
+      color: white;
+    }
+  }
+
+  &__item > svg {
+    height: 1rem;
+    width: 1rem;
+
+    @include mq($from: desktop) {
+      height: 1.25rem;
+      width: 1.25rem;
+    }
+  }
+}
