@@ -1,3 +1,7 @@
 themes/seebruecke/dist/
 themes/seebruecke/node_modules/
 themes/seebruecke/npm-debug.log
+
+/vendor/
+/plugins/
+/languages/

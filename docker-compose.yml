@@ -12,9 +12,17 @@ services:
        MYSQL_USER: wordpress
        MYSQL_PASSWORD: wordpress
 
+   composer:
+     image: composer:latest
+     volumes:
+      - ./:/app
+     command: install
+     restart: 'no'
+
    wordpress:
      depends_on:
        - db
+       - composer
      image: wordpress:latest
      ports:
        - "8000:80"

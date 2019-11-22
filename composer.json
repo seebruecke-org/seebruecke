@@ -1,0 +1,31 @@
+{
+    "repositories": [
+        {
+            "type":"composer",
+            "url":"https://wpackagist.org"
+        },
+
+        {
+            "type": "composer",
+            "url": "https://packages.metabox.io/87bdc438cfdd42030b2d69448e3a01b5"
+        }
+    ],
+
+    "extra": {
+        "installer-paths": {
+            "plugins/{$name}": ["type:wordpress-plugin", "meta-box/meta-box-group"]
+        }
+    },
+
+    "require": {
+        "composer/installers": "~1.0",
+        "meta-box/meta-box-group": "dev-master",
+        "wpackagist-plugin/disable-embeds": "^1.4.0",
+        "wpackagist-plugin/meta-box": "^5.2.3",
+        "wpackagist-plugin/notification": "^6.2.0",
+        "wpackagist-plugin/polylang": "^2.6.7",
+        "wpackagist-plugin/redirection": "^4.4.2",
+        "wpackagist-plugin/regenerate-thumbnails": "^3.1.2",
+        "wpackagist-plugin/user-role-editor": "^4.52.1"
+    }
+}
