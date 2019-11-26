@@ -1,7 +1,7 @@
 <?php
 
 function donate_campaign_shortcode($atts = ['title' => null, 'excerpt' => null, 'twingle_identifier' => null, 'media_id' => null]) {
-  $twingle = do_shortcode('[twingle_event identifier="' . $atts['twingle_identifier'] . '"]');
+  $twingle = do_shortcode('[twingle identifier="' . $atts['twingle_identifier'] . '"]');
   $media = wp_get_attachment_image($atts['media_id'], 'content', false, [
     'class' => 'v2-donate-campaign__media'
   ]);

@@ -685,49 +685,18 @@ function shortcode_paypal() {
   ';
 }
 
-function shortcode_twingle_event($atts = ['identifier' => '']) {
-  return '
-    <div id="twingle-event"></div>
-    <script>
-      if(typeof __twingleFindGetParameter !== "function") {
-            window.__twingleFindGetParameter = function() {
-                var result = "",
-                    tmp = [];
-                var items = location.search.substr(1).split("&");
-                for (var index = 0; index < items.length; index++) {
-                    tmp = items[index].split("=");
-                    if (tmp[0].indexOf("tw_") === 0) result += tmp[0] + "=" + decodeURIComponent(tmp[1]) + "&";
-                }
-                return result;
-            }
-        }
-      var __twingleEventIframe = document.createElement("iframe");
-        __twingleEventIframe.height = "1200";
-        __twingleEventIframe.style = {width: "100%", border: "none", overflow: "hidden", height: "1200px"};
-        __twingleEventIframe.scrolling = "no";
-        __twingleEventIframe.src = "https://spenden.twingle.de/event/mensch-mensch-mensch-e-v/' . $atts['identifier'] . '?rand=" + Math.random().toString(36).substr(2, 9);
-        var parameters = __twingleFindGetParameter();
-        if(parameters) {
-            __twingleEventIframe.src += (__twingleEventIframe.src.search(/\?/) === -1)? "?" : "&";
-            __twingleEventIframe.src += parameters;
-        }
-
-      document.getElementById("twingle-event").appendChild(__twingleEventIframe);
-    </script>
-
-    <script src="https://spenden.twingle.de/embed/generic"></script>
-  ';
-}
-
 function shortcode_twingle($atts = ['identifier' => '']) {
+  mt_srand(10);
+
+  $id = mt_rand();
+
   return '
+  <div id="twingle-public-embed-' . $id . '"></div>
   <script type="text/javascript">
     (function() {
     var u="https://spenden.twingle.de/embed/mensch-mensch-mensch-e-v/' . $atts['identifier'] . '/form";
-    var id = "_" + Math.random().toString(36).substr(2, 9);
     var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0];
-    document.write("<div id=\"twingle-public-embed-" + id + "\"></div>");
-    g.type="text/javascript"; g.async=true; g.defer=true; g.src=u+"/"+id; s.parentNode.insertBefore(g,s);
+    g.type="text/javascript"; g.async=true; g.defer=true; g.src=u + "/" + ' . $id . '; s.parentNode.insertBefore(g,s);
     })();
   </script>
   ';
