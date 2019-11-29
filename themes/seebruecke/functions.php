@@ -1,6 +1,7 @@
 <?php
 
 require('lib/demands.php');
+require('lib/donate-campaign.php');
 require('lib/events.php');
 require('lib/local-groups.php');
 require('lib/save-havens.php');
@@ -684,15 +685,18 @@ function shortcode_paypal() {
   ';
 }
 
-function shortcode_twingle() {
+function shortcode_twingle($atts = ['identifier' => '']) {
+  mt_srand(10);
+
+  $id = mt_rand();
+
   return '
+  <div id="twingle-public-embed-' . $id . '"></div>
   <script type="text/javascript">
     (function() {
-    var u="https://spenden.twingle.de/embed/mensch-mensch-mensch-e-v/seebrcke/tw5b90e51600cb6/form";
-    var id = "_" + Math.random().toString(36).substr(2, 9);
+    var u="https://spenden.twingle.de/embed/mensch-mensch-mensch-e-v/' . $atts['identifier'] . '/form";
     var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0];
-    document.write("<div id=\"twingle-public-embed-" + id + "\"></div>");
-    g.type="text/javascript"; g.async=true; g.defer=true; g.src=u+"/"+id; s.parentNode.insertBefore(g,s);
+    g.type="text/javascript"; g.async=true; g.defer=true; g.src=u + "/" + ' . $id . '; s.parentNode.insertBefore(g,s);
     })();
   </script>
   ';
@@ -835,12 +839,15 @@ add_shortcode('supporting_organizations', 'shortcode_supporting_organizations');
 add_shortcode('paypal', 'shortcode_paypal');
 add_shortcode('featured', 'shortcode_featured');
 add_shortcode('twingle', 'shortcode_twingle');
+add_shortcode('twingle_event', 'shortcode_twingle_event');
 
 add_action('wp_enqueue_scripts', 'enqueue_scripts');
 add_action( 'init', 'register_menus' );
 
 /* image sizes */
-add_image_size('hero-image', 2400, 9999);
+add_image_size('hero-image', 2400);
+add_image_size('content', 1000);
+add_image_size('item', 300);
 
 if (function_exists('pll_register_string')) {
   /* custom strings */

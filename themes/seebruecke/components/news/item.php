@@ -2,7 +2,7 @@
   <a href="<?php echo get_the_permalink($post['ID']); ?>" class="news-item">
     <figure class="news-item__thumbnail">
       <?php if (has_post_thumbnail($post['ID'])) : ?>
-        <?php echo get_the_post_thumbnail($post['ID'], 'news-item', [
+        <?php echo get_the_post_thumbnail($post['ID'], 'item', [
           'class' => 'news-item__thumbnail-image'
         ]); ?>
       <?php endif; ?>
