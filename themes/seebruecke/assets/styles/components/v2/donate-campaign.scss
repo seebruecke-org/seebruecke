@@ -1,6 +1,10 @@
 .v2-donate-campaign {
   margin-bottom: 2rem;
-  margin-top: -4rem;
+  margin-top: -2rem;
+
+  @include mq($from: tablet) {
+    margin-top: -4rem;
+  }
 
   &__media {
     height: auto;
