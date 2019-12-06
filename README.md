@@ -1,6 +1,12 @@
 # Seebruecke
 
+## Prerequisites
+
+* [Yarn](https://yarnpkg.com/lang/en/)
+* Seebrücke-SQL-Dump located in ./wordpress.sql
+
+
 ## Development
 
-`docker-compose up`
+* `yarn install && yarn build && docker-compose up`
 
