@@ -147,6 +147,10 @@ function shortcode_actions($atts = []) {
     }
 
     foreach($events_grouped as $date => $event) {
+      if (!isset($event->ID)) {
+        continue;
+      }
+
       $id = $event->ID;
       $fields = get_post_custom($id);
 
@@ -184,7 +188,7 @@ function shortcode_actions($atts = []) {
 
   $show_only_upcoming = array_key_exists('upcoming', $atts) || in_array('upcoming', $atts);
   $show_upcoming_count = $atts['upcoming'];
-  $filter_by_tags = $atts['tags'];
+  $filter_by_tags = isset($atts['tags']) ? $atts['tags'] : false;
 
   // map coordinates
   if ($filter_by_tags) {
