@@ -1,3 +1,12 @@
+<?php
+
+$post_types_with_date = ['news', 'events', 'pressrelease'];
+$archive_translations = [
+  'Events' => 'Alle Aktionen'
+];
+
+?>
+
 <!doctype html>
 
 <html <?php language_attributes(); ?>>
@@ -34,35 +43,52 @@
         <?php get_template_part('social-media-v2'); ?>
       </nav>
 
-      <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+      <?php if(!is_archive()) : ?>
+        <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+          <div class="v2-header-single">
+            <h1 class="v2-header-single__title">
+              <?php if(in_array(get_post_type(), $post_types_with_date)) : ?>
+                <small class="v2-header-single__date">
+                  <?php if (get_post_type() !== 'events') : ?>
+                    <?php the_date(); ?>
+                  <?php else: ?>
+                    <?php
+                      $fields = get_post_custom();
+                      echo date(get_date_format(), strtotime($fields['event_date'][0]));
+                    ?>
+                      um
+                    <?php echo $fields['event_time'][0]; ?>
+                      in
+                    <?php
+                      $address = $fields['event_city'][0];
+
+                      if ($fields['event_address'][0]) {
+                        $address .= ', ' . $fields['event_address'][0];
+                      }
+
+                      echo $address;
+                    ?>
+                  <?php endif; ?>
+                </small>
+              <?php endif; ?>
+
+              <?php the_title(); ?>
+            </h1>
+          </div>
+        <?php endwhile; endif; ?>
+      <?php else: ?>
         <div class="v2-header-single">
           <h1 class="v2-header-single__title">
-            <?php if(get_post_type() === 'news' || get_post_type() === 'events' || get_post_type() === 'pressrelease') : ?>
-              <small class="v2-header-single__date">
-                <?php if (get_post_type() !== 'events') : ?>
-                  <?php the_date(); ?>
-                <?php else: ?>
-                  <?php
-                    $fields = get_post_custom();
-                    echo date(get_date_format(), strtotime($fields['event_date'][0]));
-                  ?>
-                    um
-                  <?php echo $fields['event_time'][0]; ?>
-                    in
-                  <?php
-                    $address = $fields['event_city'][0];
+            <?php
+              $title = get_queried_object()->label;
 
-                    if ($fields['event_address'][0]) {
-                      $address .= ', ' . $fields['event_address'][0];
-                    }
-
-                    echo $address;
-                  ?>
-                <?php endif; ?>
-              </small>
-            <?php endif; ?>
-            <?php the_title(); ?>
+              if (isset($archive_translations[$title])) {
+                echo $archive_translations[$title];
+              } else {
+                echo $title;
+              }
+            ?>
           </h1>
         </div>
-      <?php endwhile; endif; ?>
+      <?php endif; ?>
     </header>

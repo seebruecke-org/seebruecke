@@ -1,13 +1,10 @@
 <?php
-  $TITLE = 'Veranstaltungen';
-  get_header('archive');
+  get_header('v2-single');
 ?>
 
-<main class="main">
-  <div class="constraint">
-    <div class="richtext">
-      <?php echo do_shortcode('[actions]'); ?>
-    </div>
+<main class="v2-main">
+  <article class="v2-block-content">
+    <?php echo do_shortcode('[actions]'); ?>
   </div>
 </main>
 

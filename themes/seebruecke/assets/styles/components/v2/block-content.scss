@@ -60,4 +60,8 @@
   a {
     color: $color-brand;
   }
+
+  > .actions {
+    grid-column: full-start / full-end;
+  }
 }
