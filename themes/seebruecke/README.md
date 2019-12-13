@@ -4,15 +4,9 @@
 
 ## Development
 
-### Wordpress plugin requirements
-
-- [meta-box](https://wordpress.org/plugins/meta-box/)
-- [meta-box-group](https://docs.metabox.io/extensions/meta-box-group/)
-- [polylang](https://wordpress.org/plugins/polylang/)
-
 ### Install dependencies
 
-`npm install`
+`npm i`
 
 
 ### Build production assets
@@ -22,7 +16,7 @@
 
 ### Build development assets
 
-`npm run dev`
+`npm run develop`
 
 
 ## Structure
