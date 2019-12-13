@@ -23,13 +23,9 @@ function shortcode_groups($atts = []) {
 
     foreach($groups->posts as $group) {
       $fields = get_post_custom($group->ID);
-      $district = $fields['group_district'][0];
+      $district = isset($fields['group_district'][0]) ? $fields['group_district'][0] : 'Unsorted';
 
-      if (!$district) {
-        $district = 'Unsorted';
-      }
-
-      if (!$grouped[$district]) {
+      if (!isset($grouped[$district]) OR empty($grouped[$district])) {
         $grouped[$district] = [];
       }
 
@@ -86,6 +82,10 @@ function shortcode_groups($atts = []) {
     $groups_sorted = group_groups_by_state($groups);
 
     foreach($groups_sorted as $state => $state_groups) {
+      if (!isset($group->ID)) {
+        continue;
+      }
+
       $id = $group->ID;
       $fields = get_post_custom($id);
       $href = get_the_permalink($id);
