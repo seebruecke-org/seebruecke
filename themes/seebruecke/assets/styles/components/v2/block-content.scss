@@ -50,6 +50,7 @@
     margin-top: 1rem;
   }
 
+  li,
   p {
     @include typo-richtext();
 

@@ -2,101 +2,24 @@
   get_header('v2-single');
 ?>
 
-<main class="main">
-  <?php while ( have_posts() ) :
-    the_post();
-    $fields = get_post_custom();
-    $events_upcoming = get_all_upcoming_events_by_localgroup(get_the_ID());
-    $next_event_upcoming = $events_upcoming->posts[0];
-    $next_event_upcoming_fields = get_post_custom($next_event_upcoming->ID);
-    $next_event_upcoming_link = get_permalink($next_event_upcoming->ID);
+<main class="v2-main">
+  <article class="v2-block-content">
+    <?php while ( have_posts() ) : the_post();
 
-    $facebook_link = rwmb_meta('group_facebook');
-    $twitter_link = rwmb_meta('group_twitter');
-    $instagram_link = rwmb_meta('group_instagram');
-    $youtube_link = rwmb_meta('group_youtube');
-  ?>
-    <div class="constraint">
-      <?php if($next_event_upcoming) : ?>
-        <div class="action-single">
-          <div class="action-single__meta-container">
-            <div class="constraint">
-              <h2 class="action-single__meta-title">
-                <?php echo pll__('Nächste Aktion'); ?>
-              </h2>
-
-              <dl class="action-single__meta">
-                <?php if($next_event_upcoming_fields['event_date']) : ?>
-                  <dt class="action-single__meta-term">
-                    <span class="visually-hidden">
-                      <?php echo pll__('Uhrzeit'); ?>
-                    </span>
-                  </dt>
-                  <dd>
-                    <p class="action-single__meta-value">
-                      <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"></path></svg>
-
-                      <?php
-                        echo date(get_date_format(), strtotime($next_event_upcoming_fields['event_date'][0]));
-                        echo '&nbsp;' . pll__('um') . '&nbsp;';
-                        echo $next_event_upcoming_fields['event_time'][0];
-                      ?>
-                    </p>
-                  </dd>
-                <?php endif; ?>
-
-                <dt class="action-single__meta-term">
-                  <span class="visually-hidden">
-                    <?php echo pll__('Ort'); ?>
-                  </span>
-                </dt>
-
-                <dd>
-                  <p class="action-single__meta-value">
-                    <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288 512"><path fill="currentColor" d="M112 316.94v156.69l22.02 33.02c4.75 7.12 15.22 7.12 19.97 0L176 473.63V316.94c-10.39 1.92-21.06 3.06-32 3.06s-21.61-1.14-32-3.06zM144 0C64.47 0 0 64.47 0 144s64.47 144 144 144 144-64.47 144-144S223.53 0 144 0zm0 76c-37.5 0-68 30.5-68 68 0 6.62-5.38 12-12 12s-12-5.38-12-12c0-50.73 41.28-92 92-92 6.62 0 12 5.38 12 12s-5.38 12-12 12z"></path></svg>
-
-                    <?php
-                      $address = $next_event_upcoming_fields['event_city'][0];
-
-                      if ($next_event_upcoming_fields['event_address'][0]) {
-                        $address .= ', ' . $next_event_upcoming_fields['event_address'][0];
-                      }
-
-                      echo $address;
-                    ?>
-                  </p>
-                </dd>
-
-                <dt class="action-single__meta-term">
-                  <span class="visually-hidden">
-                    <?php echo pll__('Link'); ?>
-                  </span>
-                </dt>
-                <dd>
-                  <p class="action-single__meta-value">
-                    <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg>
-
-                    <a href="<?php echo $next_event_upcoming_link ?>" itemprop="url">
-                      <?php echo $next_event_upcoming->post_title; ?>
-                    </a>
-                  </p>
-                </dd>
-              </dl>
-            </div>
-          </div>
-        </div>
-      <?php endif; ?>
-    </div>
-
-    <?php if($facebook_link || $twitter_link || $instagram_link || $youtube_link): ?>
-      <div class="support">
-        <div class="constraint">
-          <em class="support__label">
+      $facebook_link = rwmb_meta('group_facebook');
+      $twitter_link = rwmb_meta('group_twitter');
+      $instagram_link = rwmb_meta('group_instagram');
+      $youtube_link = rwmb_meta('group_youtube');
+      $email_address = rwmb_meta('group_email');
+    ?>
+      <?php if($facebook_link || $twitter_link || $instagram_link || $youtube_link): ?>
+        <div class="v2-support">
+          <em class="v2-support__label">
             <?php echo pll__('Lokalgruppe'); ?> <?php the_title(); ?> <?php echo pll__('auf'); ?>
           </em>
 
           <?php if ($facebook_link) : ?>
-            <a href="<?php echo $facebook_link; ?>" class="support__item">
+            <a href="<?php echo $facebook_link; ?>" class="v2-support__item">
               <span class="visually-hidden">facebook</span>
               <svg aria-hidden="true"
                   role="img"
@@ -110,7 +33,7 @@
           <?php endif; ?>
 
           <?php if ($twitter_link) : ?>
-            <a href="<?php echo $twitter_link; ?>" class="support__item">
+            <a href="<?php echo $twitter_link; ?>" class="v2-support__item">
               <span class="visually-hidden">twitter</span>
               <svg aria-hidden="true"
                   role="img"
@@ -124,7 +47,7 @@
           <?php endif; ?>
 
           <?php if ($instagram_link) : ?>
-            <a href="<?php echo $instagram_link; ?>" class="support__item">
+            <a href="<?php echo $instagram_link; ?>" class="v2-support__item">
               <span class="visually-hidden">instagram</span>
               <svg aria-hidden="true"
                   role="img"
@@ -138,7 +61,7 @@
           <?php endif; ?>
 
           <?php if ($youtube_link) : ?>
-            <a class="support__item" href="<?php echo $youtube_link; ?>" >
+            <a class="v2-support__item" href="<?php echo $youtube_link; ?>" >
               <span class="visually-hidden">youtube</span>
               <svg aria-hidden="true"
                   role="img"
@@ -150,27 +73,25 @@
               </svg>
             </a>
           <?php endif; ?>
+
+          <?php if ($email_address) : ?>
+            <a href="mailto:<?php echo $email_address; ?>" class="v2-support__item">
+              <span class="visually-hidden">Email an: <?php echo $email_address; ?></span>
+              <svg aria-hidden="true"
+                   focusable="false"
+                   role="img"
+                   xmlns="http://www.w3.org/2000/svg"
+                   viewBox="0 0 512 512">
+                <path fill="currentColor" d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"></path>
+              </svg>
+            </a>
+          <?php endif; ?>
         </div>
-      </div>
-    <?php endif; ?>
+      <?php endif; ?>
 
-    <div class="constraint">
-      <article class="richtext richtext--single">
-        <?php the_content(); ?>
-
-        <?php
-          $email_address = rwmb_meta('group_email');
-
-          if ($email_address) :
-        ?>
-          <h2>Kontakt</h2>
-          <p>
-            <a href="mailto:<?php echo $email_address; ?>"><?php echo $email_address; ?></a>
-          </p>
-        <?php endif; ?>
-      </article>
-    </div>
-  <?php endwhile; ?>
+      <?php the_content(); ?>
+    <?php endwhile; ?>
+  </article>
 </main>
 
 <?php get_footer(); ?>
