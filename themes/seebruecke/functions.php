@@ -572,30 +572,30 @@ function register_meta_boxes($meta_boxes) {
   return $meta_boxes;
 }
 
+function render_organizations() {
+  $organizations = get_all_organizations();
+  $markup = '';
+
+  foreach($organizations->posts as $organization) {
+    $id = $organization->ID;
+    $fields = get_post_custom($id);
+
+    $markup .= '
+      <li class="supporting-organizations__organization">
+        <a href="' . $fields['organization_link'][0] . '"
+           rel="nofollow"
+           class="supporting-organizations__organization-link">
+          ' . $organization->post_title . '
+        </a>
+      </li>
+    ';
+  }
+
+  return $markup;
+}
+
 function shortcode_supporting_organizations($atts = []) {
   $atts = array_change_key_case((array)$atts, CASE_LOWER);
-
-  function render_organizations() {
-    $organizations = get_all_organizations();
-    $markup = '';
-
-    foreach($organizations->posts as $organization) {
-      $id = $organization->ID;
-      $fields = get_post_custom($id);
-
-      $markup .= '
-        <li class="supporting-organizations__organization">
-          <a href="' . $fields['organization_link'][0] . '"
-             rel="nofollow"
-             class="supporting-organizations__organization-link">
-            ' . $organization->post_title . '
-          </a>
-        </li>
-      ';
-    }
-
-    return $markup;
-  }
 
   return '
     <div class="supporting-organizations">
