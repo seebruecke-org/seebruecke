@@ -71,102 +71,102 @@ function get_all_upcoming_events_by_tags($tags) {
   ));
 }
 
-function shortcode_actions($atts = []) {
-  function group_events_by_date($events) {
-    $grouped = array();
+function group_events_by_date($events) {
+  $grouped = array();
 
-    foreach($events as $event) {
-      $id = $event->ID;
-      $fields = get_post_custom($id);
+  foreach($events as $event) {
+    $id = $event->ID;
+    $fields = get_post_custom($id);
 
-      $grouped[$fields['event_date'][0]][] = $event;
-    }
-
-    return $grouped;
+    $grouped[$fields['event_date'][0]][] = $event;
   }
 
-  function render_events($events) {
-    $markup = '';
+  return $grouped;
+}
 
-    foreach($events as $event) {
-      $id = $event->ID;
-      $fields = get_post_custom($id);
-      $href = get_the_permalink($id);
+function render_events($events) {
+  $markup = '';
 
-      $markup .= '
-        <li class="actions__action">
-          <div class="action">
-            <div class="action__icon-container">
-              <a href="' . $href . '" rel="nofollow">
-                <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M576 224c0-20.896-13.36-38.666-32-45.258V64c0-35.346-28.654-64-64-64-64.985 56-142.031 128-272 128H48c-26.51 0-48 21.49-48 48v96c0 26.51 21.49 48 48 48h43.263c-18.742 64.65 2.479 116.379 18.814 167.44 1.702 5.32 5.203 9.893 9.922 12.88 20.78 13.155 68.355 15.657 93.773 5.151 16.046-6.633 19.96-27.423 7.522-39.537-18.508-18.026-30.136-36.91-19.795-60.858a12.278 12.278 0 0 0-1.045-11.673c-16.309-24.679-3.581-62.107 28.517-72.752C346.403 327.887 418.591 395.081 480 448c35.346 0 64-28.654 64-64V269.258c18.64-6.592 32-24.362 32-45.258zm-96 139.855c-54.609-44.979-125.033-92.94-224-104.982v-69.747c98.967-12.042 169.391-60.002 224-104.982v279.711z"></path></svg>
-              </a>
-            </div>
+  foreach($events as $event) {
+    $id = $event->ID;
+    $fields = get_post_custom($id);
+    $href = get_the_permalink($id);
 
-            <div class="action__content-container">
-              <h4 class="action__title">
-                <div class="action__meta">
-                  <small class="action__time">'
-                    . $fields['event_time'][0] .
-                  '</small>
-                </div>
-
-                <a href="' . $href . '">
-                  ' . $fields['event_city'][0] . '
-                </a>
-              </h4>
-
-              <p class="action__content">' . $event->post_title . '</p>
-            </div>
+    $markup .= '
+      <li class="actions__action">
+        <div class="action">
+          <div class="action__icon-container">
+            <a href="' . $href . '" rel="nofollow">
+              <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M576 224c0-20.896-13.36-38.666-32-45.258V64c0-35.346-28.654-64-64-64-64.985 56-142.031 128-272 128H48c-26.51 0-48 21.49-48 48v96c0 26.51 21.49 48 48 48h43.263c-18.742 64.65 2.479 116.379 18.814 167.44 1.702 5.32 5.203 9.893 9.922 12.88 20.78 13.155 68.355 15.657 93.773 5.151 16.046-6.633 19.96-27.423 7.522-39.537-18.508-18.026-30.136-36.91-19.795-60.858a12.278 12.278 0 0 0-1.045-11.673c-16.309-24.679-3.581-62.107 28.517-72.752C346.403 327.887 418.591 395.081 480 448c35.346 0 64-28.654 64-64V269.258c18.64-6.592 32-24.362 32-45.258zm-96 139.855c-54.609-44.979-125.033-92.94-224-104.982v-69.747c98.967-12.042 169.391-60.002 224-104.982v279.711z"></path></svg>
+            </a>
           </div>
-        </li>
-      ';
-    }
 
-    return '
-      <ul class="actions__events">' . $markup . '</ul>
+          <div class="action__content-container">
+            <h4 class="action__title">
+              <div class="action__meta">
+                <small class="action__time">'
+                  . $fields['event_time'][0] .
+                '</small>
+              </div>
+
+              <a href="' . $href . '">
+                ' . $fields['event_city'][0] . '
+              </a>
+            </h4>
+
+            <p class="action__content">' . $event->post_title . '</p>
+          </div>
+        </div>
+      </li>
     ';
   }
 
-  function render_days($show_only_upcoming, $show_upcoming_count, $filter_by_tags) {
-    $markup = '';
+  return '
+    <ul class="actions__events">' . $markup . '</ul>
+  ';
+}
 
-    if ($show_only_upcoming) {
-      if ($filter_by_tags) {
-        $events = get_all_upcoming_events_by_tags($filter_by_tags);
-      } else {
-        $events = get_all_upcoming_events();
-      }
+function render_days($show_only_upcoming, $show_upcoming_count, $filter_by_tags) {
+  $markup = '';
+
+  if ($show_only_upcoming) {
+    if ($filter_by_tags) {
+      $events = get_all_upcoming_events_by_tags($filter_by_tags);
     } else {
-      $events = get_all_events();
+      $events = get_all_upcoming_events();
     }
-
-    $events_grouped = group_events_by_date($events->posts);
-
-    if($show_upcoming_count) {
-      $events_grouped = array_slice($events_grouped, 0, (int)$show_upcoming_count);
-    }
-
-    foreach($events_grouped as $date => $event) {
-      if (!isset($event->ID)) {
-        continue;
-      }
-
-      $id = $event->ID;
-      $fields = get_post_custom($id);
-
-      $markup .= '
-        <li class="actions__day">
-          <h3 class="actions__day-title">
-            ' . date(get_date_format(), strtotime($date)) . '
-          </h3>
-          ' . render_events($event) . '
-        </li>
-      ';
-    }
-
-    return $markup;
+  } else {
+    $events = get_all_events();
   }
 
+  $events_grouped = group_events_by_date($events->posts);
+
+  if($show_upcoming_count) {
+    $events_grouped = array_slice($events_grouped, 0, (int)$show_upcoming_count);
+  }
+
+  foreach($events_grouped as $date => $event) {
+    if (!isset($event->ID)) {
+      continue;
+    }
+
+    $id = $event->ID;
+    $fields = get_post_custom($id);
+
+    $markup .= '
+      <li class="actions__day">
+        <h3 class="actions__day-title">
+          ' . date(get_date_format(), strtotime($date)) . '
+        </h3>
+        ' . render_events($event) . '
+      </li>
+    ';
+  }
+
+  return $markup;
+}
+
+function shortcode_actions($atts = []) {
   $atts = array_change_key_case((array)$atts, CASE_LOWER);
   $slug = pll_current_language('slug');
   $slug = $slug == 'de' ? '' : ( '/' . $slug );

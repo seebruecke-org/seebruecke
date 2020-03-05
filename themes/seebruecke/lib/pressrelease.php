@@ -1,21 +1,21 @@
 <?php
 
-function shortcode_pressreleases($atts) {
-  function get_pressrelease_markup($posts) {
-    ob_start();
+function get_pressrelease_markup($posts) {
+  ob_start();
 
-    foreach($posts as $item) {
-      get_component('news/item', [
-        'post' => $item->to_array()
-      ]);
-    }
-
-    $markup = ob_get_contents();
-    ob_end_clean();
-
-    return $markup;
+  foreach($posts as $item) {
+    get_component('news/item', [
+      'post' => $item->to_array()
+    ]);
   }
 
+  $markup = ob_get_contents();
+  ob_end_clean();
+
+  return $markup;
+}
+
+function shortcode_pressreleases($atts) {
   $atts = array_change_key_case((array)$atts, CASE_LOWER);
   $atts_defaults = [
     'count' => -1

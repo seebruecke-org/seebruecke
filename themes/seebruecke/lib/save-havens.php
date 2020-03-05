@@ -17,96 +17,96 @@ function get_all_havens($extend_query = []) {
   return $query;
 }
 
-function shortcode_havens($atts = []) {
-  function group_havens_by_state($havens) {
-    $grouped = [];
+function group_havens_by_state($havens) {
+  $grouped = [];
 
-    foreach($havens->posts as $haven) {
-      $fields = get_post_custom($haven->ID);
-      $district = $fields['haven_district'][0];
+  foreach($havens->posts as $haven) {
+    $fields = get_post_custom($haven->ID);
+    $district = $fields['haven_district'][0];
 
-      if (!$district) {
-        $district = 'Unsorted';
-      }
-
-      if (!isset($grouped[$district]) OR !is_array($grouped[$district])) {
-        $grouped[$district] = [];
-      }
-
-      $grouped[$district][] = $haven;
+    if (!$district) {
+      $district = 'Unsorted';
     }
 
-    ksort($grouped);
-
-    return $grouped;
-  }
-
-  function render_list($havens) {
-    $markup = '';
-    $grouped = group_havens_by_state($havens);
-
-    foreach($grouped as $state => $state_havens) {
-      $markup .= '
-        <li class="actions__day">
-          <h3 class="actions__day-title">' . $state . '</h3>
-          ' . render_havens($state_havens) . '
-        </li>
-      ';
+    if (!isset($grouped[$district]) OR !is_array($grouped[$district])) {
+      $grouped[$district] = [];
     }
 
-    return $markup;
+    $grouped[$district][] = $haven;
   }
 
-  function render_havens($havens) {
-    $markup = '<ul class="actions__events">';
+  ksort($grouped);
 
-    foreach($havens as $haven) {
-      $id = $haven->ID;
-      $fields = get_post_custom($id);
-      $href = get_the_permalink($id);
-      $meta = '';
+  return $grouped;
+}
 
-      if (isset($fields['haven_since'][0])) {
-        $since = date(get_date_format(), strtotime($fields['haven_since'][0]));
+function render_list($havens) {
+  $markup = '';
+  $grouped = group_havens_by_state($havens);
 
-        $meta = '<div class="action__meta">
-          <small class="action__time">
-            seit '. $since .'
-          </small>
-        </div>';
-      }
+  foreach($grouped as $state => $state_havens) {
+    $markup .= '
+      <li class="actions__day">
+        <h3 class="actions__day-title">' . $state . '</h3>
+        ' . render_havens($state_havens) . '
+      </li>
+    ';
+  }
 
-      $markup .= '
-        <li class="actions__action actions__action--wide">
-          <div class="action">
-            <div class="action__icon-container">
-              <a href="' . $href . '" rel="nofollow">
-                <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288 512">
-                  <path fill="#dc6e28" d="M112 316.94v156.69l22.02 33.02c4.75 7.12 15.22 7.12 19.97 0L176 473.63V316.94c-10.39 1.92-21.06 3.06-32 3.06s-21.61-1.14-32-3.06zM144 0C64.47 0 0 64.47 0 144s64.47 144 144 144 144-64.47 144-144S223.53 0 144 0zm0 76c-37.5 0-68 30.5-68 68 0 6.62-5.38 12-12 12s-12-5.38-12-12c0-50.73 41.28-92 92-92 6.62 0 12 5.38 12 12s-5.38 12-12 12z"></path>
-                </svg>
-              </a>
-            </div>
-            <div class="action__content-container">
-              <h4 class="action__title">
-                ' . $meta . '
-                <a href="' . $href . '">
-                  <span class="visually-hidden">
-                    Sicherer Hafen:
-                  </span>
-                  ' . $fields['haven_address'][0] . '
-                </a>
-              </h4>
-            </div>
+  return $markup;
+}
+
+function render_havens($havens) {
+  $markup = '<ul class="actions__events">';
+
+  foreach($havens as $haven) {
+    $id = $haven->ID;
+    $fields = get_post_custom($id);
+    $href = get_the_permalink($id);
+    $meta = '';
+
+    if (isset($fields['haven_since'][0])) {
+      $since = date(get_date_format(), strtotime($fields['haven_since'][0]));
+
+      $meta = '<div class="action__meta">
+        <small class="action__time">
+          seit '. $since .'
+        </small>
+      </div>';
+    }
+
+    $markup .= '
+      <li class="actions__action actions__action--wide">
+        <div class="action">
+          <div class="action__icon-container">
+            <a href="' . $href . '" rel="nofollow">
+              <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288 512">
+                <path fill="#dc6e28" d="M112 316.94v156.69l22.02 33.02c4.75 7.12 15.22 7.12 19.97 0L176 473.63V316.94c-10.39 1.92-21.06 3.06-32 3.06s-21.61-1.14-32-3.06zM144 0C64.47 0 0 64.47 0 144s64.47 144 144 144 144-64.47 144-144S223.53 0 144 0zm0 76c-37.5 0-68 30.5-68 68 0 6.62-5.38 12-12 12s-12-5.38-12-12c0-50.73 41.28-92 92-92 6.62 0 12 5.38 12 12s-5.38 12-12 12z"></path>
+              </svg>
+            </a>
           </div>
-        </li>
-      ';
-    }
-
-    $markup .= '</ul>';
-
-    return $markup;
+          <div class="action__content-container">
+            <h4 class="action__title">
+              ' . $meta . '
+              <a href="' . $href . '">
+                <span class="visually-hidden">
+                  Sicherer Hafen:
+                </span>
+                ' . $fields['haven_address'][0] . '
+              </a>
+            </h4>
+          </div>
+        </div>
+      </li>
+    ';
   }
 
+  $markup .= '</ul>';
+
+  return $markup;
+}
+
+function shortcode_havens($atts = []) {
   $atts = array_change_key_case((array)$atts, CASE_LOWER);
 
   // map coordinates
