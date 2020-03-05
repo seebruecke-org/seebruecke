@@ -79,5 +79,9 @@
     @include mq($from: tablet) {
       margin-top: 5rem;
     }
+
+    &__secondary {
+      margin-top: 1rem;
+    }
   }
 }

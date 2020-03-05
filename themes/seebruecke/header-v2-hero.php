@@ -77,5 +77,11 @@ $thumbnail_attrs = array(
             <?php echo $label; ?>
           </a>
         <?php endif; ?>
+
+        <?php if($secondary_label && $secondary_reference): ?>
+          <a href="<?php echo $secondary_reference; ?>" class="v2-button__secondary">
+            <?php echo $secondary_label; ?>
+          </a>
+        <?php endif; ?>
       </div>
     </header>
