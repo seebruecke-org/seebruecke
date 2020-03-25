@@ -1,18 +1,17 @@
 .v2-header-single {
-  grid-column: logo / main-end;
+  grid-column: full-start / full-end;
   grid-row: logo;
   margin: 1.5rem 0.5rem 0.5rem 0.5rem;
   position: relative;
   z-index: 2;
 
   @include mq($from: tablet) {
-    grid-column: main-start / full-end;
-    margin-left: 2rem;
+    // margin-left: .5rem;
     margin-top: 3rem;
   }
 
   @include mq($from: desktop) {
-    margin-left: 5rem;
+    // margin-left: 5rem;
   }
 
   .v2-header--is-hero & {
@@ -22,7 +21,7 @@
     justify-content: center;
 
     @include mq($from: desktop) {
-      margin-left: 0;
+      // margin-left: 0;
     }
   }
 

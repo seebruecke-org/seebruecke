@@ -4,7 +4,7 @@
   font-family: $font;
   font-size: .85rem;
   line-height: 1.5;
-  margin-top: $space-large;
+  // margin-top: $space-large;
   padding: 2rem;
 
   @include mq($from: tablet) {
