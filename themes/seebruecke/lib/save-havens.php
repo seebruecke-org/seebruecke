@@ -29,7 +29,7 @@ function shortcode_havens($atts = []) {
         $district = 'Unsorted';
       }
 
-      if (!isset($grouped[$district]) OR !is_array($grouped[$district])) {
+      if (!$grouped[$district]) {
         $grouped[$district] = [];
       }
 
@@ -66,7 +66,7 @@ function shortcode_havens($atts = []) {
       $href = get_the_permalink($id);
       $meta = '';
 
-      if (isset($fields['haven_since'][0])) {
+      if ($fields['haven_since'][0]) {
         $since = date(get_date_format(), strtotime($fields['haven_since'][0]));
 
         $meta = '<div class="action__meta">
@@ -122,7 +122,7 @@ function shortcode_havens($atts = []) {
   foreach($havens->posts as $group) {
     $id = $group->ID;
     $fields = get_post_custom($id);
-    $coordinates = isset($fields['haven_coordinates'][0]) ? $fields['haven_coordinates'][0] : "";
+    $coordinates = $fields['haven_coordinates'][0];
 
     if($coordinates) {
       $havens_json[] = array(

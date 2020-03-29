@@ -1,77 +1,85 @@
 <?php
 
-function get_all_events($extend_query = []) {
-  $args = array_merge(
-    array(
+if (!function_exists('get_all_events')) {
+  function get_all_events($extend_query = []) {
+    $args = array_merge(
+      array(
+        'meta_query' => array(
+          array(
+            'key' => 'event_date',
+          )
+        ),
+        'orderby' => 'event_date',
+        'order' => 'DESC',
+        'post_type' => 'events',
+        'post_status' => 'publish',
+        'posts_per_page' => -1,
+      ),
+      $extend_query
+    );
+
+    $query = new WP_Query($args);
+
+    return $query;
+  }
+}
+
+if (!function_exists('get_all_upcoming_events')) {
+  function get_all_upcoming_events() {
+    return get_all_events(array(
+      'order' => 'ASC',
       'meta_query' => array(
         array(
           'key' => 'event_date',
+          'compare' => '>=',
+          'value' => date('Y-m-d'),
+          'type' => 'DATE',
         )
       ),
-      'orderby' => 'event_date',
-      'order' => 'DESC',
-      'post_type' => 'events',
-      'post_status' => 'publish',
-      'posts_per_page' => -1,
-    ),
-    $extend_query
-  );
-
-  $query = new WP_Query($args);
-
-  return $query;
+    ));
+  }
 }
 
-function get_all_upcoming_events() {
-  return get_all_events(array(
-    'order' => 'ASC',
-    'meta_query' => array(
-      array(
-        'key' => 'event_date',
-        'compare' => '>=',
-        'value' => date('Y-m-d'),
-        'type' => 'DATE',
-      )
-    ),
-  ));
-}
+if (!function_exists('get_all_upcoming_events_by_localgroup')) {
+  function get_all_upcoming_events_by_localgroup($id) {
+    return get_all_events(array(
+      'order' => 'ASC',
+      'meta_query' => array(
+        array(
+          'key' => 'event_date',
+          'compare' => '>=',
+          'value' => date('Y-m-d'),
+          'type' => 'DATE',
+        ),
 
-function get_all_upcoming_events_by_localgroup($id) {
-  return get_all_events(array(
-    'order' => 'ASC',
-    'meta_query' => array(
-      array(
-        'key' => 'event_date',
-        'compare' => '>=',
-        'value' => date('Y-m-d'),
-        'type' => 'DATE',
+        array(
+          'key' => 'event_organizer',
+          'compare' => '=',
+          'value' => $id,
+        )
       ),
-
-      array(
-        'key' => 'event_organizer',
-        'compare' => '=',
-        'value' => $id,
-      )
-    ),
-  ));
+    ));
+  }
 }
 
-function get_all_upcoming_events_by_tags($tags) {
-  return get_all_events(array(
-    'order' => 'ASC',
-    'tag' => $tags,
-    'meta_query' => array(
-      array(
-        'key' => 'event_date',
-        'compare' => '>=',
-        'value' => date('Y-m-d'),
-        'type' => 'DATE',
-      )
-    ),
-  ));
+if (!function_exists('get_all_upcoming_events_by_tags')) {
+  function get_all_upcoming_events_by_tags($tags) {
+    return get_all_events(array(
+      'order' => 'ASC',
+      'tag' => $tags,
+      'meta_query' => array(
+        array(
+          'key' => 'event_date',
+          'compare' => '>=',
+          'value' => date('Y-m-d'),
+          'type' => 'DATE',
+        )
+      ),
+    ));
+  }
 }
 
-function shortcode_actions($atts = []) {
+if (!function_exists('group_events_by_date')) {
   function group_events_by_date($events) {
     $grouped = array();
 
@@ -84,7 +92,9 @@ function shortcode_actions($atts = []) {
 
     return $grouped;
   }
+}
 
+if (!function_exists('render_events')) {
   function render_events($events) {
     $markup = '';
 
@@ -126,7 +136,9 @@ function shortcode_actions($atts = []) {
       <ul class="actions__events">' . $markup . '</ul>
     ';
   }
+}
 
+if (!function_exists('render_days')) {
   function render_days($show_only_upcoming, $show_upcoming_count, $filter_by_tags) {
     $markup = '';
 
@@ -147,10 +159,6 @@ function shortcode_actions($atts = []) {
     }
 
     foreach($events_grouped as $date => $event) {
-      if (!isset($event->ID)) {
-        continue;
-      }
-
       $id = $event->ID;
       $fields = get_post_custom($id);
 
@@ -166,6 +174,9 @@ function shortcode_actions($atts = []) {
 
     return $markup;
   }
+}
+
+function shortcode_actions($atts = []) {
 
   $atts = array_change_key_case((array)$atts, CASE_LOWER);
   $slug = pll_current_language('slug');
@@ -188,7 +199,7 @@ function shortcode_actions($atts = []) {
 
   $show_only_upcoming = array_key_exists('upcoming', $atts) || in_array('upcoming', $atts);
   $show_upcoming_count = $atts['upcoming'];
-  $filter_by_tags = isset($atts['tags']) ? $atts['tags'] : false;
+  $filter_by_tags = $atts['tags'];
 
   // map coordinates
   if ($filter_by_tags) {

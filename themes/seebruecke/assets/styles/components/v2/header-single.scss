@@ -47,7 +47,11 @@
     hyphens: auto;
     margin-bottom: 0;
     margin-top: 0;
-    max-width: 56rem;
+    max-width: 45rem;
+
+    @include mq($from: tablet) {
+      hyphens: none;
+    }
 
     .v2-header--is-hero & {
       @include typo-hero-title();

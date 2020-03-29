@@ -1,6 +1,5 @@
 <?php
-  $TITLE = 'Seebrücke Lokalgruppen';
-  get_header('archive');
+  get_header('v2-single');
 ?>
 
 <main class="main">

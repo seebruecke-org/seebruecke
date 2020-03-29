@@ -25,34 +25,26 @@
 
   > li + li {
     margin-left: 0.5rem;
-
-    @include mq($from: tablet) {
-      margin-left: 0.75rem;
-    }
   }
 
   a {
     @include fluid('font-size', 0.55, 0.7, 18, 47);
     @include fluid('padding-bottom', 0.1, 0.15, 18, 47);
-    @include fluid('padding-left', 0.4, 0.6, 18, 47);
-    @include fluid('padding-right', 0.4, 0.6, 18, 47);
+    @include fluid('padding-left', 0.4, 0.5, 18, 47);
+    @include fluid('padding-right', 0.4, 0.5, 18, 47);
     @include fluid('padding-top', 0.1, 0.15, 18, 47);
 
-    background-color: rgba(255, 255, 255, 0.75);
+    background-color: rgba(57, 57, 57, 0.6);
     border-radius: 0.1rem;
-    color: black;
+    color: white;
     display: block;
     font-family: $font;
     font-weight: 500;
     text-decoration: none;
 
-    @include mq($from: tablet) {
-      background-color: rgba(255, 255, 255, 0.5);
-    }
-
     &:hover,
     &:focus {
-      background-color: rgba(255, 255, 255, 0.9);
+      background-color: $color-brand;
     }
   }
 

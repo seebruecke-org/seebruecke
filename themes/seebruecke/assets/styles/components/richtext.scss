@@ -74,6 +74,7 @@
     font-family: $font;
     font-size: 1.05rem;
     line-height: 1.45;
+    text-align: left !important;
 
     @include mq($from: tablet) {
       font-size: 1.4rem;
