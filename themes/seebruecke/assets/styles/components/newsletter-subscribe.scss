@@ -10,6 +10,10 @@
     padding-top: 3rem;
   }
 
+  .v2-campaign + & {
+    margin-top: 0;
+  }
+
   &__title {
     font-family: $font;
     font-size: 1.6rem;

@@ -23,6 +23,10 @@
     background-color: rgb(40, 40, 40);
   }
 
+  &--template-page-campaign {
+    margin-bottom: 0;
+  }
+
   &__image {
     grid-column: full-start / full-end;
     grid-row: secondary / end;
