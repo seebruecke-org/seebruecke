@@ -316,25 +316,6 @@ function register_meta_boxes($meta_boxes) {
         ),
 
         array(
-          'name'  => 'Type',
-          'desc'  => 'Which kind of event is it?',
-          'id'    => 'event_type',
-          'type'  => 'select',
-          'options' => array(
-            'kundgebung' => 'Kundgebung',
-            'flashmob' => 'Flashmob',
-            'demo' => 'Demo',
-            'planungstreffen' => 'Planungstreffen',
-            'filmvorführung' => 'Filmvorführung',
-            'bastelaktion' => 'Bastelaktion',
-            'aktion' => 'Aktion',
-            'mahnwache' => 'Mahnwache',
-            'lesung' => 'Lesung',
-          ),
-          'multiple' => false,
-        ),
-
-        array(
           'name'  => 'Link',
           'desc'  => '',
           'id'    => 'event_link',
@@ -493,31 +474,6 @@ function register_meta_boxes($meta_boxes) {
         'name' => 'Header',
         'post_type' => 'headers',
         'field_type' => 'select_advanced',
-      ),
-    ),
-  );
-
-  // News
-  $meta_boxes[] = array(
-    'id'         => 'news_meta',
-    'title'      => 'Meta information',
-    'post_types' => 'news',
-    'context'    => 'normal',
-    'priority'   => 'high',
-    'fields'     => array(
-      array(
-        'name'  => 'Show on localgroup',
-        'id'    => 'news_localgroups',
-        'type'  => 'group',
-        'clone' => true,
-        'fields' => array(
-          array(
-            'id'    => 'news_localgroup',
-            'type'  => 'post',
-            'post_type'   => 'lokalgruppen',
-            'field_type'  => 'select_advanced'
-          ),
-        ),
       ),
     ),
   );
