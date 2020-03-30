@@ -111,14 +111,12 @@ function register_meta_boxes($meta_boxes) {
     'fields'     => array(
       array(
         'name'  => 'Action text',
-        'desc'  => '(Label of the button)',
         'id'    => 'header_label',
         'type'  => 'text',
       ),
 
       array(
         'name'  => 'Link',
-        'desc'  => '(Link target of the button)',
         'id'    => 'header_reference',
         'type'  => 'post',
         'post_type' => 'page',
@@ -128,60 +126,15 @@ function register_meta_boxes($meta_boxes) {
       // Secondary action
       array(
         'name'  => 'Secondary action text',
-        'desc'  => '(Label of the secondary button)',
         'id'    => 'header_secondary_label',
         'type'  => 'text',
       ),
 
       array(
         'name'  => 'Secondary link target',
-        'desc'  => '(Link target of the secondary button)',
         'id'    => 'header_secondary_reference',
         'type'  => 'text',
-      ),
-
-      array(
-        'name'  => 'Number of supporters',
-        'id'    => 'header_suppors-count',
-        'type'  => 'number',
-      ),
-
-      // Support widget
-      array(
-        'name'  => 'Support text',
-        'id'    => 'header_support_label',
-        'type'  => 'text',
-      ),
-
-      array(
-        'name'  => 'Facebook-Link',
-        'id'    => 'header_support_facebook',
-        'post_type' => 'text',
-      ),
-
-      array(
-        'name'  => 'Instagram-Link',
-        'id'    => 'header_support_instagram',
-        'post_type' => 'text',
-      ),
-
-      array(
-        'name'  => 'Twitter-Link',
-        'id'    => 'header_support_twitter',
-        'post_type' => 'text',
-      ),
-
-      array(
-        'name'  => 'Youtube-Link',
-        'id'    => 'header_support_youtube',
-        'post_type' => 'text',
-      ),
-
-      array(
-        'name'  => 'Image caption',
-        'id'    => 'header_image-caption',
-        'type'  => 'text',
-      ),
+      )
     ),
   );
 

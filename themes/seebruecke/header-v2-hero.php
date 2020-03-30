@@ -1,6 +1,7 @@
 <?php
 
 global $header_id;
+global $post;
 
 $label = rwmb_meta('header_label', null, $header_id);
 $reference = rwmb_meta('header_reference', null, $header_id);
@@ -82,7 +83,7 @@ $template = str_replace('.php', '', $template);
           </p>
         <?php endif; ?>
 
-        <?php if ($reference && $label) : ?>
+        <?php if ($reference && $label && $post->ID != $reference) : ?>
           <a href="<?php the_permalink($reference); ?>" class="v2-button">
             <?php echo $label; ?>
           </a>
