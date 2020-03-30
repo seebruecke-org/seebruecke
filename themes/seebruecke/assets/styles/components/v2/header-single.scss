@@ -26,6 +26,12 @@
     }
   }
 
+  .v2-header--is-hero.v2-header--template-page-campaign & {
+    @include mq($from: tablet) {
+      padding-bottom: 10rem;
+    }
+  }
+
   &__date {
     @include dash();
     @include typo-date();
@@ -63,6 +69,22 @@
     }
   }
 
+  &__content {
+    @include typo-richtext();
+
+    color: white;
+    font-weight: bold;
+    margin-bottom: 0;
+    margin-top: 1rem;
+    max-width: 55rem;
+    text-shadow: 0 0 2px rgba(0, 0, 0, .8);
+
+    @include mq($from: desktop) {
+      line-height: 1.2;
+      margin-top: 1.5rem;
+    }
+  }
+
   &__excerpt {
     @include typo-richtext();
 
@@ -81,7 +103,7 @@
     margin-top: 2rem;
 
     @include mq($from: tablet) {
-      margin-top: 5rem;
+      margin-top: 3rem;
     }
   }
 }

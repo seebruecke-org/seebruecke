@@ -14,6 +14,10 @@ $thumbnail_attrs = array(
   'class' => 'v2-header__image',
 );
 
+$template = 'v2-header--template-' . basename(get_page_template_slug());
+
+$template = str_replace('.php', '', $template);
+
 ?>
 
 <!doctype html>
@@ -25,7 +29,7 @@ $thumbnail_attrs = array(
   <body>
     <?php wp_admin_bar_render(); ?>
 
-    <header class="v2-header v2-header--is-hero">
+    <header class="v2-header v2-header--is-hero <?php echo $template; ?>">
       <?php
         if($thumbnail_id) {
           echo wp_get_attachment_image(
@@ -72,12 +76,18 @@ $thumbnail_attrs = array(
           } ?>
         </h1>
 
+        <?php if ($header_id && get_the_content(null, false, $header_id)) : ?>
+          <p class="v2-header-single__content">
+            <?php echo get_the_content(null, false, $header_id); ?>
+          </p>
+        <?php endif; ?>
+
         <?php if ($reference && $label) : ?>
           <a href="<?php the_permalink($reference); ?>" class="v2-button">
             <?php echo $label; ?>
           </a>
         <?php endif; ?>
-		  
+
 		  <?php if($secondary_label && $secondary_reference): ?>
 		  <div>
 			  <a href="<?php echo $secondary_reference; ?>"
