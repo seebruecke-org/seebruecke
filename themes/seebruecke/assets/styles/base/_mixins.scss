@@ -96,11 +96,7 @@
   }
 
   @include mq($from: tablet) {
-    font-size: 34px;
-  }
-
-  @include mq($from: desktop) {
-    font-size: 42px;
+    font-size: 32px;
   }
 }
 
@@ -112,14 +108,6 @@
 
   @include mq($from: mobileLarge) {
     font-size: 24px;
-  }
-
-  @include mq($from: tablet) {
-    font-size: 28px;
-  }
-
-  @include mq($from: desktop) {
-    font-size: 32px;
   }
 }
 
