@@ -32,7 +32,19 @@
           if(is_front_page()) {
             echo $site_name;
           } else {
-            echo $post_title . ' - ' . $site_name;
+            $ancestors = get_post_ancestors(get_the_ID());
+
+            if (empty($ancestors)) {
+              echo $post_title . ' - ' . $site_name;
+            } else {
+              $title = $post_title . ' - ' . $site_name;
+
+              foreach($ancestors as $ancestor) {
+                $title = get_the_title($ancestor) . ' › ' . $title;
+              }
+
+              echo $title;
+            }
           }
           break;
 
