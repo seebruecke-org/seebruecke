@@ -1,10 +1,14 @@
 .news-list {
   list-style: none;
-  margin-bottom: 4rem;
-  margin-top: 4rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
   padding-left: 0;
 
   > * + * {
-    margin-top: 2.5rem;
+    margin-top: 3rem;
+
+    @include mq($from: desktop) {
+      margin-top: 5rem;
+    }
   }
 }

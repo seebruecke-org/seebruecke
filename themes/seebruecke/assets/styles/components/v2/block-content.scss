@@ -57,6 +57,7 @@
     text-align: left !important;
   }
 
+  li,
   p {
     @include typo-richtext();
 

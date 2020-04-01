@@ -1,6 +1,7 @@
 .news-item {
   color: currentColor !important;
   display: flex;
+  text-decoration: none;
 
   &:hover,
   &:focus {
@@ -44,11 +45,14 @@
   }
 
   &__published {
+    @include typo-date();
     @include dash();
 
     color: $brand-color;
     display: block;
-    font-size: 1.15rem;
-    font-weight: 400;
+  }
+
+  &__excerpt {
+    @include typo-richtext-small();
   }
 }

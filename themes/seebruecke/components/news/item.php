@@ -3,7 +3,8 @@
     <figure class="news-item__thumbnail">
       <?php if (has_post_thumbnail($post['ID'])) : ?>
         <?php echo get_the_post_thumbnail($post['ID'], 'item', [
-          'class' => 'news-item__thumbnail-image'
+          'class' => 'news-item__thumbnail-image',
+          'loading' => 'lazy'
         ]); ?>
       <?php endif; ?>
     </figure>
