@@ -35,13 +35,14 @@
     text-transform: uppercase;
     white-space: nowrap;
 
-    &[aria-current] {
-      background-color: $color-brand;
-    }
-
     &:not([aria-current]):hover,
     &:not([aria-current]):focus {
       background-color: lighten($color-brand-dark, 10%);
     }
+  }
+
+  .current-menu-item > a,
+  .current-page-ancestor > a {
+    background-color: $color-brand;
   }
 }

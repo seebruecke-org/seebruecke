@@ -28,6 +28,7 @@
   }
 
   &__image {
+    filter: blur(0.1rem);
     grid-column: full-start / full-end;
     grid-row: secondary / end;
     max-height: 50vh;

@@ -79,7 +79,6 @@
   font-family: $font;
   font-size: 30px;
   font-weight: 800;
-  letter-spacing: 0.05rem;
   line-height: 1.1;
 
   @include mq($from: mobileLarge) {
@@ -167,7 +166,7 @@
   }
 
   @include mq($from: tablet) {
-    font-size: 56px;
+    font-size: 58px;
   }
 }
 

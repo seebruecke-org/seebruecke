@@ -28,7 +28,7 @@
 
   .v2-header--is-hero.v2-header--template-page-campaign & {
     @include mq($from: tablet) {
-      padding-bottom: 11rem;
+      padding-bottom: 10rem;
     }
   }
 
@@ -66,6 +66,10 @@
       color: white;
       hyphens: none;
       text-align: center;
+
+      @include mq($from: tablet) {
+        line-height: 0.9;
+      }
     }
   }
 
@@ -75,13 +79,13 @@
     color: white;
     font-weight: bold;
     margin-bottom: 0;
-    margin-top: 1rem;
-    max-width: 55rem;
+    margin-top: 1.5rem;
+    max-width: 53rem;
     text-shadow: 0 0 2px rgba(0, 0, 0, .8);
 
     @include mq($from: desktop) {
       line-height: 1.2;
-      margin-top: 1.5rem;
+      margin-top: 2.5rem;
     }
   }
 

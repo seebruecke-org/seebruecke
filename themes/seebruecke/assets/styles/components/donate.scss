@@ -1,6 +1,4 @@
 .donate {
-  @include break-constraint();
-
   background-color: $secondary-color;
   color: white;
   margin-bottom: 3rem;
@@ -18,9 +16,9 @@
 
   &__button {
     background-color: transparent;
-    border: 2px solid currentColor;
+    border: 2px solid white;
     border-radius: 3px;
-    color: currentColor;
+    color: white;
     display: inline-block;
     font-family: $font;
     padding: .75rem 1.75rem;
