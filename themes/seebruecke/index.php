@@ -9,14 +9,12 @@
   }
 ?>
 
-<main class="main">
-  <?php while ( have_posts() ) : the_post(); ?>
-    <div class="constraint">
-      <article class="richtext">
-        <?php the_content(); ?>
-      </article>
-    </div>
-  <?php endwhile; ?>
+<main class="v2-main">
+  <article class="v2-block-content">
+    <?php while ( have_posts() ) : the_post(); ?>
+      <?php the_content(); ?>
+    <?php endwhile; ?>
+  </article>
 </main>
 
 <?php get_footer(); ?>
