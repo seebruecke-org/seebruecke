@@ -14,7 +14,7 @@
   "author": "Gustav Pursche <pursche@posteo.de>",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.9.6",
+    "@babel/core": "^7.10.0",
     "autoprefixer": "^9.8.0",
     "babel-loader": "^8.1.0",
     "css-loader": "^3.5.3",
