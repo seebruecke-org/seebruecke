@@ -4,16 +4,16 @@
   font-family: $font;
 
   &__icon-container {
-    margin-right: 0.75rem;
+    margin-right: 1.15rem;
 
     > a {
       color: $brand-color;
     }
 
     svg {
-      height: 1.5rem;
-      margin-top: 0.3rem;
-      width: 1.5rem;
+      height: 1.25rem;
+      margin-top: 1.5rem;
+      width: 1.25rem;
     }
   }
 
@@ -62,7 +62,7 @@
   }
 
   &__content {
-    font-size: 1rem;
+    font-size: 1rem !important;
     margin-bottom: 0;
     margin-top: 0;
 
@@ -71,8 +71,7 @@
     }
 
     @include mq($from: desktop) {
-      font-size: 1.05rem;
-      padding-right: 1rem;
+      padding-right: 1.15rem;
     }
   }
 }

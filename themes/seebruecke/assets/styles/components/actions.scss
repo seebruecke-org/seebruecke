@@ -1,14 +1,4 @@
 .actions {
-  @include mq($from: desktop) {
-    margin-left: -4rem;
-    margin-right: -4rem;
-  }
-
-  @include mq($from: wide) {
-    margin-left: -8.5rem;
-    margin-right: -8.5rem;
-  }
-
   &__list,
   &__events {
     list-style: none;
@@ -25,12 +15,12 @@
   }
 
   &__action {
+    margin-bottom: 1rem !important;
     flex-basis: 100%;
-    margin-bottom: 0.5rem !important;
 
     @include mq($from: tablet) {
       flex-basis: 50%;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem !important;
     }
 
     @include mq($from: desktop) {
@@ -48,7 +38,7 @@
     margin-top: 3rem;
 
     @include mq($from: tablet) {
-      margin-top: 2rem;
+      margin-top: 2.5rem;
     }
   }
 
@@ -71,28 +61,6 @@
       .richtext h3#{&} {
         color: $text-color;
       }
-    }
-  }
-
-  &__more {
-    color: $text-color;
-    display: inline-block;
-    font-family: $font;
-    font-size: 1rem;
-    font-weight: $font-weight-black;
-    margin-top: 2rem;
-    text-align: center;
-    text-transform: uppercase;
-    width: 100%;
-
-    @include mq($from: tablet) {
-      font-size: 1.3rem;
-    }
-
-    &:hover,
-    &:focus {
-      color: $brand-color;
-      text-decoration: underline;
     }
   }
 }

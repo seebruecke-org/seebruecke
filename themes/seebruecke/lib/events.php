@@ -179,22 +179,11 @@ if (!function_exists('render_days')) {
 function shortcode_actions($atts = []) {
 
   $atts = array_change_key_case((array)$atts, CASE_LOWER);
-  $slug = pll_current_language('slug');
-  $slug = $slug == 'de' ? '' : ( '/' . $slug );
-  $url = $slug . '/events/';
   $all_markup = '';
   $archive_class = '';
 
   if (is_archive()) {
     $archive_class = 'map--is-in-archive';
-  }
-
-  if (!is_archive()) {
-    $all_markup = '
-      <a href="' . $url . '" class="actions__more">
-        ' . pll__('Alle Aktionen') . '
-      </a>
-    ';
   }
 
   $show_only_upcoming = array_key_exists('upcoming', $atts) || in_array('upcoming', $atts);
