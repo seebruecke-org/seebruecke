@@ -1,8 +1,22 @@
 .v2-header-menu {
+  align-items: center;
   color: white;
   display: flex;
   grid-column: main-start / full-end;
   grid-row: menu;
   position: relative;
-  z-index: 2;
+
+  .v2-header--is-open & {
+    @include mq($until: tablet) {
+      grid-column: full;
+      grid-row: menu / -1;
+    }
+  }
+
+  .v2-burger {
+    position: absolute;
+    right: 1rem;
+    top: 0.6rem;
+    z-index: 101;
+  }
 }

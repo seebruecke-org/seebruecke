@@ -3,16 +3,15 @@
 
   display: grid;
   grid-template-rows:
-    [secondary] 2.25rem
-    [menu] 2.75rem
+    [secondary] 1fr
+    [menu] minmax(2.75rem, max-content)
     [logo] auto
     [end];
   margin-bottom: 2rem;
-  overflow: hidden;
 
   @include mq($from: tablet) {
     grid-template-rows:
-      [secondary] 3rem
+      [secondary] 3.5rem
       [menu] 3rem
       [logo] auto
       [end];
@@ -31,15 +30,14 @@
     filter: blur(0.1rem);
     grid-column: full-start / full-end;
     grid-row: secondary / end;
-    max-height: 50vh;
-    min-width: 100%;
+    height: 100%;
     object-fit: cover;
     opacity: 0.5;
-    width: auto;
+    width: 100%;
     z-index: 1;
 
     @include mq($from: tablet) {
-      max-height: 100vh;
+      height: 90vh;
     }
   }
 
@@ -54,17 +52,35 @@
     padding-right: 0.5rem;
 
     @include mq($from: mobileLarge) {
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+    }
+
+    @include mq($until: tablet) {
+      height: calc(100% + 5.15rem);
+      margin-bottom: -2.5rem;
+      margin-left: 1rem;
+      margin-top: -2.5rem;
+    }
+
+    @include mq($from: mobileLarge) {
+      height: calc(100% + 7.75rem);
+      margin-bottom: -3rem;
       padding-left: 1rem;
       padding-right: 1rem;
     }
 
     @include mq($from: tablet) {
       grid-column: logo;
-    }
-
-    @include mq($from: tablet) {
       grid-row: secondary / logo-end;
-      padding: 1rem 1.25rem 8rem 1.25rem;
+      height: auto;
+      padding: 1rem 1.25rem 6rem 1.25rem;
+    }
+  }
+
+  &--is-open .v2-logo {
+    @include mq($until: tablet) {
+      display: none;
     }
   }
 }

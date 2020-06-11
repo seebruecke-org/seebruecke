@@ -4,8 +4,10 @@
   background-color: $color-brand-dark-brighter;
   color: white;
   display: none;
+  height: 100%;
+  z-index: 110;
 
-  @include mq($from: mobileLarge) {
+  @include mq($from: desktop) {
     display: flex;
   }
 

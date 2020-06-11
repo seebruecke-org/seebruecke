@@ -6,8 +6,8 @@
   grid-column-end: full-end;
   grid-row: secondary;
   justify-content: flex-end;
-  margin-bottom: 0.5rem;
-  margin-top: 0.5rem;
+  padding-bottom: 0.75rem;
+  padding-top: 0.75rem;
   padding-right: 0.5rem;
   position: relative;
   width: 100%;
@@ -19,20 +19,20 @@
 
   @include mq($from: tablet) {
     grid-column-start: main-start;
-    margin-bottom: 0.75rem;
-    margin-top: 0.75rem;
+    padding-bottom: 0.85rem;
+    padding-top: 0.85rem;
   }
 
   > li + li {
-    margin-left: 0.5rem;
+    margin-left: 0.4rem;
   }
 
   a {
-    @include fluid('font-size', 0.55, 0.7, 18, 47);
-    @include fluid('padding-bottom', 0.1, 0.15, 18, 47);
-    @include fluid('padding-left', 0.4, 0.5, 18, 47);
-    @include fluid('padding-right', 0.4, 0.5, 18, 47);
-    @include fluid('padding-top', 0.1, 0.15, 18, 47);
+    @include fluid('font-size', 0.75, 0.8, 18, 47);
+    @include fluid('padding-bottom', 0.3, 0.3, 18, 47);
+    @include fluid('padding-left', 0.45, 0.7, 18, 47);
+    @include fluid('padding-right', 0.45, 0.7, 18, 47);
+    @include fluid('padding-top', 0.2, 0.25, 18, 47);
 
     background-color: rgba(57, 57, 57, 0.6);
     border-radius: 0.1rem;
@@ -51,9 +51,11 @@
   > li:last-child > a {
     background-color: $color-brand;
     color: white;
-    font-weight: 700;
-    letter-spacing: 0.025rem;
-    text-transform: uppercase;
+
+    @include mq($from: mobileLarge) {
+      font-weight: 700;
+      letter-spacing: 0.025rem;
+    }
 
     &:hover,
     &:focus {

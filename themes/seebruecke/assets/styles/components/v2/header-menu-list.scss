@@ -1,48 +1,181 @@
 .v2-header-menu-list {
   @include reset-list();
 
+  align-self: flex-start;
   background-color: $color-brand-dark;
   color: white;
-  display: flex;
-  margin-left: 0.25rem;
+  display: none;
+  flex-direction: column;
   width: 100%;
+  z-index: 100;
 
-  @include mq($from: mobileLarge) {
+  @include mq($from: tablet) {
     align-items: center;
-    margin-left: 0.75rem;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    margin-left: 2rem;
   }
 
-  @include mq($from: desktop) {
-    margin-left: 3rem;
+  .v2-header--is-open & {
+    display: flex;
+  }
+
+  &__toggle-container {
+    display: none;
+    position: absolute;
+    right: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+
+    @include mq($from: tablet) {
+      display: block;
+      right: 0.5rem;
+    }
+
+    @include mq($from: desktop) {
+      right: 1rem;
+    }
+  }
+
+  &__toggle {
+    height: 1.25rem;
+    transition: transform 100ms ease-in-out;
+    width: 1.25rem;
+
+    @include mq($from: tablet) {
+      height: 0.75rem;
+      opacity: 0.35;
+      width: 0.75rem;
+    }
+  }
+
+  li:hover &__toggle,
+  li:focus-within &__toggle {
+    @include mq($from: tablet) {
+      transform: rotate(180deg);
+    }
   }
 
   > li {
     display: flex;
-    height: 100%;
+    flex-direction: column;
+    position: relative;
+    z-index: 100;
+
+    @include mq($from: tablet) {
+      height: 100%;
+    }
+
+    &:hover,
+    &:focus-within {
+      background-color: lighten($color-brand-dark, 10%);
+    }
+
+    &:hover .sub-menu,
+    &:focus-within .sub-menu {
+      @include mq($from: tablet) {
+        display: flex;
+      }
+    }
+  }
+
+  > li {
+    @include mq($until: tablet) {
+      &:not(:first-child) {
+        border-top: 1px solid darken($color-brand-dark, 10%);
+      }
+
+      &:not(:last-child) {
+        border-bottom: 1px solid lighten($color-brand-dark, 3%);
+      }
+    }
   }
 
   a {
     @include more();
-    @include fluid('padding-left', 0.3, 1.5, 18, 80);
-    @include fluid('padding-right', 0.3, 1.25, 18, 80);
 
     align-items: center;
     color: currentColor;
     display: flex;
     font-family: $font;
-    text-align: center;
+    padding: 1rem;
     text-decoration: none;
     text-transform: uppercase;
     white-space: nowrap;
 
-    &:not([aria-current]):hover,
-    &:not([aria-current]):focus {
-      background-color: lighten($color-brand-dark, 10%);
+    @include mq($from: desktop) {
+      padding: 0.9rem 1.5rem;
+    }
+
+    &:hover ~ .sub-menu,
+    &:focus ~ .sub-menu {
+      @include mq($from: tablet) {
+        display: flex;
+      }
     }
   }
 
-  .current-menu-item > a,
-  .current-page-ancestor > a {
+  li.menu-item-has-children > a {
+    padding-right: 2rem;
+
+    @include mq($from: desktop) {
+      padding-right: 2.5rem;
+    }
+  }
+
+  li.current-menu-item,
+  li.current-menu-parent {
     background-color: $color-brand;
+  }
+
+  .sub-menu {
+    @include reset-list();
+
+    background-color: lighten($color-brand-dark, 10%);
+    flex-direction: column;
+
+    @include mq($from: tablet) {
+      display: none;
+      left: 0;
+      position: absolute;
+      top: 100%;
+      width: calc(150%);
+    }
+
+    &:hover {
+      @include mq($from: tablet) {
+        display: flex;
+      }
+    }
+  }
+
+  .sub-menu > li {
+    border-top: 1px solid $color-brand-dark;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid lighten($color-brand-dark, 13%);
+    }
+  }
+
+  .sub-menu > li > a {
+    font-size: 0.95em;
+    white-space: break-spaces;
+
+    @include mq($until: tablet) {
+      &:before {
+        color: $color-brand-dark;
+        content: '—';
+        margin-right: 0.5rem;
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .sub-menu > li:not(.current-menu-item) > a {
+    &:hover,
+    &:focus {
+      background-color: lighten($color-brand-dark, 15%);
+    }
   }
 }

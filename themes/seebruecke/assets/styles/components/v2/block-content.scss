@@ -10,10 +10,6 @@
     margin-left: 2rem;
   }
 
-  @include mq($from: desktop) {
-    margin-left: 5rem;
-  }
-
   > * {
     grid-column-start: logo;
     grid-column-end:  main-end;

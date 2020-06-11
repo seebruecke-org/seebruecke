@@ -785,4 +785,29 @@ function get_component($path, array $params = [])
     require get_template_directory() . '/components/' . $path . '.php';
 }
 
+class Navigation_Walker extends Walker_Nav_Menu {
+  public function start_lvl( &$output, $depth = 0, $args = null ) {
+    if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {
+        $t = '';
+        $n = '';
+    } else {
+        $t = "\t";
+        $n = "\n";
+    }
+    $indent = str_repeat( $t, $depth );
+
+    // Default class.
+    $classes = array( 'sub-menu' );
+    $class_names = join( ' ', apply_filters( 'nav_menu_submenu_css_class', $classes, $args, $depth ) );
+    $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
+    $toggle = "";
+
+    if ($depth === 0) {
+      $toggle = '<div class="v2-header-menu-list__toggle-container"><svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="v2-header-menu-list__toggle"><path fill="currentColor" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path></svg></div>';
+    }
+
+    $output .= "{$n}{$indent}{$toggle}<ul$class_names>{$n}";
+  }
+}
+
 ?>

@@ -35,10 +35,15 @@ $archive_translations = [
             array(
               'theme_location' => 'header-menu',
               'menu_class' => 'v2-header-menu-list',
-              'container' => false
+              'container' => false,
+              'walker' => new Navigation_Walker()
             )
           );
         ?>
+
+        <button type="button" class="v2-burger js-burger" aria-label="Menü">
+          <span class="v2-burger__bars"></span>
+        </button>
 
         <?php get_template_part('social-media-v2'); ?>
       </nav>
