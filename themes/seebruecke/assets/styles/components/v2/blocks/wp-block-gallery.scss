@@ -1,0 +1,11 @@
+.wp-block-gallery {
+  margin-bottom: 4rem;
+  margin-top: 4rem;
+
+  .blocks-gallery-caption {
+    @include typo-richtext-small();
+
+    font-style: italic;
+    margin-top: 1rem;
+  }
+}

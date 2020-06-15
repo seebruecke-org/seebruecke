@@ -1,0 +1,30 @@
+.v2-campaign-menu {
+  @include reset-list();
+
+  background-color: rgba($color-brand-dark, 0.8);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  @include mq($from: desktop) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: left;
+  }
+
+  &__item {
+    @include more();
+
+    color: currentColor;
+    display: block;
+    padding: 0.75rem 1.75rem;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &--is-active {
+      background-color: $color-brand;
+    }
+  }
+}

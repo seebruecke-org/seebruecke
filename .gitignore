@@ -5,8 +5,7 @@ themes/seebruecke/npm-debug.log
 /vendor/
 /plugins/
 /languages/
-/themes/
-!/themes/seebruecke/
+/themes/twenty*
 uploads/
 
 wordpress.sql

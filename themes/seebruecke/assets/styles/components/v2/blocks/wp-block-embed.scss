@@ -1,0 +1,24 @@
+.wp-block-embed {
+  margin: 2rem 0;
+
+  @include mq($from: desktop) {
+    margin-bottom: 4rem;
+    margin-top: 4rem;
+  }
+
+  &__wrapper {
+    height: 0;
+    padding-bottom: 56.25%;
+    padding-top: 0;
+    overflow: hidden;
+    position: relative;
+
+    > iframe {
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+  }
+}

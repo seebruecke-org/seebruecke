@@ -1,0 +1,64 @@
+.v2-burger {
+  appearance: none;
+  background: transparent;
+  border: none;
+  color: currentColor;
+  cursor: pointer;
+  height: 1.4rem;
+  outline: none;
+  position: relative;
+  width: 1.75rem;
+
+  @include mq($from: tablet) {
+    display: none;
+  }
+
+  &__bars,
+  &__bars::before,
+  &__bars::after {
+    background-color: currentColor;
+    content: "";
+    height: 0.2rem;
+    left: 0;
+    position: absolute;
+    transition: all 100ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    width: 100%;
+    will-change: transition;
+  }
+
+  &__bars::before {
+    top: -0.6rem;
+  }
+
+  &__bars::after {
+    bottom: -0.6rem;
+  }
+
+  &:hover &__bars,
+  &:focus &__bars {
+    color: $color-brand;
+  }
+
+  .v2-header--is-open &:hover &__bars,
+  .v2-header--is-open &:focus &__bars {
+    color: white;
+  }
+
+  .v2-header--is-open &__bars {
+    background-color: transparent;
+  }
+
+  .v2-header--is-open &__bars:before,
+  .v2-header--is-open &__bars:after {
+    top: 0;
+  }
+
+  .v2-header--is-open &__bars:before {
+    transform: rotate(45deg);
+  }
+
+  .v2-header--is-open &__bars:after {
+    top: 1rem;
+    transform: translateY(-1rem) rotate(-45deg);
+  }
+}
