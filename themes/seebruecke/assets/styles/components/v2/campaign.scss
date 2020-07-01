@@ -75,7 +75,7 @@
     }
 
     li,
-    p {
+    p:not([class]) {
       @include typo-richtext();
 
       margin-bottom: 0;

@@ -7,6 +7,7 @@ require('lib/local-groups.php');
 require('lib/save-havens.php');
 require('lib/news.php');
 require('lib/pressrelease.php');
+require('lib/teaser.php');
 
 function get_all_organizations() {
   return new WP_Query(array(
