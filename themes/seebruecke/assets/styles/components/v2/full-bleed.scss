@@ -1,0 +1,43 @@
+.v2-full-bleed {
+  background-color: $secondary-color;
+  color: white;
+  padding: 1.5rem;
+
+  @include mq($from: tablet) {
+    padding: 3rem 4rem;
+  }
+
+  @include mq($from: desktop) {
+    padding: 4rem 6rem;
+  }
+
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__content-container {
+    flex: 3 1 25rem;
+
+    @include mq($from: tablet) {
+      padding-right: 5rem;
+    }
+  }
+
+  &__cta-container {
+    flex: 1 0 15rem;
+  }
+
+  &__title {
+    @include headline-1();
+
+    margin-bottom: 1rem;
+    margin-top: 0;
+  }
+
+  &__description {
+    @include typo-richtext-small();
+
+    margin-bottom: 0;
+  }
+}

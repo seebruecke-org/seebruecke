@@ -3,6 +3,7 @@
 require('lib/demands.php');
 require('lib/donate-campaign.php');
 require('lib/events.php');
+require('lib/full-bleed.php');
 require('lib/local-groups.php');
 require('lib/save-havens.php');
 require('lib/news.php');

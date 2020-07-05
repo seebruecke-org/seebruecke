@@ -9,7 +9,7 @@
     if($enabled && $action) :
 ?>
 
-  <section class="newsletter-subscribe">
+  <section class="newsletter-subscribe" id="newsletter">
     <div class="constraint">
       <form action="<?php echo $action; ?>" method="post" target="_blank" novalidate>
 
