@@ -54,6 +54,18 @@
       text-align: left !important;
     }
 
+    > h2:first-child {
+      @include headline-1();
+
+      margin-bottom: 3rem;
+      margin-top: 0;
+
+      @include mq($from: tablet) {
+        margin-bottom: 6rem;
+        margin-top: 2rem;
+      }
+    }
+
     > h3 {
       @include headline-3();
 
@@ -129,6 +141,18 @@
       @include mq($from: desktop) {
         margin-left: -6rem;
         margin-right: -6rem;
+      }
+    }
+
+    .v2-full-bleed {
+      @include mq($from: tablet) {
+        margin-bottom: 2rem;
+        margin-top: 4rem;
+      }
+
+      @include mq($from: desktop) {
+        margin-bottom: 4rem;
+        margin-top: 5rem;
       }
     }
   }
