@@ -757,6 +757,7 @@ add_action( 'init', 'register_menus' );
 
 /* image sizes */
 add_image_size('hero-image', 2400);
+add_image_size('teaser', 800);
 add_image_size('content', 1000);
 add_image_size('item', 300);
 
