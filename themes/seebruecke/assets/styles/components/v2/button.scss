@@ -1,12 +1,13 @@
 .v2-button {
   @include more();
 
+  align-items: center;
   background-color: $color-brand;
   border: none;
   border-radius: 0.25rem;
   color: white;
   cursor: pointer;
-  display: inline-block;
+  display: inline-flex;
   font-family: $font;
   font-weight: 700;
   letter-spacing: 0.025rem;
@@ -23,5 +24,32 @@
   &:hover,
   &:focus {
     background-color: $color-brand-dark;
+  }
+
+  &--secondary {
+    background-color: white;
+    color: $color-brand-dark;
+
+    &:hover,
+    &:focus {
+      background-color: $color-brand;
+      color: white;
+    }
+  }
+
+  &--dense {
+    letter-spacing: 0;
+    padding: 0.5rem 1.25rem;
+
+    @include mq($from: tablet) {
+      padding-bottom: 0.65rem;
+      padding-top: 0.65rem;
+    }
+  }
+
+  > svg {
+    height: 1rem;
+    margin-left: 3rem;
+    width: 1rem;
   }
 }

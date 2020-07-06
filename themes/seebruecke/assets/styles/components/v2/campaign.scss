@@ -75,7 +75,7 @@
     }
 
     li,
-    p {
+    p:not([class]) {
       @include typo-richtext();
 
       margin-bottom: 0;
@@ -111,6 +111,7 @@
       margin-top: 0;
     }
 
+    .v2-full-bleed,
     .map--is-large {
       left: auto;
       margin-left: -1.5rem;

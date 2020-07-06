@@ -3,10 +3,12 @@
 require('lib/demands.php');
 require('lib/donate-campaign.php');
 require('lib/events.php');
+require('lib/full-bleed.php');
 require('lib/local-groups.php');
 require('lib/save-havens.php');
 require('lib/news.php');
 require('lib/pressrelease.php');
+require('lib/teaser.php');
 
 function get_all_organizations() {
   return new WP_Query(array(
