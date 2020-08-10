@@ -251,6 +251,7 @@ function events_register_post_type() {
         'name' => 'Events',
         'singular_name' => 'Event'
         ),
+        'capability_type' => 'event',
         'public' => true,
         'has_archive' => true,
         'menu_icon' => 'dashicons-location',

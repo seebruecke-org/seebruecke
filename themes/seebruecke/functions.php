@@ -47,6 +47,7 @@ function create_posttypes() {
         'name' => 'Organisations',
         'singular_name' => 'Organisation'
         ),
+        'capability_type' => 'organisation',
         'menu_icon' => 'dashicons-networking',
         'public' => false,
         'publicly_queryable' => false,
@@ -66,6 +67,7 @@ function create_posttypes() {
         'name' => 'Headers',
         'singular_name' => 'Header'
         ),
+        'capability_type' => 'header',
         'public' => true,
         'menu_icon' => 'dashicons-feedback',
         'publicly_queryable' => false,
@@ -88,6 +90,7 @@ function create_posttypes() {
         'name' => 'Footers',
         'singular_name' => 'Footer'
         ),
+        'capability_type' => 'footer',
         'public' => true,
         'menu_icon' => 'dashicons-feedback',
         'publicly_queryable' => false,

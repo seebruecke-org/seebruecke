@@ -36,6 +36,7 @@ function news_register_post_type() {
         'name' => 'News',
         'singular_name' => 'News'
         ),
+        'capability_type' => ['news', 'news'],
         'public' => true,
         'menu_icon' => 'dashicons-id',
         'has_archive' => false,

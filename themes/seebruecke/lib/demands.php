@@ -8,6 +8,7 @@ function demands_register_post_type() {
         'singular_name' => 'Demand'
         ),
         'public' => true,
+        'capability_type' => 'demand',
         'menu_icon' => 'dashicons-welcome-comments',
         'publicly_queryable' => false,
         'exclude_from_search' => true,

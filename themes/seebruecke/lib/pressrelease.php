@@ -38,6 +38,7 @@ function pressrelease_register_post_type() {
         'name' => 'Press',
         'singular_name' => 'Press'
         ),
+        'capability_type' => ['press', 'press'],
         'public' => true,
         'menu_icon' => 'dashicons-id',
         'has_archive' => false,

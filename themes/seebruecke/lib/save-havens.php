@@ -256,6 +256,7 @@ function save_havens_register_post_type() {
         'name' => 'Safe havens',
         'singular_name' => 'Safe haven'
         ),
+        'capability_type' => 'safe-haven',
         'public' => true,
         'menu_icon' => 'dashicons-admin-multisite',
         'has_archive' => true,
