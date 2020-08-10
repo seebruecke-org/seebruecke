@@ -7,7 +7,8 @@
   $parents = get_post_ancestors($page_id);
   $has_parent = (bool)$parents;
   $campaign_id = end($parents);
-  $header_id = rwmb_meta('page_header_reference', null, $has_parent ? $campaign_id : $page_id);
+  $page_has_header = (bool) rwmb_meta('page_header_reference', null, $page_id);
+  $header_id = rwmb_meta('page_header_reference', null, $has_parent && !$page_has_header ? $campaign_id : $page_id);
 
   if (!$header_id) {
     get_header('v2-single');
