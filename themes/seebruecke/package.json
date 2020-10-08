@@ -27,7 +27,7 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
-    "mapbox-gl": "^1.11.1",
+    "mapbox-gl": "^1.12.0",
     "sass-mq": "^5.0.1",
     "when-dom-ready": "^1.2.12"
   }
